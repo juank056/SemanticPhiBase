@@ -41,7 +41,7 @@ import edu.upm.spbw.utils.UnlockUserProcess;
  * Bean que se encarga de manejar la autenticación en el sistema
  * 
  * @author JuanCamilo
- * 
+ *  
  */
 public class AutenticationBean extends BaseBean<Usmusuar, String> {
 
