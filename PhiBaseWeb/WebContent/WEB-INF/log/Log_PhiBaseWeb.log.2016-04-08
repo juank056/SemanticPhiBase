@@ -1,0 +1,676 @@
+08 abr 2016 10:31:26 Linea 56 [http-bio-8080-exec-4] DEBUG edu.upm.spbw.utils.SparqlQueryExecutor  - Query to be Executed:
+
+ SELECT DISTINCT ?int ?int_l ?host_1 ?host_l_1 ?path_1 ?path_l_1 ?incon_1 ?incon_l_1 ?protd_1 ?protd_l_1 ?cita_1 ?cita_l_1 ?disn_1 ?disn_l_1 ?alle_1 ?alle_l_1 ?leth_1 ?leth_l_1 ?invg_1 ?invg_l_1 ?gene_1 ?gene_l_1 ?locu_1 ?locu_l_1 ?gfun_1 ?gfun_l_1 ?gnam_1 ?gnam_l_1 ?gacc_1 ?gacc_l_1
+ WHERE { 
+ ?int a PHIO:PHIBO_00022 . 
+ ?int rdfs:label ?int_l . 
+ ?intcont a PHIO:PHIBO_00076 . 
+ ?int PHIO:is_manifested_as ?intcont . 
+ ?prot a SIO:SIO_000747 . 
+ ?intcont PHIO:is_output_of ?prot . 
+ ?intcont PHIO:depends_on ?path_context . 
+
+ ?host_1 a SIO:SIO_010415 . 
+ ?host_1 rdfs:label  ?host_l_1 . 
+ ?int PHIO:has_participant  ?host_1 . 
+
+ ?path_1 a SIO:SIO_010414 . 
+ ?path_1 rdfs:label  ?path_l_1 . 
+ ?int PHIO:has_participant  ?path_1 . 
+
+ ?incon_1 a PHIO:POO_0000000 . 
+ ?incon_1 PHIO:has_value  ?incon_l_1 . 
+ ?intcont  PHIO:has_quality  ?incon_1 . 
+
+ ?protd_1 a SIO:SIO_000136 . 
+ ?protd_1 PHIO:has_value  ?protd_l_1 . 
+ ?prot  PHIO:has_quality  ?protd_1 . 
+
+OPTIONAL{ 
+ ?cita_1 a <http://schema.org/CreativeWork> . 
+ ?cita_1 PHIO:has_unique_identifier  ?cita_l_1 . 
+ ?prot  <http://schema.org/citation>  ?cita_1 . 
+}
+
+ ?disn_1 a PHIO:PHIBO_00001 . 
+ ?disn_1 PHIO:has_value  ?disn_l_1 . 
+ ?incon_1 PHIO:is_described_by  ?disn_1 . 
+
+ ?alle_1 a SIO:SIO_010277 . 
+ ?alle_1 rdfs:label  ?alle_l_1 . 
+ ?path_context  PHIO:has_quality  ?alle_1 . 
+
+OPTIONAL{ 
+ ?leth_1 a PHIO:PHIBO_00013 . 
+ ?leth_1 PHIO:has_value  ?leth_l_1 . 
+ ?alle_1 PHIO:has_quality  ?leth_1 . 
+}
+
+OPTIONAL{ 
+ ?invg_1 a PHIO:PHIBO_00018 . 
+ ?invg_1 PHIO:has_value  ?invg_l_1 . 
+ ?alle_1 PHIO:has_quality  ?invg_1 . 
+}
+
+ ?gene_1 a SIO:SIO_010035 . 
+ ?gene_1 rdfs:label  ?gene_l_1 . 
+ ?alle_1 PHIO:is_variant_of  ?gene_1 . 
+
+OPTIONAL{ 
+ ?locu_1 a EDAM:data_1893 . 
+ ?locu_1 PHIO:has_value  ?locu_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?locu_1 . 
+}
+
+ ?gfun_1 a PHIO:PHIBO_00004 . 
+ ?gfun_1 PHIO:has_value  ?gfun_l_1 . 
+ ?gene_1 PHIO:has_quality  ?gfun_1 . 
+
+OPTIONAL{ 
+ ?gnam_1 a EDAM:data_2299 . 
+ ?gnam_1 PHIO:has_value  ?gnam_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gnam_1 . 
+}
+
+OPTIONAL{ 
+ ?gacc_1 a EDAM:data_2907 . 
+ ?gacc_1 PHIO:has_value  ?gacc_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gacc_1 . 
+}
+ FILTER(( ?gfun_1 = <http://linkeddata.systems/SemanticPHIBase/Resource/genefunction/GENEFUNCT_00315>))}
+
+08 abr 2016 10:31:26 Linea 189 [http-bio-8080-exec-4] DEBUG Jena  - Jena initialization
+08 abr 2016 11:27:34 Linea 53 [http-bio-8080-exec-6] ERROR edu.upm.spbw.persistence.dao.hbm.UsdlogquDAO  - org.hibernate.PropertyValueException: not-null property references a null or transient value: edu.upm.spbw.persistence.bo.Usdlogqu.lquparqaf
+	at org.hibernate.engine.Nullability.checkNullability(Nullability.java:101)
+	at org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:313)
+	at org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:204)
+	at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:144)
+	at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:210)
+	at org.hibernate.event.def.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:56)
+	at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:195)
+	at org.hibernate.event.def.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:50)
+	at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:93)
+	at org.hibernate.impl.SessionImpl.fireSave(SessionImpl.java:705)
+	at org.hibernate.impl.SessionImpl.save(SessionImpl.java:693)
+	at org.hibernate.impl.SessionImpl.save(SessionImpl.java:689)
+	at edu.upm.spbw.persistence.dao.hbm.UsdlogquDAO.save(UsdlogquDAO.java:79)
+	at edu.upm.spbw.persistence.dao.hbm.UsdlogquDAO.save(UsdlogquDAO.java:1)
+	at edu.upm.spbw.persistence.dao.hbm.base.GenericHbmDAO.save(GenericHbmDAO.java:1)
+	at edu.upm.spbw.bbeans.phi.QueryGenerator.generateLogquRecord(QueryGenerator.java:1455)
+	at edu.upm.spbw.bbeans.phi.QueryGenerator.executeQuery(QueryGenerator.java:1240)
+	at edu.upm.spbw.bbeans.phi.QueryGenerator.executeQuery(QueryGenerator.java:1167)
+	at edu.upm.spbw.bbeans.phi.SE011Bean.executeQuery(SE011Bean.java:904)
+	at edu.upm.spbw.bbeans.phi.SE011Bean.searchRecord(SE011Bean.java:427)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.el.parser.AstValue.invoke(AstValue.java:278)
+	at org.apache.el.MethodExpressionImpl.invoke(MethodExpressionImpl.java:273)
+	at com.sun.faces.facelets.el.TagMethodExpression.invoke(TagMethodExpression.java:105)
+	at javax.faces.event.MethodExpressionActionListener.processAction(MethodExpressionActionListener.java:148)
+	at javax.faces.event.ActionEvent.processListener(ActionEvent.java:88)
+	at javax.faces.component.UIComponentBase.broadcast(UIComponentBase.java:775)
+	at javax.faces.component.UICommand.broadcast(UICommand.java:300)
+	at org.icefaces.impl.component.UISeriesBase.broadcast(UISeriesBase.java:481)
+	at com.icesoft.faces.component.paneltabset.PanelTabSet.broadcast(PanelTabSet.java:289)
+	at javax.faces.component.UIViewRoot.broadcastEvents(UIViewRoot.java:786)
+	at javax.faces.component.UIViewRoot.processApplication(UIViewRoot.java:1251)
+	at com.sun.faces.lifecycle.InvokeApplicationPhase.execute(InvokeApplicationPhase.java:81)
+	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:101)
+	at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:118)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:593)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:220)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:122)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:505)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:170)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:956)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:423)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1079)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:625)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:318)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+
+08 abr 2016 11:27:34 Linea 53 [http-bio-8080-exec-6] ERROR edu.upm.spbw.bbeans.phi.SE011Bean  - edu.upm.spbw.persistence.DAOException: org.hibernate.PropertyValueException: not-null property references a null or transient value: edu.upm.spbw.persistence.bo.Usdlogqu.lquparqaf
+	at edu.upm.spbw.persistence.dao.hbm.base.GenericHbmDAO.handleException(GenericHbmDAO.java:780)
+	at edu.upm.spbw.persistence.dao.hbm.UsdlogquDAO.save(UsdlogquDAO.java:83)
+	at edu.upm.spbw.persistence.dao.hbm.UsdlogquDAO.save(UsdlogquDAO.java:1)
+	at edu.upm.spbw.persistence.dao.hbm.base.GenericHbmDAO.save(GenericHbmDAO.java:1)
+	at edu.upm.spbw.bbeans.phi.QueryGenerator.generateLogquRecord(QueryGenerator.java:1455)
+	at edu.upm.spbw.bbeans.phi.QueryGenerator.executeQuery(QueryGenerator.java:1240)
+	at edu.upm.spbw.bbeans.phi.QueryGenerator.executeQuery(QueryGenerator.java:1167)
+	at edu.upm.spbw.bbeans.phi.SE011Bean.executeQuery(SE011Bean.java:904)
+	at edu.upm.spbw.bbeans.phi.SE011Bean.searchRecord(SE011Bean.java:427)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.el.parser.AstValue.invoke(AstValue.java:278)
+	at org.apache.el.MethodExpressionImpl.invoke(MethodExpressionImpl.java:273)
+	at com.sun.faces.facelets.el.TagMethodExpression.invoke(TagMethodExpression.java:105)
+	at javax.faces.event.MethodExpressionActionListener.processAction(MethodExpressionActionListener.java:148)
+	at javax.faces.event.ActionEvent.processListener(ActionEvent.java:88)
+	at javax.faces.component.UIComponentBase.broadcast(UIComponentBase.java:775)
+	at javax.faces.component.UICommand.broadcast(UICommand.java:300)
+	at org.icefaces.impl.component.UISeriesBase.broadcast(UISeriesBase.java:481)
+	at com.icesoft.faces.component.paneltabset.PanelTabSet.broadcast(PanelTabSet.java:289)
+	at javax.faces.component.UIViewRoot.broadcastEvents(UIViewRoot.java:786)
+	at javax.faces.component.UIViewRoot.processApplication(UIViewRoot.java:1251)
+	at com.sun.faces.lifecycle.InvokeApplicationPhase.execute(InvokeApplicationPhase.java:81)
+	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:101)
+	at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:118)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:593)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:220)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:122)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:505)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:170)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:956)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:423)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1079)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:625)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:318)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.hibernate.PropertyValueException: not-null property references a null or transient value: edu.upm.spbw.persistence.bo.Usdlogqu.lquparqaf
+	at org.hibernate.engine.Nullability.checkNullability(Nullability.java:101)
+	at org.hibernate.event.def.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:313)
+	at org.hibernate.event.def.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:204)
+	at org.hibernate.event.def.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:144)
+	at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:210)
+	at org.hibernate.event.def.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:56)
+	at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:195)
+	at org.hibernate.event.def.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:50)
+	at org.hibernate.event.def.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:93)
+	at org.hibernate.impl.SessionImpl.fireSave(SessionImpl.java:705)
+	at org.hibernate.impl.SessionImpl.save(SessionImpl.java:693)
+	at org.hibernate.impl.SessionImpl.save(SessionImpl.java:689)
+	at edu.upm.spbw.persistence.dao.hbm.UsdlogquDAO.save(UsdlogquDAO.java:79)
+	... 46 more
+
+08 abr 2016 11:30:35 Linea 56 [http-bio-8080-exec-10] DEBUG edu.upm.spbw.utils.SparqlQueryExecutor  - Query to be Executed:
+
+ SELECT DISTINCT ?int ?int_l ?host_1 ?host_l_1 ?path_1 ?path_l_1 ?incon_1 ?incon_l_1 ?protd_1 ?protd_l_1 ?cita_1 ?cita_l_1 ?disn_1 ?disn_l_1 ?alle_1 ?alle_l_1 ?leth_1 ?leth_l_1 ?invg_1 ?invg_l_1 ?gene_1 ?gene_l_1 ?locu_1 ?locu_l_1 ?gfun_1 ?gfun_l_1 ?gnam_1 ?gnam_l_1 ?gacc_1 ?gacc_l_1
+ WHERE { 
+ ?int a PHIO:PHIBO_00022 . 
+ ?int rdfs:label ?int_l . 
+ ?intcont a PHIO:PHIBO_00076 . 
+ ?int PHIO:is_manifested_as ?intcont . 
+ ?prot a SIO:SIO_000747 . 
+ ?intcont PHIO:is_output_of ?prot . 
+ ?intcont PHIO:depends_on ?path_context . 
+
+ ?host_1 a SIO:SIO_010415 . 
+ ?host_1 rdfs:label  ?host_l_1 . 
+ ?int PHIO:has_participant  ?host_1 . 
+
+ ?path_1 a SIO:SIO_010414 . 
+ ?path_1 rdfs:label  ?path_l_1 . 
+ ?int PHIO:has_participant  ?path_1 . 
+
+ ?incon_1 a PHIO:POO_0000000 . 
+ ?incon_1 PHIO:has_value  ?incon_l_1 . 
+ ?intcont  PHIO:has_quality  ?incon_1 . 
+
+ ?protd_1 a SIO:SIO_000136 . 
+ ?protd_1 PHIO:has_value  ?protd_l_1 . 
+ ?prot  PHIO:has_quality  ?protd_1 . 
+
+ ?cita_1 a <http://schema.org/CreativeWork> . 
+ ?cita_1 PHIO:has_unique_identifier  ?cita_l_1 . 
+ ?prot  <http://schema.org/citation>  ?cita_1 . 
+
+ ?disn_1 a PHIO:PHIBO_00001 . 
+ ?disn_1 PHIO:has_value  ?disn_l_1 . 
+ ?incon_1 PHIO:is_described_by  ?disn_1 . 
+
+ ?alle_1 a SIO:SIO_010277 . 
+ ?alle_1 rdfs:label  ?alle_l_1 . 
+ ?path_context  PHIO:has_quality  ?alle_1 . 
+
+OPTIONAL{ 
+ ?leth_1 a PHIO:PHIBO_00013 . 
+ ?leth_1 PHIO:has_value  ?leth_l_1 . 
+ ?alle_1 PHIO:has_quality  ?leth_1 . 
+}
+
+OPTIONAL{ 
+ ?invg_1 a PHIO:PHIBO_00018 . 
+ ?invg_1 PHIO:has_value  ?invg_l_1 . 
+ ?alle_1 PHIO:has_quality  ?invg_1 . 
+}
+
+ ?gene_1 a SIO:SIO_010035 . 
+ ?gene_1 rdfs:label  ?gene_l_1 . 
+ ?alle_1 PHIO:is_variant_of  ?gene_1 . 
+
+OPTIONAL{ 
+ ?locu_1 a EDAM:data_1893 . 
+ ?locu_1 PHIO:has_value  ?locu_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?locu_1 . 
+}
+
+OPTIONAL{ 
+ ?gfun_1 a PHIO:PHIBO_00004 . 
+ ?gfun_1 PHIO:has_value  ?gfun_l_1 . 
+ ?gene_1 PHIO:has_quality  ?gfun_1 . 
+}
+
+OPTIONAL{ 
+ ?gnam_1 a EDAM:data_2299 . 
+ ?gnam_1 PHIO:has_value  ?gnam_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gnam_1 . 
+}
+
+OPTIONAL{ 
+ ?gacc_1 a EDAM:data_2907 . 
+ ?gacc_1 PHIO:has_value  ?gacc_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gacc_1 . 
+}
+ FILTER(( ?cita_1 = <http://linkeddata.systems/SemanticPHIBase/Resource/citation/CITATION_00128>))}
+
+08 abr 2016 11:30:35 Linea 189 [http-bio-8080-exec-10] DEBUG Jena  - Jena initialization
+08 abr 2016 11:48:43 Linea 56 [http-bio-8080-exec-5] DEBUG edu.upm.spbw.utils.SparqlQueryExecutor  - Query to be Executed:
+
+ SELECT DISTINCT ?int ?int_l ?host_1 ?host_l_1 ?path_1 ?path_l_1 ?incon_1 ?incon_l_1 ?protd_1 ?protd_l_1 ?cita_1 ?cita_l_1 ?disn_1 ?disn_l_1 ?alle_1 ?alle_l_1 ?leth_1 ?leth_l_1 ?invg_1 ?invg_l_1 ?gene_1 ?gene_l_1 ?locu_1 ?locu_l_1 ?gfun_1 ?gfun_l_1 ?gnam_1 ?gnam_l_1 ?gacc_1 ?gacc_l_1
+ WHERE { 
+ ?int a PHIO:PHIBO_00022 . 
+ ?int rdfs:label ?int_l . 
+ ?intcont a PHIO:PHIBO_00076 . 
+ ?int PHIO:is_manifested_as ?intcont . 
+ ?prot a SIO:SIO_000747 . 
+ ?intcont PHIO:is_output_of ?prot . 
+ ?intcont PHIO:depends_on ?path_context . 
+
+ ?host_1 a SIO:SIO_010415 . 
+ ?host_1 rdfs:label  ?host_l_1 . 
+ ?int PHIO:has_participant  ?host_1 . 
+
+ ?path_1 a SIO:SIO_010414 . 
+ ?path_1 rdfs:label  ?path_l_1 . 
+ ?int PHIO:has_participant  ?path_1 . 
+
+ ?incon_1 a PHIO:POO_0000000 . 
+ ?incon_1 PHIO:has_value  ?incon_l_1 . 
+ ?intcont  PHIO:has_quality  ?incon_1 . 
+
+ ?protd_1 a SIO:SIO_000136 . 
+ ?protd_1 PHIO:has_value  ?protd_l_1 . 
+ ?prot  PHIO:has_quality  ?protd_1 . 
+
+ ?cita_1 a <http://schema.org/CreativeWork> . 
+ ?cita_1 PHIO:has_unique_identifier  ?cita_l_1 . 
+ ?prot  <http://schema.org/citation>  ?cita_1 . 
+
+ ?disn_1 a PHIO:PHIBO_00001 . 
+ ?disn_1 PHIO:has_value  ?disn_l_1 . 
+ ?incon_1 PHIO:is_described_by  ?disn_1 . 
+
+ ?alle_1 a SIO:SIO_010277 . 
+ ?alle_1 rdfs:label  ?alle_l_1 . 
+ ?path_context  PHIO:has_quality  ?alle_1 . 
+
+ ?leth_1 a PHIO:PHIBO_00013 . 
+ ?leth_1 PHIO:has_value  ?leth_l_1 . 
+ ?alle_1 PHIO:has_quality  ?leth_1 . 
+
+OPTIONAL{ 
+ ?invg_1 a PHIO:PHIBO_00018 . 
+ ?invg_1 PHIO:has_value  ?invg_l_1 . 
+ ?alle_1 PHIO:has_quality  ?invg_1 . 
+}
+
+ ?gene_1 a SIO:SIO_010035 . 
+ ?gene_1 rdfs:label  ?gene_l_1 . 
+ ?alle_1 PHIO:is_variant_of  ?gene_1 . 
+
+OPTIONAL{ 
+ ?locu_1 a EDAM:data_1893 . 
+ ?locu_1 PHIO:has_value  ?locu_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?locu_1 . 
+}
+
+OPTIONAL{ 
+ ?gfun_1 a PHIO:PHIBO_00004 . 
+ ?gfun_1 PHIO:has_value  ?gfun_l_1 . 
+ ?gene_1 PHIO:has_quality  ?gfun_1 . 
+}
+
+OPTIONAL{ 
+ ?gnam_1 a EDAM:data_2299 . 
+ ?gnam_1 PHIO:has_value  ?gnam_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gnam_1 . 
+}
+
+OPTIONAL{ 
+ ?gacc_1 a EDAM:data_2907 . 
+ ?gacc_1 PHIO:has_value  ?gacc_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gacc_1 . 
+}
+ FILTER(( ?cita_1 = <http://linkeddata.systems/SemanticPHIBase/Resource/citation/CITATION_00132>) || ( ?leth_1 = <http://linkeddata.systems/SemanticPHIBase/Resource/lethalknockout/LETHKNOCK_00001>) || ( CONTAINS( ?gene_l_1, "ge") ))}
+
+08 abr 2016 11:48:43 Linea 189 [http-bio-8080-exec-5] DEBUG Jena  - Jena initialization
+08 abr 2016 18:41:26 Linea 53 [http-bio-8080-exec-6] ERROR edu.upm.spbw.bbeans.phi.SE011Bean  - java.lang.NullPointerException
+	at edu.upm.spbw.bbeans.phi.SE011Bean.loadLastExecutedQueries(SE011Bean.java:721)
+	at edu.upm.spbw.bbeans.phi.SE011Bean.loadSubfile(SE011Bean.java:338)
+	at edu.upm.spbw.bbeans.base.BaseBean.<init>(BaseBean.java:141)
+	at edu.upm.spbw.bbeans.phi.SE011Bean.<init>(SE011Bean.java:258)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at java.lang.Class.newInstance(Unknown Source)
+	at com.sun.faces.mgbean.BeanBuilder.newBeanInstance(BeanBuilder.java:188)
+	at com.sun.faces.mgbean.BeanBuilder.build(BeanBuilder.java:102)
+	at com.sun.faces.mgbean.BeanManager.createAndPush(BeanManager.java:408)
+	at com.sun.faces.mgbean.BeanManager.create(BeanManager.java:268)
+	at com.sun.faces.el.ManagedBeanELResolver.resolveBean(ManagedBeanELResolver.java:244)
+	at com.sun.faces.el.ManagedBeanELResolver.getValue(ManagedBeanELResolver.java:116)
+	at com.sun.faces.el.DemuxCompositeELResolver._getValue(DemuxCompositeELResolver.java:176)
+	at com.sun.faces.el.DemuxCompositeELResolver.getValue(DemuxCompositeELResolver.java:203)
+	at org.apache.el.parser.AstIdentifier.getValue(AstIdentifier.java:71)
+	at org.apache.el.parser.AstValue.getValue(AstValue.java:160)
+	at org.apache.el.ValueExpressionImpl.getValue(ValueExpressionImpl.java:184)
+	at com.sun.faces.facelets.el.TagValueExpression.getValue(TagValueExpression.java:109)
+	at javax.faces.component.ValueBindingValueExpressionAdapter.getValue(ValueBindingValueExpressionAdapter.java:112)
+	at com.icesoft.faces.component.tree.Tree.getModel(Tree.java:277)
+	at com.icesoft.faces.component.tree.Tree.visitRows(Tree.java:1459)
+	at com.icesoft.faces.component.tree.Tree.visitTree(Tree.java:1414)
+	at javax.faces.component.UIComponent.visitTree(UIComponent.java:1623)
+	at javax.faces.component.UIComponent.visitTree(UIComponent.java:1623)
+	at org.icefaces.impl.component.UISeriesBase.visitRows(UISeriesBase.java:1174)
+	at org.icefaces.impl.component.UISeriesBase.visitTree(UISeriesBase.java:1065)
+	at javax.faces.component.UIComponent.visitTree(UIComponent.java:1623)
+	at javax.faces.component.UIForm.visitTree(UIForm.java:371)
+	at javax.faces.component.UIComponent.visitTree(UIComponent.java:1623)
+	at javax.faces.component.UIComponent.visitTree(UIComponent.java:1623)
+	at org.icefaces.impl.event.RestoreResourceDependencies.processEvent(RestoreResourceDependencies.java:45)
+	at javax.faces.event.SystemEvent.processListener(SystemEvent.java:106)
+	at com.sun.faces.application.ApplicationImpl.processListeners(ApplicationImpl.java:2163)
+	at com.sun.faces.application.ApplicationImpl.invokeListenersFor(ApplicationImpl.java:2139)
+	at com.sun.faces.application.ApplicationImpl.publishEvent(ApplicationImpl.java:303)
+	at com.sun.faces.application.ApplicationImpl.publishEvent(ApplicationImpl.java:247)
+	at javax.faces.component.UIComponentBase.encodeBegin(UIComponentBase.java:818)
+	at javax.faces.component.UIViewRoot.encodeBegin(UIViewRoot.java:954)
+	at javax.faces.component.UIComponent.encodeAll(UIComponent.java:1777)
+	at com.sun.faces.application.view.FaceletViewHandlingStrategy.renderView(FaceletViewHandlingStrategy.java:439)
+	at com.sun.faces.application.view.MultiViewHandler.renderView(MultiViewHandler.java:124)
+	at com.sun.faces.lifecycle.RenderResponsePhase.execute(RenderResponsePhase.java:120)
+	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:101)
+	at com.sun.faces.lifecycle.LifecycleImpl.render(LifecycleImpl.java:139)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:594)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:220)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:122)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:505)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:170)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:956)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:423)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1079)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:625)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:318)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+
+08 abr 2016 18:46:26 Linea 53 [http-bio-8080-exec-11] ERROR edu.upm.spbw.bbeans.phi.SE011Bean  - java.lang.NullPointerException
+	at edu.upm.spbw.bbeans.phi.SE011Bean.loadLastExecutedQueries(SE011Bean.java:721)
+	at edu.upm.spbw.bbeans.phi.SE011Bean.loadSubfile(SE011Bean.java:338)
+	at edu.upm.spbw.bbeans.base.BaseBean.<init>(BaseBean.java:141)
+	at edu.upm.spbw.bbeans.phi.SE011Bean.<init>(SE011Bean.java:258)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at java.lang.Class.newInstance(Unknown Source)
+	at com.sun.faces.mgbean.BeanBuilder.newBeanInstance(BeanBuilder.java:188)
+	at com.sun.faces.mgbean.BeanBuilder.build(BeanBuilder.java:102)
+	at com.sun.faces.mgbean.BeanManager.createAndPush(BeanManager.java:408)
+	at com.sun.faces.mgbean.BeanManager.create(BeanManager.java:268)
+	at com.sun.faces.el.ManagedBeanELResolver.resolveBean(ManagedBeanELResolver.java:244)
+	at com.sun.faces.el.ManagedBeanELResolver.getValue(ManagedBeanELResolver.java:116)
+	at com.sun.faces.el.DemuxCompositeELResolver._getValue(DemuxCompositeELResolver.java:176)
+	at com.sun.faces.el.DemuxCompositeELResolver.getValue(DemuxCompositeELResolver.java:203)
+	at org.apache.el.parser.AstIdentifier.getValue(AstIdentifier.java:71)
+	at org.apache.el.parser.AstValue.getValue(AstValue.java:160)
+	at org.apache.el.ValueExpressionImpl.getValue(ValueExpressionImpl.java:184)
+	at com.sun.faces.facelets.el.TagValueExpression.getValue(TagValueExpression.java:109)
+	at javax.faces.component.ValueBindingValueExpressionAdapter.getValue(ValueBindingValueExpressionAdapter.java:112)
+	at com.icesoft.faces.component.tree.Tree.getModel(Tree.java:277)
+	at com.icesoft.faces.component.tree.Tree.visitRows(Tree.java:1459)
+	at com.icesoft.faces.component.tree.Tree.visitTree(Tree.java:1414)
+	at javax.faces.component.UIComponent.visitTree(UIComponent.java:1623)
+	at javax.faces.component.UIComponent.visitTree(UIComponent.java:1623)
+	at org.icefaces.impl.component.UISeriesBase.visitRows(UISeriesBase.java:1174)
+	at org.icefaces.impl.component.UISeriesBase.visitTree(UISeriesBase.java:1065)
+	at javax.faces.component.UIComponent.visitTree(UIComponent.java:1623)
+	at javax.faces.component.UIForm.visitTree(UIForm.java:371)
+	at javax.faces.component.UIComponent.visitTree(UIComponent.java:1623)
+	at javax.faces.component.UIComponent.visitTree(UIComponent.java:1623)
+	at org.icefaces.impl.event.RestoreResourceDependencies.processEvent(RestoreResourceDependencies.java:45)
+	at javax.faces.event.SystemEvent.processListener(SystemEvent.java:106)
+	at com.sun.faces.application.ApplicationImpl.processListeners(ApplicationImpl.java:2163)
+	at com.sun.faces.application.ApplicationImpl.invokeListenersFor(ApplicationImpl.java:2139)
+	at com.sun.faces.application.ApplicationImpl.publishEvent(ApplicationImpl.java:303)
+	at com.sun.faces.application.ApplicationImpl.publishEvent(ApplicationImpl.java:247)
+	at javax.faces.component.UIComponentBase.encodeBegin(UIComponentBase.java:818)
+	at javax.faces.component.UIViewRoot.encodeBegin(UIViewRoot.java:954)
+	at javax.faces.component.UIComponent.encodeAll(UIComponent.java:1777)
+	at com.sun.faces.application.view.FaceletViewHandlingStrategy.renderView(FaceletViewHandlingStrategy.java:439)
+	at com.sun.faces.application.view.MultiViewHandler.renderView(MultiViewHandler.java:124)
+	at com.sun.faces.lifecycle.RenderResponsePhase.execute(RenderResponsePhase.java:120)
+	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:101)
+	at com.sun.faces.lifecycle.LifecycleImpl.render(LifecycleImpl.java:139)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:594)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:220)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:122)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:505)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:170)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:956)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:423)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1079)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:625)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:318)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+
+08 abr 2016 18:48:31 Linea 56 [http-bio-8080-exec-17] DEBUG edu.upm.spbw.utils.SparqlQueryExecutor  - Query to be Executed:
+
+ SELECT DISTINCT ?int ?int_l ?host_1 ?host_l_1 ?path_1 ?path_l_1 ?incon_1 ?incon_l_1 ?protd_1 ?protd_l_1 ?cita_1 ?cita_l_1 ?disn_1 ?disn_l_1 ?alle_1 ?alle_l_1 ?leth_1 ?leth_l_1 ?invg_1 ?invg_l_1 ?gene_1 ?gene_l_1 ?locu_1 ?locu_l_1 ?gfun_1 ?gfun_l_1 ?gnam_1 ?gnam_l_1 ?gacc_1 ?gacc_l_1
+ WHERE { 
+ ?int a PHIO:PHIBO_00022 . 
+ ?int rdfs:label ?int_l . 
+ ?intcont a PHIO:PHIBO_00076 . 
+ ?int PHIO:is_manifested_as ?intcont . 
+ ?prot a SIO:SIO_000747 . 
+ ?intcont PHIO:is_output_of ?prot . 
+ ?intcont PHIO:depends_on ?path_context . 
+
+ ?host_1 a SIO:SIO_010415 . 
+ ?host_1 rdfs:label  ?host_l_1 . 
+ ?int PHIO:has_participant  ?host_1 . 
+
+ ?path_1 a SIO:SIO_010414 . 
+ ?path_1 rdfs:label  ?path_l_1 . 
+ ?int PHIO:has_participant  ?path_1 . 
+
+ ?incon_1 a PHIO:POO_0000000 . 
+ ?incon_1 PHIO:has_value  ?incon_l_1 . 
+ ?intcont  PHIO:has_quality  ?incon_1 . 
+
+ ?protd_1 a SIO:SIO_000136 . 
+ ?protd_1 PHIO:has_value  ?protd_l_1 . 
+ ?prot  PHIO:has_quality  ?protd_1 . 
+
+OPTIONAL{ 
+ ?cita_1 a <http://schema.org/CreativeWork> . 
+ ?cita_1 PHIO:has_unique_identifier  ?cita_l_1 . 
+ ?prot  <http://schema.org/citation>  ?cita_1 . 
+}
+
+ ?disn_1 a PHIO:PHIBO_00001 . 
+ ?disn_1 PHIO:has_value  ?disn_l_1 . 
+ ?incon_1 PHIO:is_described_by  ?disn_1 . 
+
+ ?alle_1 a SIO:SIO_010277 . 
+ ?alle_1 rdfs:label  ?alle_l_1 . 
+ ?path_context  PHIO:has_quality  ?alle_1 . 
+
+OPTIONAL{ 
+ ?leth_1 a PHIO:PHIBO_00013 . 
+ ?leth_1 PHIO:has_value  ?leth_l_1 . 
+ ?alle_1 PHIO:has_quality  ?leth_1 . 
+}
+
+OPTIONAL{ 
+ ?invg_1 a PHIO:PHIBO_00018 . 
+ ?invg_1 PHIO:has_value  ?invg_l_1 . 
+ ?alle_1 PHIO:has_quality  ?invg_1 . 
+}
+
+ ?gene_1 a SIO:SIO_010035 . 
+ ?gene_1 rdfs:label  ?gene_l_1 . 
+ ?alle_1 PHIO:is_variant_of  ?gene_1 . 
+
+OPTIONAL{ 
+ ?locu_1 a EDAM:data_1893 . 
+ ?locu_1 PHIO:has_value  ?locu_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?locu_1 . 
+}
+
+ ?gfun_1 a PHIO:PHIBO_00004 . 
+ ?gfun_1 PHIO:has_value  ?gfun_l_1 . 
+ ?gene_1 PHIO:has_quality  ?gfun_1 . 
+
+OPTIONAL{ 
+ ?gnam_1 a EDAM:data_2299 . 
+ ?gnam_1 PHIO:has_value  ?gnam_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gnam_1 . 
+}
+
+OPTIONAL{ 
+ ?gacc_1 a EDAM:data_2907 . 
+ ?gacc_1 PHIO:has_value  ?gacc_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gacc_1 . 
+}
+ FILTER(( ?gfun_1 = <http://linkeddata.systems/SemanticPHIBase/Resource/genefunction/GENEFUNCT_00279>))}
+
+08 abr 2016 18:48:31 Linea 189 [http-bio-8080-exec-17] DEBUG Jena  - Jena initialization
+08 abr 2016 18:59:25 Linea 56 [http-bio-8080-exec-1] DEBUG edu.upm.spbw.utils.SparqlQueryExecutor  - Query to be Executed:
+
+ SELECT DISTINCT ?int ?int_l ?host_1 ?host_l_1 ?path_1 ?path_l_1 ?incon_1 ?incon_l_1 ?protd_1 ?protd_l_1 ?cita_1 ?cita_l_1 ?disn_1 ?disn_l_1 ?alle_1 ?alle_l_1 ?leth_1 ?leth_l_1 ?invg_1 ?invg_l_1 ?gene_1 ?gene_l_1 ?locu_1 ?locu_l_1 ?gfun_1 ?gfun_l_1 ?gnam_1 ?gnam_l_1 ?gacc_1 ?gacc_l_1
+ WHERE { 
+ ?int a PHIO:PHIBO_00022 . 
+ ?int rdfs:label ?int_l . 
+ ?intcont a PHIO:PHIBO_00076 . 
+ ?int PHIO:is_manifested_as ?intcont . 
+ ?prot a SIO:SIO_000747 . 
+ ?intcont PHIO:is_output_of ?prot . 
+ ?intcont PHIO:depends_on ?path_context . 
+
+ ?host_1 a SIO:SIO_010415 . 
+ ?host_1 rdfs:label  ?host_l_1 . 
+ ?int PHIO:has_participant  ?host_1 . 
+
+ ?path_1 a SIO:SIO_010414 . 
+ ?path_1 rdfs:label  ?path_l_1 . 
+ ?int PHIO:has_participant  ?path_1 . 
+
+ ?incon_1 a PHIO:POO_0000000 . 
+ ?incon_1 PHIO:has_value  ?incon_l_1 . 
+ ?intcont  PHIO:has_quality  ?incon_1 . 
+
+ ?protd_1 a SIO:SIO_000136 . 
+ ?protd_1 PHIO:has_value  ?protd_l_1 . 
+ ?prot  PHIO:has_quality  ?protd_1 . 
+
+OPTIONAL{ 
+ ?cita_1 a <http://schema.org/CreativeWork> . 
+ ?cita_1 PHIO:has_unique_identifier  ?cita_l_1 . 
+ ?prot  <http://schema.org/citation>  ?cita_1 . 
+}
+
+ ?disn_1 a PHIO:PHIBO_00001 . 
+ ?disn_1 PHIO:has_value  ?disn_l_1 . 
+ ?incon_1 PHIO:is_described_by  ?disn_1 . 
+
+ ?alle_1 a SIO:SIO_010277 . 
+ ?alle_1 rdfs:label  ?alle_l_1 . 
+ ?path_context  PHIO:has_quality  ?alle_1 . 
+
+OPTIONAL{ 
+ ?leth_1 a PHIO:PHIBO_00013 . 
+ ?leth_1 PHIO:has_value  ?leth_l_1 . 
+ ?alle_1 PHIO:has_quality  ?leth_1 . 
+}
+
+OPTIONAL{ 
+ ?invg_1 a PHIO:PHIBO_00018 . 
+ ?invg_1 PHIO:has_value  ?invg_l_1 . 
+ ?alle_1 PHIO:has_quality  ?invg_1 . 
+}
+
+ ?gene_1 a SIO:SIO_010035 . 
+ ?gene_1 rdfs:label  ?gene_l_1 . 
+ ?alle_1 PHIO:is_variant_of  ?gene_1 . 
+
+OPTIONAL{ 
+ ?locu_1 a EDAM:data_1893 . 
+ ?locu_1 PHIO:has_value  ?locu_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?locu_1 . 
+}
+
+OPTIONAL{ 
+ ?gfun_1 a PHIO:PHIBO_00004 . 
+ ?gfun_1 PHIO:has_value  ?gfun_l_1 . 
+ ?gene_1 PHIO:has_quality  ?gfun_1 . 
+}
+
+OPTIONAL{ 
+ ?gnam_1 a EDAM:data_2299 . 
+ ?gnam_1 PHIO:has_value  ?gnam_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gnam_1 . 
+}
+
+OPTIONAL{ 
+ ?gacc_1 a EDAM:data_2907 . 
+ ?gacc_1 PHIO:has_value  ?gacc_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gacc_1 . 
+}
+ FILTER(( ?alle_1 = <http://linkeddata.systems/SemanticPHIBase/Resource/allele/ALLELE_00002>))}
+
+08 abr 2016 18:59:25 Linea 189 [http-bio-8080-exec-1] DEBUG Jena  - Jena initialization

@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:p="http://java.sun.com/jsp/jstl/core">
+<ui:composition template="/template/index_template.xhtml">
+	<ui:define name="tittle">
+	#{msgs.index_title}
+	</ui:define>
+	<ui:define name="content">
+		<h:form id="form">
+			<center>
+				<table>
+					<tr>
+						<td><img src="./images/login.jpg" alt="Login" /></td>
+						<td>
+							<table>
+								<tr>
+									<td class="caption"><ice:outputText
+											value="#{msgs.index_username}" /></td>
+									<td><ice:inputText styleClass="loginField"
+											value="#{autenticationBean.userName}"
+											action="#{autenticationBean.autenticateUser}" /></td>
+								</tr>
+								<tr>
+									<td class="caption"><ice:outputText
+											value="#{msgs.index_password}" /></td>
+									<td><ice:inputSecret styleClass="loginField"
+											value="#{autenticationBean.userPassword}"
+											action="#{autenticationBean.autenticateUser}" /></td>
+								</tr>
+								<tr>
+									<td colspan="2" align="right"><ice:commandLink
+											styleClass="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left"
+											action="#{autenticationBean.autenticateUser}" type="submit">
+											<span class="ui-button-text ui-c">#{msgs.login}</span>
+											<span
+												class="ui-button-icon-left ui-icon ui-c ui-icon-circle-triangle-e"></span>
+										</ice:commandLink></td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</center>
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

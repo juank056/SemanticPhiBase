@@ -1,0 +1,386 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:p="http://java.sun.com/jsp/jstl/core">
+<ui:composition template="/template/help_service_template.xhtml">
+	<ui:define name="tittle">
+	#{msgs.help_text}: #{msgs.se005_tittle}
+	</ui:define>
+	<ui:define name="content">
+		<table class="phi_table" style="width: 100%;">
+			<!-- Inicio Objetivo y Consideraciones -->
+			<tr>
+				<th>Objetivo</th>
+				<td>Mantenimiento de la estructura que representa a los
+					usuarios del sistema. Aquí se deberán crear todos los usuarios que
+					tendrán acceso al sistema.</td>
+			</tr>
+			<tr>
+				<th>Consideraciones</th>
+				<td>1. Para una correcta creación de usuarios, el sistema debe
+					tener correctamente configurados los parámetros de envío de correo
+					electrónicos que permitirán el envío de los datos iniciales de
+					acceso al usuario creado.</td>
+			</tr>
+			<!-- Fin Objetivo y Consideraciones -->
+			<!-- Inicio Pantalla Principal -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a class="aTittle">Pantalla
+									Principal</a></th>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Imagen Pantalla Principal -->
+								<div class="serviceImage">
+									<img src="/PhiBaseWeb/help/images/SE005/SE005_main.png" />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>Parámetros Recibidos</th>
+							<td>Ninguno.</td>
+						</tr>
+						<tr>
+							<th>Buscador</th>
+							<td>1. Por Usuario del Sistema.</td>
+						</tr>
+						<tr>
+							<th>Acciones</th>
+							<td><a href="#add" class="link">1. Adicionar Usuario del
+									Sistema</a><br /> <a href="#change" class="link">2. Actualizar
+									Usuario del Sistema</a><br /> <a href="#delete" class="link">3.
+									Eliminar Usuario del Sistema</a><br /> <a href="#display"
+								class="link">4. Detalle Usuario del Sistema</a><br /> <a
+								href="#regeneratePassword" class="link">5. Regenerar
+									Contraseña</a><br /> <a href="#unlockUser" class="link">6.
+									Desbloquear Usuario</a><br /></td>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>1. La funcionalidad de "Regenerar Contraseña" solo se
+								habilitará si el estado del Usuario es diferente a "Bloqueado
+								por Intentos Fallidos".<br />2. La funcionalidad de
+								"Desbloquear Usuario" solo se habilitará si el estado del
+								Usuario es igual a "Bloqueado por Intentos Fallidos".
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Pantalla Principal -->
+			<!-- Inicio Pantalla Adicionar -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a name="add"
+								class="aTittle">Adicionar Usuario del Sistema</a></th>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Imagen Pantalla Adicionar -->
+								<div class="serviceImage">
+									<img src="/PhiBaseWeb/help/images/SE005/SE005_add.png" />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Tabla Descripción Campos -->
+								<table class="phi_table">
+									<tr>
+										<th class="caption2">Campo</th>
+										<th class="caption2">Descripción</th>
+										<th class="caption2">Tipo de Campo</th>
+										<th class="caption2">Consideraciones</th>
+									</tr>
+									<tr>
+										<td>E-Mail Usuario</td>
+										<td>Dirección de E-Mail del Usuario.</td>
+										<td>Alfanumérico-Email</td>
+										<td>1. Este campo es requerido.<br />2. El campo deberá
+											seguir el formato de un E-Mail válido.<br />3. Este campo
+											será el identificador único del usuario a crear.
+										</td>
+									</tr>
+									<tr>
+										<td>Nombre del Usuario</td>
+										<td>Nombre o descripción del Usuario del sistema.</td>
+										<td>Alfanumérico</td>
+										<td>1. Este campo es requerido.</td>
+									</tr>
+									<tr>
+										<td>Perfil de Usuario</td>
+										<td>Lista de los Perfiles de Usuario del Sistema.</td>
+										<td>Alfanumérico-Lista</td>
+										<td>1. Este campo es requerido.<br />2. La lista se
+											cargará con los Perfiles de usuario configurados en el
+											sistema. Ver <a class="link"
+											href="/PhiBaseWeb/help/docs/SE/SE002.jsf">Mantenimiento
+												Perfil de Usuario.</a>
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>1. En el momento de crear el Usuario, se le asignará una
+								contraseña por defecto que deberá ser cambiada en el primer
+								Login del Usuario. El Usuario recibirá un E-Mail automático en
+								donde se le indicarán sus credenciales de acceso al sistema.</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Pantalla Adicionar -->
+			<!-- Inicio Pantalla Actualizar -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a name="change"
+								class="aTittle">Actualizar Usuario del Sistema</a></th>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Imagen Pantalla Actualizar -->
+								<div class="serviceImage">
+									<img src="/PhiBaseWeb/help/images/SE005/SE005_change.png" />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Tabla Descripción Campos -->
+								<table class="phi_table">
+									<tr>
+										<th class="caption2">Campo</th>
+										<th class="caption2">Descripción</th>
+										<th class="caption2">Tipo de Campo</th>
+										<th class="caption2">Consideraciones</th>
+									</tr>
+									<tr>
+										<td>E-Mail Usuario</td>
+										<td>Dirección de E-Mail del Usuario.</td>
+										<td>OUTPUT</td>
+										<td>1. No es posible modificar su valor.</td>
+									</tr>
+									<tr>
+										<td>Nombre del Usuario</td>
+										<td>Nombre o descripción del Usuario del sistema.</td>
+										<td>Alfanumérico</td>
+										<td>1. Este campo es requerido.</td>
+									</tr>
+									<tr>
+										<td>Perfil de Usuario</td>
+										<td>Lista de los Perfiles de Usuario del Sistema.</td>
+										<td>Alfanumérico-Lista</td>
+										<td>1. Este campo es requerido.<br />2. La lista se
+											cargará con los Perfiles de usuario configurados en el
+											sistema. Ver <a class="link"
+											href="/PhiBaseWeb/help/docs/SE/SE002.jsf">Mantenimiento
+												Perfil de Usuario.</a>
+										</td>
+									</tr>
+									<tr>
+										<td>Estado Usuario</td>
+										<td>Estado del usuario dentro del sistema.</td>
+										<td>Multivalor-Lista</td>
+										<td>1. Este campo es requerido.<br />2. Posibles
+											valores:<br />&#160;&#160;&#160;a. Activo.<br />&#160;&#160;&#160;b.
+											Inactivo.<br />3. Al estar el usuario Inactivo, no se
+											permitirá su ingreso en el sistema.
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>Ninguna.</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Pantalla Actualizar -->
+			<!-- Inicio Pantalla Eliminar -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a name="delete"
+								class="aTittle">Eliminar Usuario del Sistema</a></th>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>1. No será posible eliminar el Usuario si existen
+								registros relacionados en las estructuras de "Login de Usuario",
+								"Bloqueos de Usuario" o "Log de Queries Usuario".</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Pantalla Eliminar -->
+			<!-- Inicio Pantalla Detalle -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a name="display"
+								class="aTittle">Detalle Usuario del Sistema</a></th>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Imagen Pantalla Actualizar -->
+								<div class="serviceImage">
+									<img src="/PhiBaseWeb/help/images/SE005/SE005_display.png" />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Tabla Descripción Campos -->
+								<table class="phi_table">
+									<tr>
+										<th class="caption2">Campo</th>
+										<th class="caption2">Descripción</th>
+										<th class="caption2">Tipo de Campo</th>
+										<th class="caption2">Consideraciones</th>
+									</tr>
+									<tr>
+										<td>E-Mail Usuario</td>
+										<td>Dirección de E-Mail del Usuario.</td>
+										<td>OUTPUT</td>
+										<td>1. No es posible modificar su valor.</td>
+									</tr>
+									<tr>
+										<td>Nombre del Usuario</td>
+										<td>Nombre o descripción del Usuario del sistema.</td>
+										<td>OUTPUT</td>
+										<td>1. No es posible modificar su valor.</td>
+									</tr>
+									<tr>
+										<td>Perfil de Usuario</td>
+										<td>Perfil de Usuario asignado.</td>
+										<td>OUTPUT</td>
+										<td>1. No es posible modificar su valor.</td>
+									</tr>
+									<tr>
+										<td>Estado Usuario</td>
+										<td>Estado del usuario dentro del sistema.</td>
+										<td>OUTPUT</td>
+										<td>1. No es posible modificar su valor.<br />2.
+											Posibles valores:<br />&#160;&#160;&#160;a. Activo.<br />&#160;&#160;&#160;b.
+											Inactivo.<br />&#160;&#160;&#160;c. Inactivo Intentos
+											Fallidos.
+										</td>
+									</tr>
+									<tr>
+										<td>Intentos Fallidos Login</td>
+										<td>Número de Intentos fallidos de ingreso en el sistema.</td>
+										<td>OUTPUT</td>
+										<td>1. No es posible modificar su valor.</td>
+									</tr>
+									<tr>
+										<td>Contraseña Caducada</td>
+										<td>Indicador que determina si el usuario deberá cambiar
+											la contraseña en el siguiente ingreso.</td>
+										<td>OUTPUT</td>
+										<td>1. No es posible modificar su valor.</td>
+									</tr>
+									<tr>
+										<td>Fecha Último Cambio Contraseña</td>
+										<td>La fecha de último cambio de contraseña.</td>
+										<td>OUTPUT</td>
+										<td>1. No es posible modificar su valor.</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>Ninguna.</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Pantalla Detalle -->
+			<!-- Inicio Pantalla Regenerar Contraseña -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a name="regeneratePassword"
+								class="aTittle">Regenerar Contraseña</a></th>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>1. Al ejecutar esta opción, se generará una nueva
+								contraseña automáticamente para el usuario seleccionado y le
+								será enviada por E-Mail. El usuario deberá cambiar la contraseña
+								asignada en su siguiente inicio de sesión.</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Pantalla Regenerar Contraseña -->
+			<!-- Inicio Pantalla Desbloquear Usuario -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a name="unlockUser"
+								class="aTittle">Desbloquear Usuario</a></th>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>1. Al ejecutar esta opción, el Estado del Usuario será
+								"Activo nuevamente". Se actualizará el registro en la estructura
+								de Bloqueos de usuario, indicando que el usuario ha sido
+								desbloqueado manualmente por el usuario que se encuentra en
+								sesión realizando la acción. El histórico de bloqueos se puede
+								consultar en <a class="link"
+								href="/PhiBaseWeb/help/docs/SE/SE007.jsf">Bloqueos de
+									Usuario</a>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Pantalla Desbloquear Usuario -->
+		</table>
+	</ui:define>
+</ui:composition>
+</html>

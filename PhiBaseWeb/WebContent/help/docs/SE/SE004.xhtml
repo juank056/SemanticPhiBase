@@ -1,0 +1,239 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:p="http://java.sun.com/jsp/jstl/core">
+<ui:composition template="/template/help_service_template.xhtml">
+	<ui:define name="tittle">
+	#{msgs.help_text}: #{msgs.se004_tittle}
+	</ui:define>
+	<ui:define name="content">
+		<table class="phi_table" style="width: 100%;">
+			<!-- Inicio Objetivo y Consideraciones -->
+			<tr>
+				<th>Objetivo</th>
+				<td>Mantenimiento de la estructura que representa a los
+					parámetros del sistema que servirán como configuraciones para el
+					buen funcionamiento de la aplicación.</td>
+			</tr>
+			<tr>
+				<th>Consideraciones</th>
+				<td>1. La definición de los parámetros del sistema debe ser
+					realizada por el desarrollador. El usuario final deberá únicamente
+					modificar el valor de los parámetros para logral el comportamiento
+					deseado.</td>
+			</tr>
+			<!-- Fin Objetivo y Consideraciones -->
+			<!-- Inicio Pantalla Principal -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a class="aTittle">Pantalla
+									Principal</a></th>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Imagen Pantalla Principal -->
+								<div class="serviceImage">
+									<img src="/PhiBaseWeb/help/images/SE004/SE004_main.png" />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>Parámetros Recibidos</th>
+							<td>Ninguno.</td>
+						</tr>
+						<tr>
+							<th>Buscador</th>
+							<td>1. Por Parámetro del Sistema.</td>
+						</tr>
+						<tr>
+							<th>Acciones</th>
+							<td><a href="#add" class="link">1. Adicionar Parámetro
+									del Sistema</a><br /> <a href="#change" class="link">2.
+									Actualizar Parámetro del Sistema</a><br /> <a href="#delete"
+								class="link">3. Eliminar Parámetro del Sistema</a><br /></td>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>Ninguna.</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Pantalla Principal -->
+			<!-- Inicio Pantalla Adicionar -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a name="add"
+								class="aTittle">Adicionar Parámetro del Sistema</a></th>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Imagen Pantalla Adicionar -->
+								<div class="serviceImage">
+									<img src="/PhiBaseWeb/help/images/SE004/SE004_add.png" />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Tabla Descripción Campos -->
+								<table class="phi_table">
+									<tr>
+										<th class="caption2">Campo</th>
+										<th class="caption2">Descripción</th>
+										<th class="caption2">Tipo de Campo</th>
+										<th class="caption2">Consideraciones</th>
+									</tr>
+									<tr>
+										<td>Código Parámetro del Sistema</td>
+										<td>Código del Parámetro del Sistema.</td>
+										<td>Alfanumérico</td>
+										<td>1. Este campo es requerido.<br />2. Los códigos
+											serán definidos por el desarrollador del sistema.
+										</td>
+									</tr>
+									<tr>
+										<td>Descripción Parámetro</td>
+										<td>Descripción del Parámetro del Sistema.</td>
+										<td>Alfanumérico</td>
+										<td>1. Este campo es requerido.</td>
+									</tr>
+									<tr>
+										<td>Tipo de Parámetro</td>
+										<td>Tipo de valor del Parámetro del Sistema.</td>
+										<td>Multivalor-Lista</td>
+										<td>1. Este campo es requerido.<br />2. Posibles
+											valores:<br />&#160;&#160;&#160;a. Alfanumérico.<br />&#160;&#160;&#160;b.
+											Numérico.
+										</td>
+									</tr>
+									<tr>
+										<td>Valor del Parámetro</td>
+										<td>Valor del Parámetro del Sistema.</td>
+										<td>Alfanumérico-Numérico</td>
+										<td>1. Este campo es requerido.<br />2. Su valor
+											dependerá de si se trata de un parámetro numérico o
+											alfanumérico.
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>Ninguna.</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Pantalla Adicionar -->
+			<!-- Inicio Pantalla Actualizar -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a name="change"
+								class="aTittle">Actualizar Parámetro del Sistema</a></th>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Imagen Pantalla Actualizar -->
+								<div class="serviceImage">
+									<img src="/PhiBaseWeb/help/images/SE004/SE004_change.png" />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Tabla Descripción Campos -->
+								<table class="phi_table">
+									<tr>
+										<th class="caption2">Campo</th>
+										<th class="caption2">Descripción</th>
+										<th class="caption2">Tipo de Campo</th>
+										<th class="caption2">Consideraciones</th>
+									</tr>
+									<tr>
+										<td>Código Parámetro del Sistema</td>
+										<td>Código del Parámetro del Sistema.</td>
+										<td>OUTPUT</td>
+										<td>1. No es posible modificar su valor.</td>
+									</tr>
+									<tr>
+										<td>Descripción Parámetro</td>
+										<td>Descripción del Parámetro del Sistema.</td>
+										<td>Alfanumérico</td>
+										<td>1. Este campo es requerido.</td>
+									</tr>
+									<tr>
+										<td>Tipo de Parámetro</td>
+										<td>Tipo de valor del Parámetro del Sistema.</td>
+										<td>Multivalor-Lista</td>
+										<td>1. Este campo es requerido.<br />2. Posibles
+											valores:<br />&#160;&#160;&#160;a. Alfanumérico.<br />&#160;&#160;&#160;b.
+											Numérico.
+										</td>
+									</tr>
+									<tr>
+										<td>Valor del Parámetro</td>
+										<td>Valor del Parámetro del Sistema.</td>
+										<td>Alfanumérico-Numérico</td>
+										<td>1. Este campo es requerido.<br />2. Su valor
+											dependerá de si se trata de un parámetro numérico o
+											alfanumérico.
+										</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>Ninguna.</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Pantalla Actualizar -->
+			<!-- Inicio Pantalla Eliminar -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a name="delete"
+								class="aTittle">Eliminar Parámetro del Sistema</a></th>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>Ninguna.</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Pantalla Eliminar -->
+		</table>
+	</ui:define>
+</ui:composition>
+</html>

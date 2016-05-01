@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory name="SessionFactory">
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="hibernate.connection.password">PHIBASEDB</property>
+		<property name="hibernate.connection.url">jdbc:mysql://192.168.183.128:3306/PHIBASEDB</property>
+		<property name="hibernate.connection.username">PHIBASEDB</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="hibernate.format_sql">false</property>
+		<property name="hibernate.show_sql">false</property>
+		<property name="hibernate.use_sql_comments">false</property>
+		<property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+		<!-- configuration pool via c3p0 -->
+		<property name="c3p0.acquire_increment">1</property>
+		<property name="c3p0.idle_test_period">100</property>
+		<property name="c3p0.max_size">100</property>
+		<property name="c3p0.max_statements">50</property>
+		<property name="c3p0.min_size">10</property>
+		<property name="c3p0.timeout">100</property>
+		<!-- Mappings -->
+		<mapping resource="edu/upm/spbw/persistence/bo/xml/Cspparsi.hbm.xml" />
+		<mapping resource="edu/upm/spbw/persistence/bo/xml/Cspperfu.hbm.xml" />
+		<mapping resource="edu/upm/spbw/persistence/bo/xml/Cspserpf.hbm.xml" />
+		<mapping resource="edu/upm/spbw/persistence/bo/xml/Cspsersi.hbm.xml" />
+		<mapping resource="edu/upm/spbw/persistence/bo/xml/Sedconce.hbm.xml" />
+		<mapping resource="edu/upm/spbw/persistence/bo/xml/Sedrelco.hbm.xml" />
+		<mapping resource="edu/upm/spbw/persistence/bo/xml/Sepconce.hbm.xml" />
+		<mapping resource="edu/upm/spbw/persistence/bo/xml/Seprelco.hbm.xml" />
+		<mapping resource="edu/upm/spbw/persistence/bo/xml/Usdbloqu.hbm.xml" />
+		<mapping resource="edu/upm/spbw/persistence/bo/xml/Usdlogin.hbm.xml" />
+		<mapping resource="edu/upm/spbw/persistence/bo/xml/Usdlogqu.hbm.xml" />
+		<mapping resource="edu/upm/spbw/persistence/bo/xml/Usmusuar.hbm.xml" />
+	</session-factory>
+</hibernate-configuration>

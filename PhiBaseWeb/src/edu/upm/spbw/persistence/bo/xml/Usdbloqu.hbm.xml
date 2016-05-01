@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 28-feb-2016 11:50:28 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="edu.upm.spbw.persistence.bo.Usdbloqu" table="USDBLOQU">
+		<composite-id name="id"
+			class="edu.upm.spbw.persistence.bo.UsdbloquId">
+			<key-property name="usuemaiak" type="string">
+				<column name="USUEMAIAK" length="60" />
+			</key-property>
+			<key-property name="usutblonf" type="long">
+				<column name="USUTBLONF" precision="13" scale="0" />
+			</key-property>
+		</composite-id>
+		<property name="bluilognf" type="int">
+			<column name="BLUILOGNF" not-null="true" />
+		</property>
+		<property name="blutdesnf" type="long">
+			<column name="BLUTDESNF" precision="13" scale="0" not-null="true" />
+		</property>
+		<property name="usuemadaf" type="string">
+			<column name="USUEMADAF" length="60" not-null="true" />
+		</property>
+		<property name="bludautsf" type="string">
+			<column name="BLUDAUTSF" length="1" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

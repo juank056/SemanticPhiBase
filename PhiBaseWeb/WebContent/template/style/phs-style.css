@@ -1,0 +1,467 @@
+body {
+	background: #FFFFFF;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	line-height: 18px;
+	color: #305881;
+	width: 98%;
+}
+
+div#header {
+	width: 98%;
+	padding-left: 1%;
+	padding-right: 1%;
+}
+
+#header h1 {
+	font-size: 26px;
+	font-weight: 100;
+	letter-spacing: -3px;
+	padding: 12px 0 5px 10px;
+}
+
+#header h1 a {
+	color: #57626a;
+	text-decoration: none;
+}
+
+#header h1 a:hover {
+	color: #57626a;
+	text-decoration: none;
+}
+
+#header h2 {
+	color: #ccc;
+	font-size: 15px;
+	font-weight: 100;
+	padding: 0 0 0 11px;
+	letter-spacing: -1px;
+	line-height: 12px;
+}
+
+#footer {
+	position: fixed;
+	bottom: 0;
+	background: #eee;
+	border-top: 2px solid #57626a;
+	margin-top: 10px;
+	text-align: center;
+	color: #333;
+	font-size: 10px;
+	padding: 0px;
+	width: 100%;
+	vertical-align: bottom;
+}
+
+#serviceTittle {
+	color: #305881;
+	text-decoration: none;
+	background-color: #dce7f6;
+	height: 20px;
+	text-align: center;
+	border-bottom: 1px solid #57626a;
+	margin-bottom: 7px;
+	padding-top: 1px;
+	padding-bottom: 1px;
+	width: 100%;
+}
+
+.content {
+	width: 100%;
+	height: 100%;
+}
+
+.userTextLabel {
+	color: #B40404;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.userTextContent {
+	color: #0B0B3B;
+	font-size: 12px;
+}
+
+.standardLink {
+	color: #0000ff;
+	text-decoration: underline;
+	font-size: 11px;
+}
+
+.messages {
+	color: #000000;
+	background-color: #ddeedd;
+	padding: 5px;
+	font-size: 12px;
+	font-weight: normal;
+	margin-bottom: 10px;
+	font-family: 'Tahoma', Arial, Helvetica, sans-serif;
+	letter-spacing: 0.1em;
+	word-spacing: 0.1em;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-top-color: #dd6600;
+	border-bottom-color: #dd6600;
+}
+
+.loginField {
+	width: 125px;
+}
+
+.serviceContainer {
+	float: left;
+	background-color: #A9E2F3;
+	border: 1px solid #57626a;
+	margin: 10px;
+	padding: 3px;
+	font-size: 14px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.serviceContainerSel {
+	float: left;
+	background-color: #0174DF;
+	border: 1px solid #57626a;
+	margin: 10px;
+	padding: 3px;
+	font-size: 14px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.page {
+	width: 100%;
+	height: 100%;
+	background-color: #FFF;
+}
+
+.subfile_table {
+	border-style: solid;
+	border-width: thin;
+	border-color: #FDBA4D;
+	border-spacing: 1px;
+	border-collapse: collapse;
+	padding: 2px;
+	width: 100%;
+	background-color: #F2F2F2;
+	overflow: auto;
+}
+
+.subfile_table tbody tr {
+	
+}
+
+.subfile_table tbody tr.iceDatTblRow1 {
+	background-color: #E6E6E6;
+}
+
+.subfile_table tbody tr.iceDatTblRow1:hover {
+	background-color: #CEE3F6;
+}
+
+.subfile_table tbody tr.iceDatTblRow2 {
+	background-color: #f7f7f7;
+}
+
+.subfile_table tbody tr.iceDatTblRow2:hover {
+	background-color: #CEE3F6;
+}
+
+.subfile_table thead tr {
+	cursor: inherit;
+	vertical-align: top;
+}
+
+.subfile_table thead {
+	cursor: inherit;
+}
+
+.subfile_table th {
+	border: 1px solid #aaaaaa;
+	font-weight: bold;
+	background-color: #c7dff4;
+	color: black;
+	white-space: nowrap;
+	cursor: inherit;
+}
+
+.subfile_table thead th {
+	padding: 0px 15px 0px 0px;
+	background-repeat: no-repeat;
+	background-position: center right;
+}
+
+.subfile_table thead th.number {
+	padding: 0px 0px 0px 15px;
+	background-position: center left;
+}
+
+.subfile_table tbody td {
+	border: 1px solid #aaaaaa;
+	/*white-space: nowrap;*/
+	padding: 1px;
+	text-align: center;
+	vertical-align: middle;
+	color: #305881;
+}
+
+.subfile_table .caption {
+	border: 1px solid #aaaaaa;
+	font-weight: bold;
+	background-color: #dce7f6;
+	color: #305881;
+	white-space: nowrap;
+	cursor: default;
+}
+
+.subfile_table input:focus,.subfile_table input.focus,.subfile_table input:focus,.subfile_table input.focus
+	{
+	background-color: white;
+	border-style: inset;
+	border-width: 2px;
+	margin: 0px;
+}
+
+.subfile_table .list-o input.number,.subfile_table .list-o input.text,.subfile_table .list-o input.ltext,.subfile_table .list-o input.utext,.subfile_table .list-e input.number,.subfile_table .list-e input.text,.subfile_table .list-e subfile_table.ltext,.subfile_table .list-e input.utext
+	{
+	border-style: inset;
+	border-width: 2px;
+	margin: 0px;
+	color: #00356B;
+}
+
+.subfile_table input.number {
+	text-align: right;
+}
+
+.subfile_table input.number,.subfile_table input.text,.subfile_table input.ltext,.subfile_table input.utext
+	{
+	border-style: inset;
+	border-width: 2px;
+	margin: 0px;
+	color: #00356B;
+}
+
+.tableHeader {
+	width: 100%;
+	border-bottom: 1px solid #2E64FE;
+	vertical-align: top;
+}
+
+.std_panel_pop {
+	background-color: white;
+	border-style: inset;
+	border-width: 2px;
+	margin: 0px;
+	color: #00356B;
+}
+
+.popupMessages {
+	width: 90%;
+	background-color: #A9D0F5;
+	color: #08088A;
+}
+
+.phi_table {
+	border-style: solid;
+	border-width: thin;
+	border-color: #FDBA4D;
+	border-spacing: 1px;
+	border-collapse: collapse;
+	padding: 1px;
+	width: auto;
+	background-color: #F2F2F2;
+}
+
+.phi_table tbody tr {
+	
+}
+
+.phi_table tbody tr.odd_row {
+	background-color: #cccccc;
+	color: black;
+}
+
+.phi_table tbody tr.even_row {
+	background-color: #f7f7f7;
+	color: black;
+}
+
+.phi_table tbody td {
+	border: 1px solid #aaaaaa;
+	white-space: normal;
+	padding: 2px;
+}
+
+.phi_table .caption {
+	border: 1px solid #aaaaaa;
+	font-weight: bold;
+	background-color: #dce7f6;
+	color: #305881;
+	white-space: nowrap;
+	cursor: default;
+}
+
+.phi_table .caption2 {
+	border: 1px solid #aaaaaa;
+	font-weight: bold;
+	background-color: #dce7f6;
+	text-align: left;
+	color: #305881;
+	white-space: nowrap;
+	cursor: default;
+	font-size: 14;
+	text-align: center;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.phi_table th {
+	border: 1px solid #aaaaaa;
+	background-color: #dce7f6;
+	color: #305881;
+	font-size: 14px;
+	font-weight: bold;
+	text-align: left;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.phi_table thead th {
+	padding: 0px 15px 0px 0px;
+	background-repeat: no-repeat;
+	background-position: center right;
+}
+
+.phi_table thead th.number {
+	padding: 0px 0px 0px 15px;
+	background-position: center left;
+}
+
+td.caption,div.caption {
+	font-weight: bold;
+	color: #305881;
+	padding-right: 5px;
+}
+
+.secphitable {
+	padding: 1px;
+}
+
+.secphitable table {
+	margin-right: -3px;
+}
+
+.secphitable td {
+	border: 1px solid #99AEC4;
+	/*white-space: nowrap;*/
+	padding-top: 1px;
+	padding-bottom: 1px;
+	padding-left: 3px;
+	padding-right: 3px;
+	overflow: hidden;
+	color: #197051;
+}
+
+.boxLeft {
+	margin: 15px 15px 0 0;
+	padding: 15px;
+	background: #FFF;
+	border: 1px solid #d9d9d9;
+	float: left;
+	width: 25%;
+	vertical-align: top;
+	height: 100%;
+}
+
+.boxRight {
+	margin: 15px 15px 0 0;
+	padding: 0;
+	background: #FFF;
+	border: 1px solid #d9d9d9;
+	float: right;
+	width: 65%;
+	vertical-align: top;
+	height: 100%;
+}
+
+.boxRightButton {
+	margin: 15px 15px 0 0;
+	padding: 0;
+	background: #FFF;
+	border: 1px solid #d9d9d9;
+	float: right;
+	width: 3%;
+	height: 100%;
+	vertical-align: middle;
+	height: 100%;
+	text-align: center;
+}
+
+.dropTarget {
+	background-color: #fda505;
+}
+
+.helpBoxLeft {
+	margin: 15px 15px 0 0;
+	padding: 10px;
+	background: #FFF;
+	border: 1px solid #d9d9d9;
+	float: left;
+	width: 20%;
+	vertical-align: top;
+	height: 100%;
+}
+
+.helpBoxRight {
+	margin: 15px 15px 0 0;
+	padding: 10px;
+	background: #FFF;
+	border: 1px solid #d9d9d9;
+	float: right;
+	width: 73%;
+	vertical-align: top;
+	height: 70vh;
+}
+
+.separator {
+	background-color: orange;
+	height: 3px;
+	padding-bottom: 5px;
+}
+
+.aTittle {
+	color: #00356B;
+}
+
+.serviceImage {
+	overflow: scroll;
+	width: 900px;
+	padding: 5px;
+	text-align: center;
+}
+
+.link {
+	font-style: normal;
+	font-family: cursive;
+	font-size: 1.1em;
+	color: blue;
+	text-decoration: underline;
+}
+
+.note {
+	font-style: italic;
+	font-size: 10;
+	color: green;
+	width: 90%;
+}
+
+.graphContainer {
+	margin: 15px 15px 0 0;
+	width: 100%;
+	vertical-align: top;
+	height: 49vh;
+}

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+
+	<!-- Scheduler Factory Indicando los triggers a ejecutar -->
+	<bean id="schedulerFactoryBean"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="jobDetails">
+			<list>
+				<ref bean="loadConcepts" />
+			</list>
+		</property>
+
+		<property name="triggers">
+			<list>
+				<ref bean="loadConceptsTrigger" />
+			</list>
+		</property>
+	</bean>
+
+	<!-- Configuracion para ejecutar el proceso de cargue de estructuras SEDCONCE 
+		SEDRELCOS -->
+	<bean name="loadConcepts" class="org.springframework.scheduling.quartz.JobDetailBean">
+		<property name="jobClass" value="edu.upm.spbw.scheduled.LoadConceptsProcess" />
+	</bean>
+
+	<!-- Valor del cron Expression: Los parametros son en el siguiente orden 
+		Segundos,Minutos,Horas,Dia del Mes,Mes,Dia de la Semana y Ano. El valor de 
+		'*' Significa que aplica para todos. '?' Significa sin valor especifico. 
+		Ejemplo: La siguiente expresion sirve para ejecutar todos los dias a las 
+		22:30:00. Expresion: 0 30 22 * * ? -->
+	<bean id="loadConceptsTrigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="loadConcepts" />
+		<property name="cronExpression" value="00 30 05 * * ?" />
+	</bean>
+	<!--<bean id="loadConceptsTrigger" class="org.springframework.scheduling.quartz.SimpleTriggerBean"> 
+		<property name="jobDetail" ref="loadConcepts" /> <property name="repeatInterval" 
+		value="600000" /> </bean> -->
+</beans>

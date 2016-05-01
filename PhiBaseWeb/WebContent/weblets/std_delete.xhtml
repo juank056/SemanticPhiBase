@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- 
+	Weblet Para Iniciar la Eliminacion de un Registro
+Parametros que debe recibir este Weblet
+1. beanName: Nombre del Bean para realizar el Delete
+2. regName: Nombre de lo que se envia para delete
+3. regValue: Valor de lo enviado para el delete
+ -->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component">
+	<ice:panelConfirmation id="confirmDelete" title="#{msgs.confirm}"
+		rendered="true" acceptLabel="#{msgs.accept}"
+		cancelLabel="#{msgs.cancel}" message="#{msgs.confirmDelete}"
+		autoCentre="true" draggable="false" styleClass="std_panel_pop" />
+	<center>
+		<ice:commandButton actionListener="#{invokeMethodBean.initDelete}"
+			image="/images/btn/delete.gif" panelConfirmation="confirmDelete"
+			title="#{msgs.deleteRecord}" alt="#{msgs.deleteRecord}">
+			<f:attribute name="#{regName}" value="#{regValue}" />
+			<f:attribute name="stdfunreq" value="initDelete" />
+			<f:attribute name="beanName" value="#{beanName}" />
+		</ice:commandButton>
+	</center>
+</ui:composition>

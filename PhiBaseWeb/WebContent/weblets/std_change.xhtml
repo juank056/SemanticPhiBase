@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- 
+	Weblet Para Iniciar el Change de un Registro de Subfile
+Parametros que debe recibir este Weblet
+1. beanName: Nombre del Bean para realizar el Change
+2. regName: Nombre de lo que se envia para change
+3. regValue: Valor de lo enviado para el change
+ -->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component">
+	<center>
+		<ice:commandButton image="/images/btn/edit.gif"
+			actionListener="#{invokeMethodBean.initChange}"
+			title="#{msgs.changeRecord}" alt="#{msgs.changeRecord}">
+			<f:attribute name="#{regName}" value="#{regValue}" />
+			<f:attribute name="stdfunreq" value="initChange" />
+			<f:attribute name="beanName" value="#{beanName}" />
+		</ice:commandButton>
+	</center>
+</ui:composition>

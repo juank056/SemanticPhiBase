@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:p="http://java.sun.com/jsp/jstl/core">
+<ui:composition template="/template/main_template.xhtml">
+	<ui:define name="tittle">
+	#{msgs.se004_tittle}
+	</ui:define>
+	<ui:define name="content">
+		<!-- Incluye parte de autenticacion y la hoja de estilos -->
+		<ui:include src="/weblets/authorization_popup.xhtml">
+			<ui:param name="userIsNotAuthorized"
+				value="#{sE004Bean.userNOTAuthenticatedAndAuthorized}"></ui:param>
+		</ui:include>
+		<!-- Fin del Include de Autorizacion al servicio -->
+		<h:form id="mainForm">
+			<!-- Buscador -->
+			<table class="secphitable">
+				<tr>
+					<td class="caption"><ice:outputText
+							value="#{msgs.se004_systemParameter}" /></td>
+					<td><ice:selectOneMenu value="#{sE004Bean.searchField}">
+							<f:selectItems value="#{sE004Bean.listDropdown}" />
+						</ice:selectOneMenu></td>
+					<td><ice:commandLink
+							styleClass="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left"
+							actionListener="#{sE004Bean.searchRecord}">
+							<span class="ui-button-text ui-c">#{msgs.search}</span>
+							<span class="ui-button-icon-left ui-icon ui-c ui-icon-search"></span>
+						</ice:commandLink></td>
+				</tr>
+			</table>
+			<br />
+			<!-- Subfile -->
+			<ice:dataTable border="1" value="#{sE004Bean.subfileList}" var="reg"
+				id="subfile" rows="#{autenticationBean.maxRegSubfile}"
+				styleClass="subfile_table">
+				<ice:column id="column1">
+					<f:facet name="header">
+						<ice:outputText value="#{msgs.se004_codeParameter}" />
+					</f:facet>
+					<ice:outputText value="#{reg.psicparak}" />
+				</ice:column>
+				<ice:column id="column2">
+					<f:facet name="header">
+						<ice:outputText value="#{msgs.se004_nameParameter}" />
+					</f:facet>
+					<ice:outputText value="#{reg.psidparaf}" />
+				</ice:column>
+				<ice:column id="column3">
+					<f:facet name="header">
+						<ice:outputText value="#{msgs.se004_typeParameter}" />
+					</f:facet>
+					<ice:selectOneMenu value="#{reg.psitparvf}" disabled="true">
+						<f:selectItems value="#{multivalBean.cspparsi_F_psitparvf}" />
+					</ice:selectOneMenu>
+				</ice:column>
+				<ice:column id="column4">
+					<f:facet name="header">
+						<ice:outputText value="#{msgs.se004_parameterValue}" />
+					</f:facet>
+					<ice:outputText value="#{reg.psivalpaf}" />
+				</ice:column>
+				<ice:column id="column5">
+					<f:facet name="header">
+						<ice:outputText value="#{msgs.change}" />
+					</f:facet>
+					<center>
+						<ui:include src="/weblets/std_change.xhtml">
+							<ui:param name="beanName" value="sE004Bean" />
+							<ui:param name="regName" value="parameter" />
+							<ui:param name="regValue" value="#{reg}" />
+						</ui:include>
+					</center>
+				</ice:column>
+				<ice:column id="column6">
+					<f:facet name="header">
+						<ice:outputText value="#{msgs.delete}" />
+					</f:facet>
+					<ui:include src="/weblets/std_delete.xhtml">
+						<ui:param name="beanName" value="sE004Bean" />
+						<ui:param name="regName" value="parameter" />
+						<ui:param name="regValue" value="#{reg}" />
+					</ui:include>
+				</ice:column>
+			</ice:dataTable>
+			<ui:include src="/weblets/list_paginator.xhtml">
+				<ui:param name="nameList" value="subfile" />
+			</ui:include>
+			<br />
+			<table>
+				<tr>
+					<td><ui:include src="/weblets/std_add.xhtml">
+							<ui:param name="beanName" value="sE004Bean" />
+						</ui:include></td>
+				</tr>
+			</table>
+		</h:form>
+		<!-- Composition para pantalla del Add -->
+		<ui:decorate template="/weblets/std_panel_popup_add.xhtml">
+			<ui:param name="idForm" value="addForm" />
+			<ui:param name="visible" value="#{sE004Bean.add}" />
+			<ui:param name="title" value="#{msgs.se004_add}" />
+			<ui:param name="beanName" value="sE004Bean" />
+			<ui:define name="content">
+				<table class="phi_table">
+					<tr>
+						<td class="caption"><ice:outputText
+								value="#{msgs.se004_codeParameter}" /></td>
+						<td><ice:inputText value="#{sE004Bean.object.psicparak}"
+								maxlength="4">
+							</ice:inputText></td>
+					</tr>
+					<tr>
+						<td class="caption"><ice:outputText
+								value="#{msgs.se004_nameParameter}" /></td>
+						<td><ice:inputText value="#{sE004Bean.object.psidparaf}"
+								maxlength="80">
+							</ice:inputText></td>
+					</tr>
+					<tr>
+						<td class="caption"><ice:outputText
+								value="#{msgs.se004_typeParameter}" /></td>
+						<td><ice:selectOneMenu value="#{sE004Bean.object.psitparvf}">
+								<f:selectItems value="#{multivalBean.cspparsi_F_psitparvf}" />
+							</ice:selectOneMenu></td>
+					</tr>
+
+					<tr>
+						<td class="caption"><ice:outputText
+								value="#{msgs.se004_parameterValue}" /></td>
+						<td><ice:inputText value="#{sE004Bean.object.psivalpaf}">
+							</ice:inputText></td>
+					</tr>
+				</table>
+			</ui:define>
+		</ui:decorate>
+		<!-- Composition para pantalla del Change -->
+		<ui:decorate template="/weblets/std_panel_popup_change.xhtml">
+			<ui:param name="idForm" value="changeForm" />
+			<ui:param name="visible" value="#{sE004Bean.change}" />
+			<ui:param name="title" value="#{msgs.se004_change}" />
+			<ui:param name="beanName" value="sE004Bean" />
+			<ui:define name="content">
+				<table class="phi_table">
+					<tr>
+						<td class="caption"><ice:outputText
+								value="#{msgs.se004_codeParameter}" /></td>
+						<td><ice:outputText value="#{sE004Bean.object.psicparak}">
+							</ice:outputText></td>
+					</tr>
+					<tr>
+						<td class="caption"><ice:outputText
+								value="#{msgs.se004_nameParameter}" /></td>
+						<td><ice:inputText value="#{sE004Bean.object.psidparaf}"
+								maxlength="80">
+							</ice:inputText></td>
+					</tr>
+					<tr>
+						<td class="caption"><ice:outputText
+								value="#{msgs.se004_typeParameter}" /></td>
+						<td><ice:selectOneMenu value="#{sE004Bean.object.psitparvf}">
+								<f:selectItems value="#{multivalBean.cspparsi_F_psitparvf}" />
+							</ice:selectOneMenu></td>
+					</tr>
+
+					<tr>
+						<td class="caption"><ice:outputText
+								value="#{msgs.se004_parameterValue}" /></td>
+						<td><ice:inputText value="#{sE004Bean.object.psivalpaf}">
+							</ice:inputText></td>
+					</tr>
+				</table>
+			</ui:define>
+		</ui:decorate>
+	</ui:define>
+</ui:composition>
+</html>

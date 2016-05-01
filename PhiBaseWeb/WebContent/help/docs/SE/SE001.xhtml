@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:p="http://java.sun.com/jsp/jstl/core">
+<ui:composition template="/template/help_service_template.xhtml">
+	<ui:define name="tittle">
+	#{msgs.help_text}: #{msgs.se001_tittle}
+	</ui:define>
+	<ui:define name="content">
+		<table class="phi_table" style="width: 100%;">
+			<!-- Inicio Objetivo y Consideraciones -->
+			<tr>
+				<th>Objetivo</th>
+				<td>Mantenimiento de la estructura que representa a los
+					servicios del sistema.<br /> En esta pantalla se podrán adicionar,
+					modificar y eliminar los servicios del sistema Semantic PHI-BASE
+					Web Interface.
+				</td>
+			</tr>
+			<tr>
+				<th>Consideraciones</th>
+				<td>La definición de los servicios del sistema, depende de las
+					funcionalidades que ofrece la a aplicación.<br />Para incluir un
+					nuevo servicio del sistema se debe contactar al desarrollador que
+					debe indicar los parámetros necesarios.
+				</td>
+			</tr>
+			<!-- Fin Objetivo y Consideraciones -->
+			<!-- Inicio Pantalla Principal -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a class="aTittle">Pantalla
+									Principal</a></th>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Imagen Pantalla Principal -->
+								<div class="serviceImage">
+									<img src="/PhiBaseWeb/help/images/SE001/SE001_main.png" />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>Parámetros Recibidos</th>
+							<td>Ninguno.</td>
+						</tr>
+						<tr>
+							<th>Buscador</th>
+							<td>1. Por servicio del sistema</td>
+						</tr>
+						<tr>
+							<th>Acciones</th>
+							<td><a href="#add" class="link">1. Adicionar Servicio
+									del Sistema</a><br /> <a href="#change" class="link">2.
+									Actualizar Servicio del Sistema</a><br /> <a href="#delete"
+								class="link">3. Eliminar Servicio del Sistema</a><br /></td>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>Ninguna.</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Pantalla Principal -->
+			<!-- Inicio Pantalla Adicionar -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a name="add"
+								class="aTittle">Adicionar Servicio del Sistema</a></th>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Imagen Pantalla Adicionar -->
+								<div class="serviceImage">
+									<img src="/PhiBaseWeb/help/images/SE001/SE001_add.png" />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Tabla Descripción Campos -->
+								<table class="phi_table">
+									<tr>
+										<th class="caption2">Campo</th>
+										<th class="caption2">Descripción</th>
+										<th class="caption2">Tipo de Campo</th>
+										<th class="caption2">Consideraciones</th>
+									</tr>
+									<tr>
+										<td>Código Servicio del Sistema</td>
+										<td>Código del Servicio del Sistema.</td>
+										<td>Alfanumérico</td>
+										<td>1. Este campo es requerido.<br />2. Debe ser
+											previamente definido por el desarrollador del sistema, ya que
+											de esto depende el comportamiento y la autorización de los
+											servicios.
+										</td>
+									</tr>
+									<tr>
+										<td>Nombre Servicio</td>
+										<td>Nombre del Servicio del Sistema.</td>
+										<td>Alfanumérico</td>
+										<td>1. Este campo es requerido.<br />2. El nombre que se
+											defina será el que se desplegará en el menú principal en caso
+											de que el servicio sea desplegable en el menú.
+										</td>
+									</tr>
+									<tr>
+										<td>Descripción Servicio</td>
+										<td>Descripción del Servicio del Sistema.</td>
+										<td>Alfanumérico</td>
+										<td>1. Este campo es requerido.<br />2. Esta descripción
+											se desplegará como ayuda (ALT) sobre los servicios que sean
+											desplegables en el menú principal de la aplicación.
+										</td>
+									</tr>
+									<tr>
+										<td>URL Servicio</td>
+										<td>URL del servicio.</td>
+										<td>URL</td>
+										<td>1. Este campo es requerido.<br />2. La definición de
+											la URL la dará el desarrollador del sistema. En caso de que
+											sea un servicio que no es propio, se debe dar una URL
+											completa de algún servicio de Internet.
+										</td>
+									</tr>
+									<tr>
+										<td>Ícono Servicio</td>
+										<td>Código y descripción del País.</td>
+										<td>Alfanumérico</td>
+										<td>1. Este campo es requerido.<br />2. El ícono del
+											servicio se deberá parametrizar de acuerdo a las imágenes
+											contenidas dentro de la carpeta "images" del sistema.
+										</td>
+									</tr>
+									<tr>
+										<td>Servicio Propio</td>
+										<td>Indicador de si se trata de un servicio propio del
+											sistema o si es un servicio externo.</td>
+										<td>Booleano</td>
+										<td>1. Gracias a este campo, se podrán parametrizar,
+											dentro del sistema, servicios que sean externos al mismo
+											sistema. De esta manera se podrán incluir servicios que sean
+											necesarios y que no sean propios.</td>
+									</tr>
+									<tr>
+										<td>Desplegable en Menú</td>
+										<td>Indicador de servicio desplegable en el menú
+											principal.</td>
+										<td>Booleano</td>
+										<td>1. Este campo será utilizado para determinar si el
+											servicio se podrá acceder desde el menú principal, o si se
+											trata de un servicio que será accedido desde otro servicio.</td>
+									</tr>
+									<tr>
+										<td>Servicio Activo</td>
+										<td>Indicador de servicio Activo.</td>
+										<td>Booleano</td>
+										<td>1. Con este indicador se podrá activar o desactivar
+											el servicio para permitir el ingreso de los usuarios dentro
+											del mismo.</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>Ninguna.</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Pantalla Adicionar -->
+			<!-- Inicio Pantalla Actualizar -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a name="change"
+								class="aTittle">Actualizar Servicio del Sistema</a></th>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Imagen Pantalla Actualizar -->
+								<div class="serviceImage">
+									<img src="/PhiBaseWeb/help/images/SE001/SE001_change.png" />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Tabla Descripción Campos -->
+								<table class="phi_table">
+									<tr>
+										<th class="caption2">Campo</th>
+										<th class="caption2">Descripción</th>
+										<th class="caption2">Tipo de Campo</th>
+										<th class="caption2">Consideraciones</th>
+									</tr>
+									<tr>
+										<td>Código Servicio del Sistema</td>
+										<td>Código del Servicio del Sistema.</td>
+										<td>OUTPUT</td>
+										<td>1. No es posible modificar su valor.</td>
+									</tr>
+									<tr>
+										<td>Nombre Servicio</td>
+										<td>Nombre del Servicio del Sistema.</td>
+										<td>Alfanumérico</td>
+										<td>1. Este campo es requerido.<br />2. El nombre que se
+											defina será el que se desplegará en el menú principal en caso
+											de que el servicio sea desplegable en el menú.
+										</td>
+									</tr>
+									<tr>
+										<td>Descripción Servicio</td>
+										<td>Descripción del Servicio del Sistema.</td>
+										<td>Alfanumérico</td>
+										<td>1. Este campo es requerido.<br />2. Esta descripción
+											se desplegará como ayuda (ALT) sobre los servicios que sean
+											desplegables en el menú principal de la aplicación.
+										</td>
+									</tr>
+									<tr>
+										<td>URL Servicio</td>
+										<td>URL del servicio.</td>
+										<td>URL</td>
+										<td>1. Este campo es requerido.<br />2. La definición de
+											la URL la dará el desarrollador del sistema. En caso de que
+											sea un servicio que no es propio, se debe dar una URL
+											completa de algún servicio de Internet.
+										</td>
+									</tr>
+									<tr>
+										<td>Ícono Servicio</td>
+										<td>Código y descripción del País.</td>
+										<td>Alfanumérico</td>
+										<td>1. Este campo es requerido.<br />2. El ícono del
+											servicio se deberá parametrizar de acuerdo a las imágenes
+											contenidas dentro de la carpeta "images" del sistema.
+										</td>
+									</tr>
+									<tr>
+										<td>Servicio Propio</td>
+										<td>Indicador de si se trata de un servicio propio del
+											sistema o si es un servicio externo.</td>
+										<td>Booleano</td>
+										<td>1. Gracias a este campo, se podrán parametrizar,
+											dentro del sistema, servicios que sean externos al mismo
+											sistema. De esta manera se podrán incluir servicios que sean
+											necesarios y que no sean propios.</td>
+									</tr>
+									<tr>
+										<td>Desplegable en Menú</td>
+										<td>Indicador de servicio desplegable en el menú
+											principal</td>
+										<td>Booleano</td>
+										<td>1. Este campo será utilizado para determinar si el
+											servicio se podrá acceder desde el menú principal, o si se
+											trata de un servicio que será accedido desde otro servicio.</td>
+									</tr>
+									<tr>
+										<td>Servicio Activo</td>
+										<td>Indicador de servicio Activo.</td>
+										<td>Booleano</td>
+										<td>1. Con este indicador se podrá activar o desactivar
+											el servicio para permitir el ingreso de los usuarios dentro
+											del mismo.</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>Ninguna.</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Pantalla Actualizar -->
+			<!-- Inicio Pantalla Eliminar -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a name="delete"
+								class="aTittle">Eliminar Servicio del Sistema</a></th>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>1. No es posible eliminar el registro sí existen
+								registros relacionados en la estructura de asociación de
+								Servicios del Sistema a Perfiles de Usuario.</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Pantalla Eliminar -->
+		</table>
+	</ui:define>
+</ui:composition>
+</html>

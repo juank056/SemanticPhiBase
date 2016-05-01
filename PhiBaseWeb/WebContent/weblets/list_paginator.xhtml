@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- Weblet Paginador -->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component">
+	<center>
+		<ice:dataPaginator for="#{nameList}" paginator="true"
+			paginatorMaxPages="#{autenticationBean.maxPagesSubfile}"
+			renderFacetsIfSinglePage="false" id="listPaginator_#{nameList}">
+			<f:facet name="first">
+				<ice:graphicImage url="/images/icons/normal/16/first_16.png"
+					alt="#{msgs.firstPage}" title="#{msgs.firstPage}" />
+			</f:facet>
+			<f:facet name="last">
+				<ice:graphicImage url="/images/icons/normal/16/last_16.png"
+					alt="#{msgs.lastPage}" title="#{msgs.lastPage}" />
+			</f:facet>
+			<f:facet name="previous">
+				<ice:graphicImage url="/images/icons/normal/16/previous_16.png"
+					alt="#{msgs.prevPage}" title="#{msgs.prevPage}" />
+			</f:facet>
+			<f:facet name="next">
+				<ice:graphicImage url="/images/icons/normal/16/next_16.png"
+					alt="#{msgs.nextPage}" title="#{msgs.nextPage}" />
+			</f:facet>
+		</ice:dataPaginator>
+	</center>
+</ui:composition>

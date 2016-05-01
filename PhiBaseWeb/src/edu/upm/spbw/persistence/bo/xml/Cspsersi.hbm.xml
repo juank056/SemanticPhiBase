@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 01-mar-2016 14:25:13 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="edu.upm.spbw.persistence.bo.Cspsersi" table="CSPSERSI">
+		<id name="ssicssiak" type="string">
+			<column name="SSICSSIAK" length="5" />
+			<generator class="assigned" />
+		</id>
+		<property name="ssinssiaf" type="string">
+			<column name="SSINSSIAF" length="45" not-null="true" />
+		</property>
+		<property name="ssidssiaf" type="string">
+			<column name="SSIDSSIAF" length="80" not-null="true" />
+		</property>
+		<property name="ssidurlaf" type="string">
+			<column name="SSIDURLAF" length="256" not-null="true" />
+		</property>
+		<property name="ssiiconaf" type="string">
+			<column name="SSIICONAF" length="256" not-null="true" />
+		</property>
+		<property name="ssiiprosf" type="string">
+			<column name="SSIIPROSF" length="1" not-null="true" />
+		</property>
+		<property name="ssiidessf" type="string">
+			<column name="SSIIDESSF" length="1" not-null="true" />
+		</property>
+		<property name="ssiiactsf" type="string">
+			<column name="SSIIACTSF" length="1" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

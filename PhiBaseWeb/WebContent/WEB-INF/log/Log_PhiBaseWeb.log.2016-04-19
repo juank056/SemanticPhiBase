@@ -1,0 +1,124 @@
+19 abr 2016 15:57:04 Linea 53 [http-bio-8080-exec-9] ERROR edu.upm.spbw.bbeans.crud.SE005Bean  - edu.upm.spbw.utils.MailException: javax.mail.AuthenticationFailedException: 534-5.7.9 Please log in with your web browser and then try again. Learn more at
+534 5.7.9  https://support.google.com/mail/answer/78754 w186sm4463092wmd.20 - gsmtp
+
+	at edu.upm.spbw.utils.MailManager.sendMessage(MailManager.java:183)
+	at edu.upm.spbw.bbeans.crud.SE005Bean.sendEmailNewPassword(SE005Bean.java:443)
+	at edu.upm.spbw.bbeans.crud.SE005Bean.regeneratePassword(SE005Bean.java:298)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.el.parser.AstValue.invoke(AstValue.java:278)
+	at org.apache.el.MethodExpressionImpl.invoke(MethodExpressionImpl.java:273)
+	at com.sun.faces.facelets.el.TagMethodExpression.invoke(TagMethodExpression.java:105)
+	at javax.faces.event.MethodExpressionActionListener.processAction(MethodExpressionActionListener.java:148)
+	at javax.faces.event.ActionEvent.processListener(ActionEvent.java:88)
+	at javax.faces.component.UIComponentBase.broadcast(UIComponentBase.java:775)
+	at javax.faces.component.UICommand.broadcast(UICommand.java:300)
+	at org.icefaces.impl.component.UISeriesBase.broadcast(UISeriesBase.java:481)
+	at javax.faces.component.UIViewRoot.broadcastEvents(UIViewRoot.java:786)
+	at javax.faces.component.UIViewRoot.processApplication(UIViewRoot.java:1251)
+	at com.sun.faces.lifecycle.InvokeApplicationPhase.execute(InvokeApplicationPhase.java:81)
+	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:101)
+	at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:118)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:593)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:220)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:122)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:505)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:170)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:956)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:423)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1079)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:625)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:318)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: javax.mail.AuthenticationFailedException: 534-5.7.9 Please log in with your web browser and then try again. Learn more at
+534 5.7.9  https://support.google.com/mail/answer/78754 w186sm4463092wmd.20 - gsmtp
+
+	at com.sun.mail.smtp.SMTPTransport$Authenticator.authenticate(SMTPTransport.java:826)
+	at com.sun.mail.smtp.SMTPTransport.authenticate(SMTPTransport.java:761)
+	at com.sun.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:685)
+	at javax.mail.Service.connect(Service.java:345)
+	at javax.mail.Service.connect(Service.java:226)
+	at javax.mail.Service.connect(Service.java:246)
+	at edu.upm.spbw.utils.MailManager.sendMessage(MailManager.java:175)
+	... 40 more
+
+19 abr 2016 16:09:37 Linea 53 [http-bio-8080-exec-6] ERROR edu.upm.spbw.bbeans.crud.SE005Bean  - edu.upm.spbw.utils.MailException: javax.mail.AuthenticationFailedException: 534-5.7.14 <https://accounts.google.com/signin/continue?sarp=1&scc=1&plt=AKgnsbv7
+534-5.7.14 FBFWxkvVdZCYSokG6SgxSisXNzUQzXn7khCIE7N5YYXy58-rQuIWMtdcx8alyAONFl29hE
+534-5.7.14 I1DOrCeUb_njcX1fd6H9V4PE-O_pKPG63opwEjVOdFXxls1VHvzrgsC9yLA09mCtJjnIaX
+534-5.7.14 KBcM-qXvapi7_-WbirKVDHt-Jiha7zPj081FM7nniqz1DiR5-NH2UMYqKzKrX0r0dy6IXr
+534-5.7.14 AfB4wbNgljhdYspxk2Dh_DdQlKA50> Please log in via your web browser and
+534-5.7.14 then try again.
+534-5.7.14  Learn more at
+534 5.7.14  https://support.google.com/mail/answer/78754 f186sm4505740wmf.24 - gsmtp
+
+	at edu.upm.spbw.utils.MailManager.sendMessage(MailManager.java:183)
+	at edu.upm.spbw.bbeans.crud.SE005Bean.sendEmailNewPassword(SE005Bean.java:443)
+	at edu.upm.spbw.bbeans.crud.SE005Bean.regeneratePassword(SE005Bean.java:298)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+	at java.lang.reflect.Method.invoke(Unknown Source)
+	at org.apache.el.parser.AstValue.invoke(AstValue.java:278)
+	at org.apache.el.MethodExpressionImpl.invoke(MethodExpressionImpl.java:273)
+	at com.sun.faces.facelets.el.TagMethodExpression.invoke(TagMethodExpression.java:105)
+	at javax.faces.event.MethodExpressionActionListener.processAction(MethodExpressionActionListener.java:148)
+	at javax.faces.event.ActionEvent.processListener(ActionEvent.java:88)
+	at javax.faces.component.UIComponentBase.broadcast(UIComponentBase.java:775)
+	at javax.faces.component.UICommand.broadcast(UICommand.java:300)
+	at org.icefaces.impl.component.UISeriesBase.broadcast(UISeriesBase.java:481)
+	at javax.faces.component.UIViewRoot.broadcastEvents(UIViewRoot.java:786)
+	at javax.faces.component.UIViewRoot.processApplication(UIViewRoot.java:1251)
+	at com.sun.faces.lifecycle.InvokeApplicationPhase.execute(InvokeApplicationPhase.java:81)
+	at com.sun.faces.lifecycle.Phase.doPhase(Phase.java:101)
+	at com.sun.faces.lifecycle.LifecycleImpl.execute(LifecycleImpl.java:118)
+	at javax.faces.webapp.FacesServlet.service(FacesServlet.java:593)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:303)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:52)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:241)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:208)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:220)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:122)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:505)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:170)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103)
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:956)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:116)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:423)
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1079)
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:625)
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:318)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: javax.mail.AuthenticationFailedException: 534-5.7.14 <https://accounts.google.com/signin/continue?sarp=1&scc=1&plt=AKgnsbv7
+534-5.7.14 FBFWxkvVdZCYSokG6SgxSisXNzUQzXn7khCIE7N5YYXy58-rQuIWMtdcx8alyAONFl29hE
+534-5.7.14 I1DOrCeUb_njcX1fd6H9V4PE-O_pKPG63opwEjVOdFXxls1VHvzrgsC9yLA09mCtJjnIaX
+534-5.7.14 KBcM-qXvapi7_-WbirKVDHt-Jiha7zPj081FM7nniqz1DiR5-NH2UMYqKzKrX0r0dy6IXr
+534-5.7.14 AfB4wbNgljhdYspxk2Dh_DdQlKA50> Please log in via your web browser and
+534-5.7.14 then try again.
+534-5.7.14  Learn more at
+534 5.7.14  https://support.google.com/mail/answer/78754 f186sm4505740wmf.24 - gsmtp
+
+	at com.sun.mail.smtp.SMTPTransport$Authenticator.authenticate(SMTPTransport.java:826)
+	at com.sun.mail.smtp.SMTPTransport.authenticate(SMTPTransport.java:761)
+	at com.sun.mail.smtp.SMTPTransport.protocolConnect(SMTPTransport.java:685)
+	at javax.mail.Service.connect(Service.java:345)
+	at javax.mail.Service.connect(Service.java:226)
+	at javax.mail.Service.connect(Service.java:246)
+	at edu.upm.spbw.utils.MailManager.sendMessage(MailManager.java:175)
+	... 40 more
+

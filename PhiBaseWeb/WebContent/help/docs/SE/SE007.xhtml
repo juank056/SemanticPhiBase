@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:p="http://java.sun.com/jsp/jstl/core">
+<ui:composition template="/template/help_service_template.xhtml">
+	<ui:define name="tittle">
+	#{msgs.help_text}: #{msgs.se007_tittle}
+	</ui:define>
+	<ui:define name="content">
+		<table class="phi_table" style="width: 100%;">
+			<!-- Inicio Objetivo y Consideraciones -->
+			<tr>
+				<th>Objetivo</th>
+				<td>Esta pantalla permite realizar la consulta de los bloqueos
+					que se han realizado a un usuario por intentos fallidos de Login
+					dentro del sistema.</td>
+			</tr>
+			<tr>
+				<th>Consideraciones</th>
+				<td>Ninguna.</td>
+			</tr>
+			<!-- Fin Objetivo y Consideraciones -->
+			<!-- Inicio Pantalla Principal -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a class="aTittle">Pantalla
+									Principal</a></th>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Imagen Pantalla Principal -->
+								<div class="serviceImage">
+									<img src="/PhiBaseWeb/help/images/SE007/SE007_main.png" />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>Parámetros Recibidos</th>
+							<td>Ninguno.</td>
+						</tr>
+						<tr>
+							<th>Buscador</th>
+							<td>1. Por rango de fechas de bloqueo.<br />2. Por Usuario
+								del Sistema.<br />3. Por rango de fechas y Usuario del Sistema.
+							</td>
+						</tr>
+						<tr>
+							<th>Acciones</th>
+							<td>Ninguna.</td>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>1. Los campos que se consultan de cada Log de ingreso
+								son los siguientes:<br />&#160;&#160;&#160;a. Usuario
+								Bloqueado: Se trata del identificador del usuario que ha sido
+								bloqueado en el sistema.<br />&#160;&#160;&#160;b. Tiempo de
+								Bloqueo: Fecha y hora de generación del bloqueo.<br />&#160;&#160;&#160;c.
+								Intentos Fallidos: Número de intentos fallidos de Login que ha
+								realizado el usuario para ingresar al sistema.<br />&#160;&#160;&#160;d.
+								Tiempo Desbloqueo: Fecha y Hora en que se ha realizado el
+								desbloqueo del usuario para permitir su ingreso.<br />&#160;&#160;&#160;e.
+								Usuario Desbloqueo: Usuario que ha realizado el desbloqueo del
+								usuario bloqueado. Puede ser "Automático Sistema" en caso de que
+								haya sido un desbloqueo automático.<br />&#160;&#160;&#160;f.
+								Desbloqueo Automático: Indicador para saber si se trata de un
+								desbloqueo automático o de si ha sido un usuario el que ha
+								realizado el desbloqueo manualmente.
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Pantalla Principal -->
+		</table>
+	</ui:define>
+</ui:composition>
+</html>

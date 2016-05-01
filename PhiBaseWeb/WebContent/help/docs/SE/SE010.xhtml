@@ -1,0 +1,331 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:p="http://java.sun.com/jsp/jstl/core">
+<ui:composition template="/template/help_service_template.xhtml">
+	<ui:define name="tittle">
+	#{msgs.help_text}: #{msgs.se010_tittle}
+	</ui:define>
+	<ui:define name="content">
+		<table class="phi_table" style="width: 100%;">
+			<!-- Inicio Objetivo y Consideraciones -->
+			<tr>
+				<th>Objetivo</th>
+				<td>Mantenimiento de la estructuras de Detalle de Coneptos
+					Semánticos y el Detalle de sus Relaciones.</td>
+			</tr>
+			<tr>
+				<th>Consideraciones</th>
+				<td>1. Estas estructuras se cargarán automáticamente de acuerdo
+					a la parametrización que se haga en las estructuras de Conceptos
+					Semánticos y sus Relaciones. Ver <a class="link"
+					href="/PhiBaseWeb/help/docs/SE/SE009.jsf">Concepto Semántico.</a>
+				</td>
+			</tr>
+			<!-- Fin Objetivo y Consideraciones -->
+			<!-- Inicio Pantalla Principal -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a class="aTittle">Pantalla
+									Principal</a></th>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Imagen Pantalla Principal -->
+								<div class="serviceImage">
+									<img src="/PhiBaseWeb/help/images/SE010/SE010_main.png" />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>Parámetros Recibidos</th>
+							<td>Ninguno.</td>
+						</tr>
+						<tr>
+							<th>Buscador</th>
+							<td>1. Por Concepto Semántico.<br /> 2. Por valor parcial
+								de IRI del Detalle del Concepto Semántico.
+							</td>
+						</tr>
+						<tr>
+							<th>Acciones</th>
+							<td><a href="#add" class="link">1. Adicionar Detalle
+									Concepto Semántico</a><br /> <a href="#change" class="link">2.
+									Actualizar Detalle Concepto Semántico</a><br /> <a href="#delete"
+								class="link">3. Eliminar Detalle Concepto Semántico</a><br /> <a
+								href="#display" class="link">4. Detalle de Detalle Concepto
+									Semántico</a></td>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>Ninguna.</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Pantalla Principal -->
+			<!-- Inicio Pantalla Adicionar -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a name="add"
+								class="aTittle">Adicionar Detalle Concepto Semántico</a></th>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Imagen Pantalla Adicionar -->
+								<div class="serviceImage">
+									<img src="/PhiBaseWeb/help/images/SE010/SE010_add.png" />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Tabla Descripción Campos -->
+								<table class="phi_table">
+									<tr>
+										<th class="caption2">Campo</th>
+										<th class="caption2">Descripción</th>
+										<th class="caption2">Tipo de Campo</th>
+										<th class="caption2">Consideraciones</th>
+									</tr>
+									<tr>
+										<td>Concepto Semántico</td>
+										<td>Concepto Semántico del Detalle a adicionar.</td>
+										<td>Alfanumérico-Lista</td>
+										<td>1. Este campo es requerido.<br />2. Lista de
+											Conceptos Semánticos parametrizados en el sistema. Ver <a
+											class="link" href="/PhiBaseWeb/help/docs/SE/SE009.jsf">Concepto
+												Semántico.</a>
+										</td>
+									</tr>
+									<tr>
+										<td>IRI Detalle Concepto Semántico</td>
+										<td>La IRI (Internationalized Resource Identifier) que
+											representa al Detalle del Concepto Semántico.</td>
+										<td>Alfanumérico</td>
+										<td>1. Este campo es requerido.<br />2. Debe ser una IRI
+											válida dentro del sistema de Semantic PHI-BASE.
+										</td>
+									</tr>
+									<tr>
+										<td colspan="4" align="center">Detalle Relaciones
+											Concepto Semántico</td>
+									</tr>
+									<tr>
+										<td>Relación Concepto</td>
+										<td>La Relación del Concepto Semántico</td>
+										<td>OUTPUT</td>
+										<td>1. Su valor será el parametrizado en el mantenimiento
+											de Conceptos Semánticos. Ver <a class="link"
+											href="/PhiBaseWeb/help/docs/SE/SE009.jsf">Concepto
+												Semántico.</a>
+										</td>
+									</tr>
+									<tr>
+										<td>Valor Relación</td>
+										<td>Valor del Detalle de la Relación del Concepto
+											Semántico</td>
+										<td>Alfanumérico</td>
+										<td>1. Este campo es requerido.</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>Ninguna.</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Pantalla Adicionar -->
+			<!-- Inicio Pantalla Actualizar -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a name="change"
+								class="aTittle">Actualizar Detalle Concepto Semántico</a></th>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Imagen Pantalla Actualizar -->
+								<div class="serviceImage">
+									<img src="/PhiBaseWeb/help/images/SE010/SE010_change.png" />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Tabla Descripción Campos -->
+								<table class="phi_table">
+									<tr>
+										<th class="caption2">Campo</th>
+										<th class="caption2">Descripción</th>
+										<th class="caption2">Tipo de Campo</th>
+										<th class="caption2">Consideraciones</th>
+									</tr>
+									<tr>
+										<td>Concepto Semántico</td>
+										<td>Concepto Semántico del Detalle a adicionar.</td>
+										<td>OUTPUT</td>
+										<td>1. No es posible modificar su valor.</td>
+									</tr>
+									<tr>
+										<td>IRI Detalle Concepto Semántico</td>
+										<td>La IRI (Internationalized Resource Identifier) que
+											representa al Detalle del Concepto Semántico.</td>
+										<td>Alfanumérico</td>
+										<td>1. Este campo es requerido.<br />2. Debe ser una IRI
+											válida dentro del sistema de Semantic PHI-BASE.
+										</td>
+									</tr>
+									<tr>
+										<td colspan="4" align="center">Detalle Relaciones
+											Concepto Semántico</td>
+									</tr>
+									<tr>
+										<td>Relación Concepto</td>
+										<td>La Relación del Concepto Semántico</td>
+										<td>OUTPUT</td>
+										<td>1. Su valor será el parametrizado en el mantenimiento
+											de Conceptos Semánticos. Ver <a class="link"
+											href="/PhiBaseWeb/help/docs/SE/SE009.jsf">Concepto
+												Semántico.</a>
+										</td>
+									</tr>
+									<tr>
+										<td>Valor Relación</td>
+										<td>Valor del Detalle de la Relación del Concepto
+											Semántico</td>
+										<td>Alfanumérico</td>
+										<td>1. Este campo es requerido.</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>Ninguna.</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Pantalla Actualizar -->
+			<!-- Inicio Pantalla Eliminar -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a name="delete"
+								class="aTittle">Eliminar Detalle Concepto Semántico</a></th>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>Ninguna.</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Pantalla Eliminar -->
+			<!-- Inicio Pantalla Detalle -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a name="display"
+								class="aTittle">Detalle Detalle Concepto Semántico</a></th>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Imagen Pantalla Display -->
+								<div class="serviceImage">
+									<img src="/PhiBaseWeb/help/images/SE010/SE010_display.png" />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Tabla Descripción Campos -->
+								<table class="phi_table">
+									<tr>
+										<th class="caption2">Campo</th>
+										<th class="caption2">Descripción</th>
+										<th class="caption2">Tipo de Campo</th>
+										<th class="caption2">Consideraciones</th>
+									</tr>
+									<tr>
+										<td>Concepto Semántico</td>
+										<td>Concepto Semántico del Detalle a adicionar.</td>
+										<td>OUTPUT</td>
+										<td>1. No es posible modificar su valor.</td>
+									</tr>
+									<tr>
+										<td>IRI Detalle Concepto Semántico</td>
+										<td>La IRI (Internationalized Resource Identifier) que
+											representa al Detalle del Concepto Semántico.</td>
+										<td>OUTPUT</td>
+										<td>1. No es posible modificar su valor.</td>
+									</tr>
+									<tr>
+										<td colspan="4" align="center">Detalle Relaciones
+											Concepto Semántico</td>
+									</tr>
+									<tr>
+										<td>Relación Concepto</td>
+										<td>La Relación del Concepto Semántico</td>
+										<td>OUTPUT</td>
+										<td>1. Su valor será el parametrizado en el mantenimiento
+											de Conceptos Semánticos. Ver <a class="link"
+											href="/PhiBaseWeb/help/docs/SE/SE009.jsf">Concepto
+												Semántico.</a>
+										</td>
+									</tr>
+									<tr>
+										<td>Valor Relación</td>
+										<td>Valor del Detalle de la Relación del Concepto
+											Semántico</td>
+										<td>OUTPUT</td>
+										<td>1. No es posible modificar su valor.</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>Ninguna.</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Pantalla Detalle -->
+		</table>
+	</ui:define>
+</ui:composition>
+</html>

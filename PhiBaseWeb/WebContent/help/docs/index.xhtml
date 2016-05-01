@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:p="http://java.sun.com/jsp/jstl/core">
+<ui:composition template="/template/help_service_template.xhtml">
+	<ui:define name="tittle">
+	#{msgs.help_text}: #{msgs.index_title}
+	</ui:define>
+	<ui:define name="content">
+		<table class="phi_table" style="width: 100%;">
+			<!-- Inicio Objetivo y Consideraciones -->
+			<tr>
+				<th>Objetivo</th>
+				<td>Esta pantalla, es la pantalla inicial de acceso al sistema
+					Semantic PHI-BASE Web Interface. Desde aqui los usuarios podrán
+					autenticarse utilizando las credenciales que se les hayan
+					proporcionado para tal fin.</td>
+			</tr>
+			<tr>
+				<th>Consideraciones</th>
+				<td>Es importante que los usuarios hayan recibido un correo
+					electrónico inicial en donde se indican sus credenciales para su
+					primer ingreso. En caso de que no se hayan recibido las
+					credenciales se debe contactar con el administrador del sistema
+					para que proceda a reenviarlas.</td>
+			</tr>
+			<!-- Fin Objetivo y Consideraciones -->
+			<!-- Inicio Pantalla Principal -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a class="aTittle">Pantalla
+									Principal</a></th>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Imagen Pantalla Principal -->
+								<div class="serviceImage">
+									<img src="/PhiBaseWeb/help/images/index/index.png" />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>Para ingresar al sistema se debe introducir el nombre de
+								usuario (Un E-Mail que identifica al usuario dentro del
+								sistema), junto con su contraseña de acceso. En el momento en el
+								que el usuario ingresa los datos y da click sobre el bóton
+								"Ingresar", ocurren las siguientes acciones:<br />&#160;&#160;&#160;1.
+								Se valida que el usuario exista en el sistema y que su
+								contraseña sea correcta.<br />&#160;&#160;&#160;2. Se valida
+								que el usuario tenga un estado que le permita ingresar al
+								sistema (Activo).<br />&#160;&#160;&#160;3. Se valida la
+								caducidad de su contraseña y la fecha de último cambio para
+								saber si debe cambiarla.<br /> <br /> En caso de que todo sea
+								correcto, se procederá a cargar la pantalla de menú principal de
+								la aplicación (Ver: <a class="link"
+								href="/PhiBaseWeb/help/docs/main_menu.jsf">Menú Principal</a>),
+								en donde se desplegarán todos los servicios a los que el usuario
+								tenga acceso.<br />En caso de que el usuario tenga que cambiar
+								su contraseña, se navegará hacia la pantalla de cambio de
+								contraseña (Ver: <a class="link"
+								href="/PhiBaseWeb/help/docs/new_password.jsf">Actualizar
+									Contraseña</a>).<br />Finalmente, si el nombre de usuario o la
+								contraseña son incorrectos, se quedará en la misma pantalla
+								indicando el mensaje de error. Es importante saber que se tienen
+								un número limitado de intentos fallidos (Parámetro del Sistema),
+								y en el momento en que se cumplan, se procederá a inactivar el
+								usuario por un tiempo parametrizado o hasta que sea activado de
+								nuevo manualmente.
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Pantalla Principal -->
+		</table>
+	</ui:define>
+</ui:composition>
+</html>

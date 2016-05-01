@@ -1,0 +1,399 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<faces-config xmlns="http://java.sun.com/xml/ns/javaee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd"
+	version="2.1">
+	<application>
+		<locale-config>
+			<default-locale>es</default-locale>
+			<supported-locale>en</supported-locale>
+			<supported-locale>de</supported-locale>
+		</locale-config>
+		<resource-bundle>
+			<base-name>edu.upm.spbw.resources.messages</base-name>
+			<var>msgs</var>
+		</resource-bundle>
+	</application>
+	<managed-bean>
+		<description>Bean que maneja la autenticación y autorización de usuarios en el sistema</description>
+		<managed-bean-name>autenticationBean</managed-bean-name>
+		<managed-bean-class>edu.upm.spbw.bbeans.base.AutenticationBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>Bean para la actualizacion de contrasena</description>
+		<managed-bean-name>newPasswordBean</managed-bean-name>
+		<managed-bean-class>edu.upm.spbw.bbeans.base.NewPasswordBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>Bean para el manejo de la navegacion</description>
+		<managed-bean-name>navigationHandler</managed-bean-name>
+		<managed-bean-class>edu.upm.spbw.bbeans.base.NavigationHandler</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>Bean que contiene los multivalores de las tablas</description>
+		<managed-bean-name>multivalBean</managed-bean-name>
+		<managed-bean-class>edu.upm.spbw.bbeans.base.MultivalBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>Bean para la invocacion de metodos</description>
+		<managed-bean-name>invokeMethodBean</managed-bean-name>
+		<managed-bean-class>edu.upm.spbw.bbeans.base.InvokeMethodBean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>Mantenimiento Servicio del Sistema</description>
+		<managed-bean-name>sE001Bean</managed-bean-name>
+		<managed-bean-class>edu.upm.spbw.bbeans.crud.SE001Bean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>Mantenimiento Perfiles de Usuario</description>
+		<managed-bean-name>sE002Bean</managed-bean-name>
+		<managed-bean-class>edu.upm.spbw.bbeans.crud.SE002Bean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>Asociar Servicios a Perfiles de Usuario</description>
+		<managed-bean-name>sE003Bean</managed-bean-name>
+		<managed-bean-class>edu.upm.spbw.bbeans.crud.SE003Bean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>Mantenimiento Parametro del Sistema</description>
+		<managed-bean-name>sE004Bean</managed-bean-name>
+		<managed-bean-class>edu.upm.spbw.bbeans.crud.SE004Bean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>Mantenimiento y Gestion de usuarios</description>
+		<managed-bean-name>sE005Bean</managed-bean-name>
+		<managed-bean-class>edu.upm.spbw.bbeans.crud.SE005Bean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>Consulta Log de Ingreso Usuario</description>
+		<managed-bean-name>sE006Bean</managed-bean-name>
+		<managed-bean-class>edu.upm.spbw.bbeans.crud.SE006Bean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>Consulta Bloqueos de Usuario</description>
+		<managed-bean-name>sE007Bean</managed-bean-name>
+		<managed-bean-class>edu.upm.spbw.bbeans.crud.SE007Bean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>Consulta Queries Ejecutadas por los usuarios</description>
+		<managed-bean-name>sE008Bean</managed-bean-name>
+		<managed-bean-class>edu.upm.spbw.bbeans.crud.SE008Bean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>Mantenimiento de Conceptos Semánticos</description>
+		<managed-bean-name>sE009Bean</managed-bean-name>
+		<managed-bean-class>edu.upm.spbw.bbeans.crud.SE009Bean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>Mantenimiento Detalle de Conceptos</description>
+		<managed-bean-name>sE010Bean</managed-bean-name>
+		<managed-bean-class>edu.upm.spbw.bbeans.crud.SE010Bean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<managed-bean>
+		<description>Consulta Semantic PHI-BASE</description>
+		<managed-bean-name>sE011Bean</managed-bean-name>
+		<managed-bean-class>edu.upm.spbw.bbeans.phi.SE011Bean</managed-bean-class>
+		<managed-bean-scope>session</managed-bean-scope>
+	</managed-bean>
+	<navigation-rule>
+		<display-name>index.xhtml</display-name>
+		<from-view-id>/index.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>index_main</from-outcome>
+			<to-view-id>/main_menu.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>main_menu.xhtml</display-name>
+		<from-view-id>/main_menu.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>main_index</from-outcome>
+			<to-view-id>/index.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>index.xhtml</display-name>
+		<from-view-id>/index.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>index_index</from-outcome>
+			<to-view-id>/index.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>index.xhtml</display-name>
+		<from-view-id>/index.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>newPassword</from-outcome>
+			<to-view-id>/new_password.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>new_password.xhtml</display-name>
+		<from-view-id>/new_password.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>newPasswd_index</from-outcome>
+			<to-view-id>/index.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>new_password.xhtml</display-name>
+		<from-view-id>/new_password.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>newPasswd_main</from-outcome>
+			<to-view-id>/main_menu.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>main_menu.xhtml</display-name>
+		<from-view-id>/main_menu.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>newPassword</from-outcome>
+			<to-view-id>/new_password.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>new_password.xhtml</display-name>
+		<from-view-id>/new_password.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>newPasswd_newPasswd</from-outcome>
+			<to-view-id>/new_password.xhtml</to-view-id>
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>main_menu.xhtml</display-name>
+		<from-view-id>/main_menu.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>SE004</from-outcome>
+			<to-view-id>/SE/SE004.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>SE/SE004.xhtml</display-name>
+		<from-view-id>/SE/SE004.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>main_menu</from-outcome>
+			<to-view-id>/main_menu.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>main_menu.xhtml</display-name>
+		<from-view-id>/main_menu.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>SE001</from-outcome>
+			<to-view-id>/SE/SE001.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>SE/SE001.xhtml</display-name>
+		<from-view-id>/SE/SE001.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>main_menu</from-outcome>
+			<to-view-id>/main_menu.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>main_menu.xhtml</display-name>
+		<from-view-id>/main_menu.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>SE002</from-outcome>
+			<to-view-id>/SE/SE002.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>SE/SE002.xhtml</display-name>
+		<from-view-id>/SE/SE002.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>main_menu</from-outcome>
+			<to-view-id>/main_menu.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>SE/SE002.xhtml</display-name>
+		<from-view-id>/SE/SE002.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>SE002_SE003</from-outcome>
+			<to-view-id>/SE/SE003.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>SE/SE003.xhtml</display-name>
+		<from-view-id>/SE/SE003.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>SE003_SE002</from-outcome>
+			<to-view-id>/SE/SE002.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>main_menu.xhtml</display-name>
+		<from-view-id>/main_menu.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>SE005</from-outcome>
+			<to-view-id>/SE/SE005.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>SE/SE005.xhtml</display-name>
+		<from-view-id>/SE/SE005.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>main_menu</from-outcome>
+			<to-view-id>/main_menu.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>main_menu.xhtml</display-name>
+		<from-view-id>/main_menu.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>SE006</from-outcome>
+			<to-view-id>/SE/SE006.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>SE/SE006.xhtml</display-name>
+		<from-view-id>/SE/SE006.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>main_menu</from-outcome>
+			<to-view-id>/main_menu.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>main_menu.xhtml</display-name>
+		<from-view-id>/main_menu.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>SE007</from-outcome>
+			<to-view-id>/SE/SE007.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>SE/SE007.xhtml</display-name>
+		<from-view-id>/SE/SE007.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>main_menu</from-outcome>
+			<to-view-id>/main_menu.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>main_menu.xhtml</display-name>
+		<from-view-id>/main_menu.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>SE008</from-outcome>
+			<to-view-id>/SE/SE008.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>SE/SE008.xhtml</display-name>
+		<from-view-id>/SE/SE008.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>main_menu</from-outcome>
+			<to-view-id>/main_menu.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>main_menu.xhtml</display-name>
+		<from-view-id>/main_menu.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>SE009</from-outcome>
+			<to-view-id>/SE/SE009.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>SE/SE009.xhtml</display-name>
+		<from-view-id>/SE/SE009.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>main_menu</from-outcome>
+			<to-view-id>/main_menu.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>main_menu.xhtml</display-name>
+		<from-view-id>/main_menu.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>SE010</from-outcome>
+			<to-view-id>/SE/SE010.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>SE/SE010.xhtml</display-name>
+		<from-view-id>/SE/SE010.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>main_menu</from-outcome>
+			<to-view-id>/main_menu.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>main_menu.xhtml</display-name>
+		<from-view-id>/main_menu.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>SE011</from-outcome>
+			<to-view-id>/SE/SE011.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>SE/SE011.xhtml</display-name>
+		<from-view-id>/SE/SE011.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>main_menu</from-outcome>
+			<to-view-id>/main_menu.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>SE/SE008.xhtml</display-name>
+		<from-view-id>/SE/SE008.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>SE008_SE011</from-outcome>
+			<to-view-id>/SE/SE011.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+	<navigation-rule>
+		<display-name>SE/SE011.xhtml</display-name>
+		<from-view-id>/SE/SE011.xhtml</from-view-id>
+		<navigation-case>
+			<from-outcome>SE011_SE008</from-outcome>
+			<to-view-id>/SE/SE008.xhtml</to-view-id>
+			<redirect />
+		</navigation-case>
+	</navigation-rule>
+</faces-config>

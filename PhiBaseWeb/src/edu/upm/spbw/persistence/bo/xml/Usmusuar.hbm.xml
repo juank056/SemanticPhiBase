@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 28-feb-2016 11:50:28 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="edu.upm.spbw.persistence.bo.Usmusuar" table="USMUSUAR">
+		<id name="usuemaiak" type="string">
+			<column name="USUEMAIAK" length="60" />
+			<generator class="assigned" />
+		</id>
+		<property name="usunusuaf" type="string">
+			<column name="USUNUSUAF" length="60" not-null="true" />
+		</property>
+		<property name="usupassaf" type="string">
+			<column name="USUPASSAF" length="64" not-null="true" />
+		</property>
+		<property name="pfucpfuak" type="string">
+			<column name="PFUCPFUAK" length="2" not-null="true" />
+		</property>
+		<property name="usuestavf" type="string">
+			<column name="USUESTAVF" length="1" not-null="true" />
+		</property>
+		<property name="usuilognf" type="int">
+			<column name="USUILOGNF" not-null="true" />
+		</property>
+		<property name="usutblonf" type="long">
+			<column name="USUTBLONF" precision="13" scale="0" not-null="true" />
+		</property>
+		<property name="usupascsf" type="string">
+			<column name="USUPASCSF" length="1" not-null="true" />
+		</property>
+		<property name="usufulcff" type="date">
+			<column name="USUFULCFF" length="0" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

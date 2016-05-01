@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:p="http://java.sun.com/jsp/jstl/core">
+<ui:composition template="/template/main_template.xhtml">
+	<ui:define name="tittle">
+	#{msgs.se008_tittle}
+	</ui:define>
+	<ui:define name="content">
+		<!-- Incluye parte de autenticacion y la hoja de estilos -->
+		<ui:include src="/weblets/authorization_popup.xhtml">
+			<ui:param name="userIsNotAuthorized"
+				value="#{sE008Bean.userNOTAuthenticatedAndAuthorized}"></ui:param>
+		</ui:include>
+		<!-- Fin del Include de Autorizacion al servicio -->
+		<h:form id="mainForm">
+			<!-- Buscador -->
+			<table class="secphitable">
+				<tr>
+					<td class="caption"><ice:outputText
+							value="#{msgs.se008_sinceDate}" /></td>
+					<td><ice:selectInputDate value="#{sE008Bean.sinceDate}"
+							renderAsPopup="true" popupDateFormat="yyyy-MM-dd"
+							renderYearAsDropdown="true" /></td>
+					<td class="caption"><ice:outputText
+							value="#{msgs.se008_untilDate}" /></td>
+					<td><ice:selectInputDate value="#{sE008Bean.untilDate}"
+							renderAsPopup="true" popupDateFormat="yyyy-MM-dd"
+							renderYearAsDropdown="true" /></td>
+				</tr>
+				<tr>
+					<td class="caption"><ice:outputText
+							value="#{msgs.se008_systemUser}" /></td>
+					<td colspan="2"><ice:selectOneMenu
+							value="#{sE008Bean.searchField}">
+							<f:selectItems value="#{sE008Bean.listDropdown}" />
+						</ice:selectOneMenu></td>
+					<td><ice:commandLink
+							styleClass="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left"
+							actionListener="#{sE008Bean.searchRecord}">
+							<span class="ui-button-text ui-c">#{msgs.search}</span>
+							<span class="ui-button-icon-left ui-icon ui-c ui-icon-search"></span>
+						</ice:commandLink></td>
+				</tr>
+			</table>
+			<br />
+			<!-- Subfile -->
+			<ice:dataTable border="1" value="#{sE008Bean.subfileList}" var="reg"
+				id="subfile" rows="#{autenticationBean.maxRegSubfile}"
+				styleClass="subfile_table">
+				<ice:column id="column0">
+					<f:facet name="header">
+						<ice:outputText value="#{msgs.display}" />
+					</f:facet>
+					<ui:include src="/weblets/std_display.xhtml">
+						<ui:param name="beanName" value="sE008Bean" />
+						<ui:param name="regName" value="parameter" />
+						<ui:param name="regValue" value="#{reg}" />
+					</ui:include>
+				</ice:column>
+				<ice:column id="column1">
+					<f:facet name="header">
+						<ice:outputText value="#{msgs.se008_emailUser}" />
+					</f:facet>
+					<ice:outputText value="#{reg.id.usuemaiak}" />
+				</ice:column>
+				<ice:column id="column2">
+					<f:facet name="header">
+						<ice:outputText value="#{msgs.se008_descQuery}" />
+					</f:facet>
+					<ice:outputText value="#{reg.lqudescaf}" />
+				</ice:column>
+				<ice:column id="column3">
+					<f:facet name="header">
+						<ice:outputText value="#{msgs.se008_dateQuery}" />
+					</f:facet>
+					<ice:outputText value="#{reg.id.lqufechfk}  #{reg.lquhoratf}" />
+				</ice:column>
+
+
+				<ice:column id="column4">
+					<f:facet name="header">
+						<ice:outputText value="#{msgs.se008_option1}" />
+					</f:facet>
+					<center>
+						<ice:commandButton image="/images/btn/option1.gif"
+							actionListener="#{sE011Bean.loadQueryParameters}"
+							title="#{msgs.se008_option1}" alt="#{msgs.se008_option1}"
+							action="SE008_SE011">
+							<f:attribute name="param1" value="#{reg}" />
+						</ice:commandButton>
+					</center>
+				</ice:column>
+				<ice:column id="column5">
+					<f:facet name="header">
+						<ice:outputText value="#{msgs.se008_option2}" />
+					</f:facet>
+					<center>
+						<ice:commandButton image="/images/btn/option2.gif"
+							actionListener="#{sE011Bean.executeQueryAndViewResults}"
+							title="#{msgs.se008_option2}" alt="#{msgs.se008_option2}"
+							action="SE008_SE011">
+							<f:attribute name="param1" value="#{reg}" />
+						</ice:commandButton>
+					</center>
+				</ice:column>
+			</ice:dataTable>
+			<ui:include src="/weblets/list_paginator.xhtml">
+				<ui:param name="nameList" value="subfile" />
+			</ui:include>
+		</h:form>
+		<!-- Composition para pantalla del Display -->
+		<ui:decorate template="/weblets/std_panel_popup_display.xhtml">
+			<ui:param name="idForm" value="displayForm" />
+			<ui:param name="visible" value="#{sE008Bean.display}" />
+			<ui:param name="title" value="#{msgs.se008_display}" />
+			<ui:param name="beanName" value="sE008Bean" />
+			<ui:define name="content">
+				<table class="phi_table">
+					<tr>
+						<td class="caption"><ice:outputText
+								value="#{msgs.se008_emailUser}" /></td>
+						<td><ice:outputText value="#{sE008Bean.object.id.usuemaiak}" /></td>
+					</tr>
+					<tr>
+						<td class="caption"><ice:outputText
+								value="#{msgs.se008_dateQuery}" /></td>
+						<td><ice:outputText
+								value="#{sE008Bean.object.id.lqufechfk}  #{sE008Bean.object.lquhoratf}" /></td>
+					</tr>
+					<tr>
+						<td class="caption"><ice:outputText
+								value="#{msgs.se008_textQuery}" /></td>
+						<td><ice:outputText value="#{sE008Bean.object.lqutextaf}" /></td>
+					</tr>
+					<tr>
+						<td class="caption"><ice:outputText
+								value="#{msgs.se008_descQuery}" /></td>
+						<td><ice:outputText value="#{sE008Bean.object.lqudescaf}" /></td>
+					</tr>
+				</table>
+			</ui:define>
+		</ui:decorate>
+	</ui:define>
+</ui:composition>
+</html>

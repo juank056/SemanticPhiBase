@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+           http://www.springframework.org/schema/aop
+           http://www.springframework.org/schema/aop/spring-aop-2.5.xsd
+           http://www.springframework.org/schema/context
+           http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+	<!-- Paquete de DAOS que va a escanear -->
+	<context:component-scan base-package="edu.upm.spbw.persistence.dao.hbm" />
+	<!-- IDs de los Beans que van a ser inyectados -->
+	<bean id="cspparsiDao" class="edu.upm.spbw.persistence.dao.hbm.CspparsiDAO" />
+	<bean id="cspperfuDao" class="edu.upm.spbw.persistence.dao.hbm.CspperfuDAO" />
+	<bean id="cspserpfDao" class="edu.upm.spbw.persistence.dao.hbm.CspserpfDAO" />
+	<bean id="cspsersiDao" class="edu.upm.spbw.persistence.dao.hbm.CspsersiDAO" />
+	<bean id="sedconceDao" class="edu.upm.spbw.persistence.dao.hbm.SedconceDAO" />
+	<bean id="sedrelcoDao" class="edu.upm.spbw.persistence.dao.hbm.SedrelcoDAO" />
+	<bean id="sepconceDao" class="edu.upm.spbw.persistence.dao.hbm.SepconceDAO" />
+	<bean id="seprelcoDao" class="edu.upm.spbw.persistence.dao.hbm.SeprelcoDAO" />
+	<bean id="usdbloquDao" class="edu.upm.spbw.persistence.dao.hbm.UsdbloquDAO" />
+	<bean id="usdloginDao" class="edu.upm.spbw.persistence.dao.hbm.UsdloginDAO" />
+	<bean id="usdlogquDao" class="edu.upm.spbw.persistence.dao.hbm.UsdlogquDAO" />
+	<bean id="usmusuarDao" class="edu.upm.spbw.persistence.dao.hbm.UsmusuarDAO" />
+</beans>

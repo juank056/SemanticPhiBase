@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 28-feb-2016 11:40:56 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="edu.upm.spbw.persistence.bo.Usdlogqu" table="USDLOGQU">
+		<composite-id name="id"
+			class="edu.upm.spbw.persistence.bo.UsdlogquId">
+			<key-property name="usuemaiak" type="string">
+				<column name="USUEMAIAK" length="60" />
+			</key-property>
+			<key-property name="lqufechfk" type="date">
+				<column name="LQUFECHFK" length="0" />
+			</key-property>
+			<key-property name="lqunsecnk" type="int">
+				<column name="LQUNSECNK" />
+			</key-property>
+		</composite-id>
+		<property name="lquhoratf" type="time">
+			<column name="LQUHORATF" length="0" not-null="true" />
+		</property>
+		<property name="lqutextaf" type="string">
+			<column name="LQUTEXTAF" length="8192" not-null="true" />
+		</property>
+		<property name="lqurespaf" type="string">
+			<column name="LQURESPAF" length="8192" not-null="true" />
+		</property>
+		<property name="lquparqaf" type="string">
+			<column name="LQUPARQAF" length="8192" not-null="true" />
+		</property>
+		<property name="lqudescaf" type="string">
+			<column name="LQUDESCAF" length="256" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

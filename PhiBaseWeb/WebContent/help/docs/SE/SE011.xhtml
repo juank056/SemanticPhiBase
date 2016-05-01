@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:p="http://java.sun.com/jsp/jstl/core">
+<ui:composition template="/template/help_service_template.xhtml">
+	<ui:define name="tittle">
+	#{msgs.help_text}: #{msgs.se011_tittle}
+	</ui:define>
+	<ui:define name="content">
+		<table class="phi_table" style="width: 100%;">
+			<!-- Inicio Objetivo y Consideraciones -->
+			<tr>
+				<th>Objetivo</th>
+				<td>Se trata de la pantalla principal de consulta al sistema de
+					Semantic PHI-BASE.</td>
+			</tr>
+			<tr>
+				<th>Consideraciones</th>
+				<td>1. Para la correcta ejecución de las consultas, se deben
+					tener correctamente parametrizadas las estructuras de Conceptos
+					Semánticos y su detalle.Ver <a class="link"
+					href="/PhiBaseWeb/help/docs/SE/SE009.jsf">Concepto Semántico</a> y
+					<a class="link" href="/PhiBaseWeb/help/docs/SE/SE010.jsf">Detalle
+						Concepto Semántico.</a>
+				</td>
+			</tr>
+			<!-- Fin Objetivo y Consideraciones -->
+			<!-- Inicio Pantalla Principal -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a class="aTittle">Pantalla
+									Principal</a></th>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Imagen Pantalla Principal -->
+								<div class="serviceImage">
+									<img src="/PhiBaseWeb/help/images/SE011/SE011_tab1_init.png" />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>Parámetros Recibidos</th>
+							<td>Ninguno.</td>
+						</tr>
+						<tr>
+							<th>Buscador</th>
+							<td>1. Se cargan todos los Conceptos Semánticos y sus
+								relaciones de acuerdo a las parametrizaciones realizadas. Ver <a
+								class="link" href="/PhiBaseWeb/help/docs/SE/SE009.jsf">Concepto
+									Semántico</a>.
+							</td>
+						</tr>
+						<tr>
+							<th>Acciones</th>
+							<td><a href="#tab1" class="link">1. #{msgs.se011_tab1}</a><br />
+								<a href="#tab2" class="link">2. #{msgs.se011_tab2}</a><br /> <a
+								href="#tab3" class="link">3. #{msgs.se011_tab3}</a><br /> <a
+								href="#tab4" class="link">4. #{msgs.se011_tab4}</a></td>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>1. Los tabs de "Visualización Resultados" sólo serán
+								desplegados cuando se haya ejecutado una Query correctamente y
+								existan resultados que desplegar.</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Pantalla Principal -->
+			<!-- Inicio Tab1 -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a name="tab1"
+								class="aTittle">#{msgs.se011_tab1}</a></th>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Imagen  -->
+								<div class="serviceImage">
+									<img src="/PhiBaseWeb/help/images/SE011/SE011_tab1_dropped.png" />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>1. Para ejecutar la búsqueda en Semantic PHI-BASE se
+								debe seleccionar el filtro deseado arrastrando los conceptos
+								semánticos del árbol y soltándolos en el panel derecho de la
+								pantalla. En el momento que se haya soltado un concepto, se
+								incluira un registro en la lista de "Conceptos Seleccionados".
+								En la columna de "Detalle Concepto" es donde se deberá
+								introducir el texto de búsqueda. Se desplegarán opciones para
+								seleccionar una de acuerdo al texto ingresado. No es obligatorio
+								seleccionar un Detalle de Concepto Semántico.<br /> 2. El
+								"Operador Lógico Inter-Concepto" es el que será aplicado en la
+								consulta generada entre los diferentes grupos de conceptos
+								semánticos seleccionados para búsqueda.<br />3. Los "Operadores
+								Lógicos Intra-Concepto" son los que serán aplicados entre los
+								Detalles de Conceptos seleccionados pertenecientes a un mismo
+								Concepto Semántico. Por defecto todos los operadores son
+								cargados con "Or", pero es posible seleccionar la opción
+								deseada.<br />4.El campo "Descripción Query" sirve para dejar
+								un texto que sirva posteriormente para reconocer la Query
+								ejecutada y poderla volver a ejecutar o cargar nuevamente los
+								parámetros seleccionados.<br /> <br />5. Para ejecutar la
+								Query, pulse el botón <img
+								src="/PhiBaseWeb/help/images/SE011/exec_query.png" /> y se
+								iniciará la ejecución de la query. En caso de que se encuentren
+								resultados, se navegará automáticamente hacia el Tab de
+								Resultados de Query. Ver <a href="#tab3" class="link">#{msgs.se011_tab3}</a>.<br />6.
+								Para reiniciar los criterios de búsqueda de la Query, pulse
+								sobre el botón <img
+								src="/PhiBaseWeb/help/images/SE011/restart_criteria.png" /> y
+								se reiniciarán todos los criterios previamente seleccionados.
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Tab1 -->
+			<!-- Inicio Tab2 -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a name="tab2"
+								class="aTittle">#{msgs.se011_tab2}</a></th>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Imagen  -->
+								<div class="serviceImage">
+									<img src="/PhiBaseWeb/help/images/SE011/SE011_tab2.png" />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>1. Este tab servirá para consultar la Historia de las
+								Queries que han sido ejecutadas por el usuario en Sesión. Se
+								Podrá buscar las Queries ejecutadas en un rango de fechas
+								determinado mostrando siempre las más recientes. En la lista de
+								Queries ejecutadas, se podrá ver su descripción, su tiempo de
+								ejecución y habrán opciones para "Cargar Parámetros de Query" y
+								para "Ejecutar Query y Ver Resultados".<br />2. La opción
+								"Cargar Parámetros de Query" navegará hacia el tab <a
+								href="#tab1" class="link">#{msgs.se011_tab1}</a> y cargará en la
+								pantalla todos los criterios que habían sido seleccionados para
+								la ejecución de la Query. El usuario podrá cambiar los filtros
+								seleccionados o dejarlos como estan y volver a ejecutar la Query
+								para visualizar los resultados.<br />3. La opción "Ejecutar
+								Query y Ver Resultados" ejecutará de inmediato la Query tal cual
+								como había sido ejecutada, y en caso de que hayan resultados que
+								desplegar se navegará automáticamente hacia el tab de <a
+								href="#tab3" class="link">#{msgs.se011_tab3}</a>.
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Tab2 -->
+			<!-- Inicio Tab3 -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a name="tab3"
+								class="aTittle">#{msgs.se011_tab3}</a></th>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Imagen  -->
+								<div class="serviceImage">
+									<img src="/PhiBaseWeb/help/images/SE011/SE011_tab3.png" />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>1. Esta es la pantalla de visualización de resultados de
+								la Query ejecutada. Inicialmente, se desplegarán por defecto
+								sólo las columnas "Interacción", "Host" y "Pathogen".<br />2.
+								Será posible seleccionar las columnas a desplegar haciendo click
+								sobre el botón <img
+								src="/PhiBaseWeb/help/images/SE011/select_columns.png" /> y se
+								desplegará el siguiente pop-up donde se podrán seleccionar las
+								columnas deseadas:<br /> <img
+								src="/PhiBaseWeb/help/images/SE011/SE011_tab3_select_columns.png" /><br />
+								3. Es posible que para algunas columnas no haya información
+								disponible. Se desplegará el texto "Sin Información".<br />4.
+								Al dar click sobre cualquiera de los registros obtenidos en la
+								ejecución de la Query, se navegará hacia el tab <a href="#tab4"
+								class="link">#{msgs.se011_tab3}</a> para visualizar gráficamente
+								los resultados obtenidos, centrándose en el objeto seleccionado.
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Tab3 -->
+			<!-- Inicio Tab4 -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a name="tab4"
+								class="aTittle">#{msgs.se011_tab4}</a></th>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Imagen  -->
+								<div class="serviceImage">
+									<img src="/PhiBaseWeb/help/images/SE011/SE011_tab4.png" />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>Se trata de un servicio de visualización externo a este
+								sistema. Su apariencia puede cambiar a lo que se muestra en este
+								manual y su funcionamiento deberá será consultado directamente
+								en el servicio externo.</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Tab3 -->
+		</table>
+	</ui:define>
+</ui:composition>
+</html>

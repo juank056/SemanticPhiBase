@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- Weblet Popup de AUtorizacion de Servicios -->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component">
+	<!--POPUP DE AUTORIZACION DE SERVICIOS  -->
+	<h:form id="authorizationForm">
+		<ice:panelPopup modal="true" visible="#{userIsNotAuthorized}"
+			draggable="false" styleClass="std_panel_pop">
+			<f:facet name="header">
+				<h3>
+					<ice:outputText value="#{msgs.noAuthorized}"></ice:outputText>
+				</h3>
+			</f:facet>
+			<f:facet name="body">
+				<table>
+					<tr>
+						<td><ice:outputText value="#{msgs.userNoAuthorized}" /></td>
+					</tr>
+					<tr>
+						<td><ice:commandButton value="#{msgs.goBack}"
+								onclick="history.go(-1);"></ice:commandButton></td>
+					</tr>
+				</table>
+			</f:facet>
+		</ice:panelPopup>
+	</h:form>
+	<!--POPUP DE AUTORIZACION DE SERVICIOS  -->
+</ui:composition>

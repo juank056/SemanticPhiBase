@@ -1,0 +1,479 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:p="http://java.sun.com/jsp/jstl/core">
+<ui:composition template="/template/help_service_template.xhtml">
+	<ui:define name="tittle">
+	#{msgs.help_text}: #{msgs.se009_tittle}
+	</ui:define>
+	<ui:define name="content">
+		<table class="phi_table" style="width: 100%;">
+			<!-- Inicio Objetivo y Consideraciones -->
+			<tr>
+				<th>Objetivo</th>
+				<td>Mantenimiento de la estructuras de Conceptos Semánticos y
+					sus Relaciones. Es muy importante la correcta parametrización de
+					estas estructuras, ya que de esto depende el proceso de cargue
+					automático de Detalles de Conceptos Semánticos y el Detalle de las
+					Relaciones que serán las que servirán como filtros de búsqueda para
+					las Queries a la base de conocimiento de Semantic PHI-BASE.</td>
+			</tr>
+			<tr>
+				<th>Consideraciones</th>
+				<td>1. Se debe conocer exactamente la definición del esquema de
+					la base de conocimientos que almacena las tripletas de Semantic
+					PHI-BASE.</td>
+			</tr>
+			<!-- Fin Objetivo y Consideraciones -->
+			<!-- Inicio Pantalla Principal -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a class="aTittle">Pantalla
+									Principal</a></th>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Imagen Pantalla Principal -->
+								<div class="serviceImage">
+									<img src="/PhiBaseWeb/help/images/SE009/SE009_main.png" />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>Parámetros Recibidos</th>
+							<td>Ninguno.</td>
+						</tr>
+						<tr>
+							<th>Buscador</th>
+							<td>1. Por Concepto Semántico.</td>
+						</tr>
+						<tr>
+							<th>Acciones</th>
+							<td><a href="#add" class="link">1. Adicionar Concepto
+									Semántico</a><br /> <a href="#change" class="link">2.
+									Actualizar Concepto Semántico</a><br /> <a href="#delete"
+								class="link">3. Eliminar Concepto Semántico</a><br /> <a
+								href="#display" class="link">4. Detalle Concepto Semántico</a></td>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>Ninguna.</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Pantalla Principal -->
+			<!-- Inicio Pantalla Adicionar -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a name="add"
+								class="aTittle">Adicionar Concepto Semántico</a></th>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Imagen Pantalla Adicionar -->
+								<div class="serviceImage">
+									<img src="/PhiBaseWeb/help/images/SE009/SE009_add.png" />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Tabla Descripción Campos -->
+								<table class="phi_table">
+									<tr>
+										<th class="caption2">Campo</th>
+										<th class="caption2">Descripción</th>
+										<th class="caption2">Tipo de Campo</th>
+										<th class="caption2">Consideraciones</th>
+									</tr>
+									<tr>
+										<td>Código Concepto Semántico</td>
+										<td>El código del Concepto Semántico.</td>
+										<td>Alfanumérico</td>
+										<td>1. Este campo es requerido.<br />2. El identificador
+											del campo debe ser definido por el desarrollador del sistema.
+										</td>
+									</tr>
+									<tr>
+										<td>Descripción Concepto Semántico</td>
+										<td>La descripción del Concepto Semántico.</td>
+										<td>Alfanumérico</td>
+										<td>1. Este campo es requerido.</td>
+									</tr>
+									<tr>
+										<td>Documentación</td>
+										<td>Texto de documentación del Concepto Semántico que se
+											desplegará de ayuda.</td>
+										<td>Alfanumérico</td>
+										<td>1. Este campo es requerido.</td>
+									</tr>
+									<tr>
+										<td>RDF Concepto Semántico</td>
+										<td>Valor RDF del tipo de concepto semántico.</td>
+										<td>Alfanumérico</td>
+										<td>1. Este campo es requerido.<br />2. Su valor debe
+											ser exactamente como el definido en la base de conocimientos
+											de Semantic PHI-BASE.
+										</td>
+									</tr>
+									<tr>
+										<td>Concepto Semántico Padre</td>
+										<td>Concepto Semántico padre del Concepto Semántico a
+											adicionar o actualizar.</td>
+										<td>Alfanumérico-Lista</td>
+										<td>1. Es opcional. Su configuración ayudará a la
+											conformación del árbol de selección de Conceptos en la
+											Consulta Semantic PHI-BASE. Ver <a class="link"
+											href="/PhiBaseWeb/help/docs/SE/SE011.jsf">Consulta
+												Semantic PHI-BASE.</a>
+										</td>
+									</tr>
+									<tr>
+										<td>Número de Relaciones</td>
+										<td>El número de relaciones que tiene este concepto
+											semántico.</td>
+										<td>Numérico</td>
+										<td>1. Debe ser mayor a cero.<br />2. El valor que se
+											configure en este campo dará el número de registros a
+											ingresar en la tabla de Relaciones del Concepto Semántico
+											descrita a continuación.
+										</td>
+									</tr>
+									<tr>
+										<td colspan="4" align="center">Relaciones Concepto
+											Semántico</td>
+									</tr>
+									<tr>
+										<td>Código Relación</td>
+										<td>Código de la Relación del Concepto Semántico</td>
+										<td>Alfanumérico</td>
+										<td>1. Este campo es requerido.</td>
+									</tr>
+									<tr>
+										<td>Descripción Relación</td>
+										<td>Descripción de la relación del Concepto Semántico</td>
+										<td>Alfanumérico</td>
+										<td>1. Este campo es requerido.</td>
+									</tr>
+									<tr>
+										<td>Documentación</td>
+										<td>Documentación de ayuda que explica la Relación del
+											Concepto Semántico.</td>
+										<td>Alfanumérico</td>
+										<td>1. Este campo es requerido.</td>
+									</tr>
+									<tr>
+										<td>RDF Relación</td>
+										<td>Valor RDF de la relación del Concepto Semántico.</td>
+										<td>Alfanumérico</td>
+										<td>1. Este campo es requerido.<br />2. Su valor debe
+											ser exacto a como se ha definido en la base de conocimientos
+											de Semantic PHI-BASE.
+										</td>
+									</tr>
+									<tr>
+										<td>Rango Relación</td>
+										<td>Rango de la relación asociada al Concepto Semántico.</td>
+										<td>Alfanumérico</td>
+										<td>1. Es opcional. Su uso será en un futuro cuando se
+											permita el ingreso de nuevos registros a la base de
+											conocimientos desde este sistema.</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>1. En el momento de crear el Usuario, se le asignará una
+								contraseña por defecto que deberá ser cambiada en el primer
+								Login del Usuario. El Usuario recibirá un E-Mail automático en
+								donde se le indicarán sus credenciales de acceso al sistema.</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Pantalla Adicionar -->
+			<!-- Inicio Pantalla Actualizar -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a name="change"
+								class="aTittle">Actualizar Concepto Semántico</a></th>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Imagen Pantalla Actualizar -->
+								<div class="serviceImage">
+									<img src="/PhiBaseWeb/help/images/SE009/SE009_change.png" />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Tabla Descripción Campos -->
+								<table class="phi_table">
+									<tr>
+										<th class="caption2">Campo</th>
+										<th class="caption2">Descripción</th>
+										<th class="caption2">Tipo de Campo</th>
+										<th class="caption2">Consideraciones</th>
+									</tr>
+									<tr>
+										<td>Código Concepto Semántico</td>
+										<td>El código del Concepto Semántico.</td>
+										<td>OUTPUT</td>
+										<td>1. No es posible modificar su valor.</td>
+									</tr>
+									<tr>
+										<td>Descripción Concepto Semántico</td>
+										<td>La descripción del Concepto Semántico.</td>
+										<td>Alfanumérico</td>
+										<td>1. Este campo es requerido.</td>
+									</tr>
+									<tr>
+										<td>Documentación</td>
+										<td>Texto de documentación del Concepto Semántico que se
+											desplegará de ayuda.</td>
+										<td>Alfanumérico</td>
+										<td>1. Este campo es requerido.</td>
+									</tr>
+									<tr>
+										<td>RDF Concepto Semántico</td>
+										<td>Valor RDF del tipo de concepto semántico.</td>
+										<td>Alfanumérico</td>
+										<td>1. Este campo es requerido.<br />2. Su valor debe
+											ser exactamente como el definido en la base de conocimientos
+											de Semantic PHI-BASE.
+										</td>
+									</tr>
+									<tr>
+										<td>Concepto Semántico Padre</td>
+										<td>Concepto Semántico padre del Concepto Semántico a
+											adicionar o actualizar.</td>
+										<td>Alfanumérico-Lista</td>
+										<td>1. Es opcional. Su configuración ayudará a la
+											conformación del árbol de selección de Conceptos en la
+											Consulta Semantic PHI-BASE. Ver <a class="link"
+											href="/PhiBaseWeb/help/docs/SE/SE011.jsf">Consulta
+												Semantic PHI-BASE.</a>
+										</td>
+									</tr>
+									<tr>
+										<td>Número de Relaciones</td>
+										<td>El número de relaciones que tiene este concepto
+											semántico.</td>
+										<td>OUTPUT</td>
+										<td>1. No es posible modificar su valor.</td>
+									</tr>
+									<tr>
+										<td colspan="4" align="center">Relaciones Concepto
+											Semántico</td>
+									</tr>
+									<tr>
+										<td>Código Relación</td>
+										<td>Código de la Relación del Concepto Semántico</td>
+										<td>OUTPUT</td>
+										<td>1. No es posible modificar su valor.</td>
+									</tr>
+									<tr>
+										<td>Descripción Relación</td>
+										<td>Descripción de la relación del Concepto Semántico.</td>
+										<td>Alfanumérico</td>
+										<td>1. Este campo es requerido.</td>
+									</tr>
+									<tr>
+										<td>Documentación</td>
+										<td>Documentación de ayuda que explica la Relación del
+											Concepto Semántico.</td>
+										<td>Alfanumérico</td>
+										<td>1. Este campo es requerido.</td>
+									</tr>
+									<tr>
+										<td>RDF Relación</td>
+										<td>Valor RDF de la relación del Concepto Semántico.</td>
+										<td>Alfanumérico</td>
+										<td>1. Este campo es requerido.<br />2. Su valor debe
+											ser exacto a como se ha definido en la base de conocimientos
+											de Semantic PHI-BASE.
+										</td>
+									</tr>
+									<tr>
+										<td>Rango Relación</td>
+										<td>Rango de la relación asociada al Concepto Semántico.</td>
+										<td>Alfanumérico</td>
+										<td>1. Es opcional. Su uso será en un futuro cuando se
+											permita el ingreso de nuevos registros a la base de
+											conocimientos desde este sistema.</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>Ninguna.</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Pantalla Actualizar -->
+			<!-- Inicio Pantalla Eliminar -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a name="delete"
+								class="aTittle">Eliminar Concepto Semántico</a></th>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>1. No será posible eliminar el Usuario si existen
+								registros relacionados en las estructuras de "Detalle Concepto
+								Semántico" o "Detalle Relación Concepto Semántico".</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Pantalla Eliminar -->
+			<!-- Inicio Pantalla Detalle -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a name="display"
+								class="aTittle">Detalle Concepto Semántico</a></th>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Imagen Pantalla Actualizar -->
+								<div class="serviceImage">
+									<img src="/PhiBaseWeb/help/images/SE009/SE009_display.png" />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Tabla Descripción Campos -->
+								<table class="phi_table">
+									<tr>
+										<th class="caption2">Campo</th>
+										<th class="caption2">Descripción</th>
+										<th class="caption2">Tipo de Campo</th>
+										<th class="caption2">Consideraciones</th>
+									</tr>
+									<tr>
+										<td>Código Concepto Semántico</td>
+										<td>El código del Concepto Semántico.</td>
+										<td>OUTPUT</td>
+										<td>1. No es posible modificar su valor.</td>
+									</tr>
+									<tr>
+										<td>Descripción Concepto Semántico</td>
+										<td>La descripción del Concepto Semántico.</td>
+										<td>OUTPUT</td>
+										<td>1. No es posible modificar su valor.</td>
+									</tr>
+									<tr>
+										<td>Documentación</td>
+										<td>Texto de documentación del Concepto Semántico que se
+											desplegará de ayuda.</td>
+										<td>OUTPUT</td>
+										<td>1. No es posible modificar su valor.</td>
+									</tr>
+									<tr>
+										<td>RDF Concepto Semántico</td>
+										<td>Valor RDF del tipo de concepto semántico.</td>
+										<td>OUTPUT</td>
+										<td>1. No es posible modificar su valor.</td>
+									</tr>
+									<tr>
+										<td>Concepto Semántico Padre</td>
+										<td>Concepto Semántico padre del Concepto Semántico a
+											adicionar o actualizar.</td>
+										<td>OUTPUT</td>
+										<td>1. No es posible modificar su valor.</td>
+									</tr>
+									<tr>
+										<td>Número de Relaciones</td>
+										<td>El número de relaciones que tiene este concepto
+											semántico.</td>
+										<td>OUTPUT</td>
+										<td>1. No es posible modificar su valor.</td>
+									</tr>
+									<tr>
+										<td colspan="4" align="center">Relaciones Concepto
+											Semántico</td>
+									</tr>
+									<tr>
+										<td>Código Relación</td>
+										<td>Código de la Relación del Concepto Semántico</td>
+										<td>OUTPUT</td>
+										<td>1. No es posible modificar su valor.</td>
+									</tr>
+									<tr>
+										<td>Descripción Relación</td>
+										<td>Descripción de la relación del Concepto Semántico</td>
+										<td>OUTPUT</td>
+										<td>1. No es posible modificar su valor.</td>
+									</tr>
+									<tr>
+										<td>Documentación</td>
+										<td>Documentación de ayuda que explica la Relación del
+											Concepto Semántico.</td>
+										<td>OUTPUT</td>
+										<td>1. No es posible modificar su valor.</td>
+									</tr>
+									<tr>
+										<td>RDF Relación</td>
+										<td>Valor RDF de la relación del Concepto Semántico.</td>
+										<td>OUTPUT</td>
+										<td>1. No es posible modificar su valor.</td>
+									</tr>
+									<tr>
+										<td>Rango Relación</td>
+										<td>Rango de la relación asociada al Concepto Semántico.</td>
+										<td>OUTPUT</td>
+										<td>1. No es posible modificar su valor.</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>Ninguna.</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Pantalla Detalle -->
+		</table>
+	</ui:define>
+</ui:composition>
+</html>

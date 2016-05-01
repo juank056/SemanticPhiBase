@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 28-feb-2016 11:40:56 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="edu.upm.spbw.persistence.bo.Usdlogin" table="USDLOGIN">
+		<composite-id name="id"
+			class="edu.upm.spbw.persistence.bo.UsdloginId">
+			<key-property name="usuemaiak" type="string">
+				<column name="USUEMAIAK" length="60" />
+			</key-property>
+			<key-property name="liufechfk" type="date">
+				<column name="LIUFECHFK" length="0" />
+			</key-property>
+			<key-property name="liunsecnk" type="int">
+				<column name="LIUNSECNK" />
+			</key-property>
+		</composite-id>
+		<property name="liuhoratf" type="time">
+			<column name="LIUHORATF" length="0" not-null="true" />
+		</property>
+		<property name="liudiriaf" type="string">
+			<column name="LIUDIRIAF" length="30" not-null="true" />
+		</property>
+		<property name="liuiexisf" type="string">
+			<column name="LIUIEXISF" length="1" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

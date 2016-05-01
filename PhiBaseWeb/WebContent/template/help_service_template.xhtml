@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:p="http://java.sun.com/jsp/jstl/core">
+<!-- Head de la pagina -->
+<h:head>
+	<title>Ayuda Servicio</title>
+	<link href="/PhiBaseWeb/template/style/rime.css" rel="stylesheet"
+		type="text/css" />
+	<link href="/PhiBaseWeb/template/style/phs-style.css" rel="stylesheet"
+		type="text/css" />
+	<script type="text/javascript"
+		src="/PhiBaseWeb/template/script/phi_script.js" />
+</h:head>
+<!-- Body de la pagina -->
+<h:body styleClass="ice-skin-rime">
+	<div class="page">
+		<h5 id="serviceTittle">
+			<ui:insert name="tittle">
+			</ui:insert>
+		</h5>
+		<div class="content">
+			<ui:insert name="content">
+                     Contenido
+                </ui:insert>
+		</div>
+	</div>
+</h:body>
+</html>

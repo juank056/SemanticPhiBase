@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- 
+Parametros que debe recibir este Weblet
+1. No recibe parametros por ahora
+Weblet Para ir hacia atras
+ -->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component">
+	<ice:commandLink
+		styleClass="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left"
+		action="#{navigationHandler.goServiceBack}">
+		<span class="ui-button-text ui-c">#{msgs.goBack}</span>
+		<span
+			class="ui-button-icon-left ui-icon ui-c ui-icon-arrowreturnthick-1-w"></span>
+	</ice:commandLink>
+</ui:composition>

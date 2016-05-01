@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 01-mar-2016 14:25:13 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="edu.upm.spbw.persistence.bo.Cspserpf" table="CSPSERPF">
+		<composite-id name="id"
+			class="edu.upm.spbw.persistence.bo.CspserpfId">
+			<key-property name="pfucpfuak" type="string">
+				<column name="PFUCPFUAK" length="2" />
+			</key-property>
+			<key-property name="ssicssiak" type="string">
+				<column name="SSICSSIAK" length="5" />
+			</key-property>
+		</composite-id>
+		<property name="svpiactsf" type="string">
+			<column name="SVPIACTSF" length="1" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

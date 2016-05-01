@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:p="http://java.sun.com/jsp/jstl/core">
+<!-- Head de la pagina -->
+<h:head>
+	<title>Semantic PHI-BASE Web Interface</title>
+	<link href="/PhiBaseWeb/template/style/rime.css" rel="stylesheet"
+		type="text/css" />
+	<link href="/PhiBaseWeb/template/style/phs-style.css" rel="stylesheet"
+		type="text/css" />
+	<link href="/PhiBaseWeb/template/style/prime-style.css"
+		rel="stylesheet" type="text/css" />
+	<script type="text/javascript"
+		src="/PhiBaseWeb/template/script/phi_script.js" />
+</h:head>
+<!-- Body de la pagina -->
+<h:body styleClass="ice-skin-rime" onkeydown="openHelpKey(event);">
+	<div class="page">
+		<!-- Inserta Header -->
+		<ui:include src="/template/main_header.xhtml" />
+		<h:form>
+			<!--Contenedor para ir al menú o salir de la aplicación-->
+			<!--Tabla con datos del usuario	-->
+			<table style="width: 100%">
+				<tr>
+					<td><ice:outputConnectionStatus /></td>
+					<td><ice:outputText value="#{msgs.head_login}"
+							styleClass="userTextLabel" /> : <ice:outputText
+							value="#{autenticationBean.userName}"
+							styleClass="userTextContent" /></td>
+					<td align="center"><ice:outputText value="#{msgs.head_user}"
+							styleClass="userTextLabel" /> : <ice:outputText
+							value="#{autenticationBean.userDescription}"
+							styleClass="userTextContent" /></td>
+					<td align="center"><ice:outputText value="#{msgs.head_date}"
+							styleClass="userTextLabel" /> : <ice:outputText
+							value="#{autenticationBean.loginDate}"
+							styleClass="userTextContent" /></td>
+					<td align="right">
+						<div align="right">
+							<table>
+								<tr>
+									<td><ice:commandLink value="#{msgs.newPassword_change}"
+											onclick="window.location.href = '/PhiBaseWeb/new_password.jsf';"
+											styleClass="standardLink" /> &#160;&#160;</td>
+									<td><ice:commandLink value="#{msgs.help}"
+											onclick="openHelp();">
+											<ice:graphicImage style="border:0"
+												value="/images/icons/normal/16/help_16.png" />
+										</ice:commandLink></td>
+									<td>&#160;&#160; <ice:commandLink value="#{msgs.goToMenu}"
+											actionListener="#{autenticationBean.gotoMainMenu}"
+											onclick="window.location.href = '/PhiBaseWeb/main_menu.jsf';">
+											<ice:graphicImage style="border:0"
+												value="/images/icons/normal/16/bank_16.png" />
+										</ice:commandLink></td>
+									<td>&#160;&#160; <ice:commandLink value="#{msgs.exit}"
+											actionListener="#{autenticationBean.logout}"
+											onclick="window.location.href = '/PhiBaseWeb/index.jsf';">
+											<ice:graphicImage style="border:0"
+												value="/images/icons/normal/16/close_16.png" />
+										</ice:commandLink>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</td>
+				</tr>
+			</table>
+		</h:form>
+		<h3 id="serviceTittle">
+			<ui:insert name="tittle">
+			</ui:insert>
+		</h3>
+		<div class="messages">
+			<ice:messages />
+		</div>
+		<div class="content">
+			<ui:insert name="content">
+                     Contenido
+                </ui:insert>
+		</div>
+		<!-- Footer -->
+		<ui:include src="/template/main_footer.xhtml" />
+	</div>
+</h:body>
+</html>

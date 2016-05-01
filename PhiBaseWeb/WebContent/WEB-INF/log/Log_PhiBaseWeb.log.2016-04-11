@@ -1,0 +1,1146 @@
+11 abr 2016 09:43:37 Linea 56 [http-bio-8080-exec-8] DEBUG edu.upm.spbw.utils.SparqlQueryExecutor  - Query to be Executed:
+
+ SELECT DISTINCT ?int ?int_l ?host_1 ?host_l_1 ?path_1 ?path_l_1 ?incon_1 ?incon_l_1 ?protd_1 ?protd_l_1 ?cita_1 ?cita_l_1 ?disn_1 ?disn_l_1 ?alle_1 ?alle_l_1 ?leth_1 ?leth_l_1 ?invg_1 ?invg_l_1 ?gene_1 ?gene_l_1 ?locu_1 ?locu_l_1 ?gfun_1 ?gfun_l_1 ?gnam_1 ?gnam_l_1 ?gacc_1 ?gacc_l_1
+ WHERE { 
+ ?int a PHIO:PHIBO_00022 . 
+ ?int rdfs:label ?int_l . 
+ ?intcont a PHIO:PHIBO_00076 . 
+ ?int PHIO:is_manifested_as ?intcont . 
+ ?prot a SIO:SIO_000747 . 
+ ?intcont PHIO:is_output_of ?prot . 
+ ?intcont PHIO:depends_on ?path_context . 
+
+ ?host_1 a SIO:SIO_010415 . 
+ ?host_1 rdfs:label  ?host_l_1 . 
+ ?int PHIO:has_participant  ?host_1 . 
+
+ ?path_1 a SIO:SIO_010414 . 
+ ?path_1 rdfs:label  ?path_l_1 . 
+ ?int PHIO:has_participant  ?path_1 . 
+
+ ?incon_1 a PHIO:POO_0000000 . 
+ ?incon_1 PHIO:has_value  ?incon_l_1 . 
+ ?intcont  PHIO:has_quality  ?incon_1 . 
+
+ ?protd_1 a SIO:SIO_000136 . 
+ ?protd_1 PHIO:has_value  ?protd_l_1 . 
+ ?prot  PHIO:has_quality  ?protd_1 . 
+
+OPTIONAL{ 
+ ?cita_1 a <http://schema.org/CreativeWork> . 
+ ?cita_1 PHIO:has_unique_identifier  ?cita_l_1 . 
+ ?prot  <http://schema.org/citation>  ?cita_1 . 
+}
+
+ ?disn_1 a PHIO:PHIBO_00001 . 
+ ?disn_1 PHIO:has_value  ?disn_l_1 . 
+ ?incon_1 PHIO:is_described_by  ?disn_1 . 
+
+ ?alle_1 a SIO:SIO_010277 . 
+ ?alle_1 rdfs:label  ?alle_l_1 . 
+ ?path_context  PHIO:has_quality  ?alle_1 . 
+
+OPTIONAL{ 
+ ?leth_1 a PHIO:PHIBO_00013 . 
+ ?leth_1 PHIO:has_value  ?leth_l_1 . 
+ ?alle_1 PHIO:has_quality  ?leth_1 . 
+}
+
+OPTIONAL{ 
+ ?invg_1 a PHIO:PHIBO_00018 . 
+ ?invg_1 PHIO:has_value  ?invg_l_1 . 
+ ?alle_1 PHIO:has_quality  ?invg_1 . 
+}
+
+ ?gene_1 a SIO:SIO_010035 . 
+ ?gene_1 rdfs:label  ?gene_l_1 . 
+ ?alle_1 PHIO:is_variant_of  ?gene_1 . 
+
+OPTIONAL{ 
+ ?locu_1 a EDAM:data_1893 . 
+ ?locu_1 PHIO:has_value  ?locu_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?locu_1 . 
+}
+
+ ?gfun_1 a PHIO:PHIBO_00004 . 
+ ?gfun_1 PHIO:has_value  ?gfun_l_1 . 
+ ?gene_1 PHIO:has_quality  ?gfun_1 . 
+
+OPTIONAL{ 
+ ?gnam_1 a EDAM:data_2299 . 
+ ?gnam_1 PHIO:has_value  ?gnam_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gnam_1 . 
+}
+
+OPTIONAL{ 
+ ?gacc_1 a EDAM:data_2907 . 
+ ?gacc_1 PHIO:has_value  ?gacc_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gacc_1 . 
+}
+ FILTER(( ?gfun_1 = <http://linkeddata.systems/SemanticPHIBase/Resource/genefunction/GENEFUNCT_00279>))}
+
+11 abr 2016 09:43:37 Linea 189 [http-bio-8080-exec-8] DEBUG Jena  - Jena initialization
+11 abr 2016 09:44:52 Linea 56 [http-bio-8080-exec-1] DEBUG edu.upm.spbw.utils.SparqlQueryExecutor  - Query to be Executed:
+
+ SELECT DISTINCT ?int ?int_l ?host_1 ?host_l_1 ?path_1 ?path_l_1 ?incon_1 ?incon_l_1 ?protd_1 ?protd_l_1 ?cita_1 ?cita_l_1 ?disn_1 ?disn_l_1 ?alle_1 ?alle_l_1 ?leth_1 ?leth_l_1 ?invg_1 ?invg_l_1 ?gene_1 ?gene_l_1 ?locu_1 ?locu_l_1 ?gfun_1 ?gfun_l_1 ?gnam_1 ?gnam_l_1 ?gacc_1 ?gacc_l_1
+ WHERE { 
+ ?int a PHIO:PHIBO_00022 . 
+ ?int rdfs:label ?int_l . 
+ ?intcont a PHIO:PHIBO_00076 . 
+ ?int PHIO:is_manifested_as ?intcont . 
+ ?prot a SIO:SIO_000747 . 
+ ?intcont PHIO:is_output_of ?prot . 
+ ?intcont PHIO:depends_on ?path_context . 
+
+ ?host_1 a SIO:SIO_010415 . 
+ ?host_1 rdfs:label  ?host_l_1 . 
+ ?int PHIO:has_participant  ?host_1 . 
+
+ ?path_1 a SIO:SIO_010414 . 
+ ?path_1 rdfs:label  ?path_l_1 . 
+ ?int PHIO:has_participant  ?path_1 . 
+
+ ?incon_1 a PHIO:POO_0000000 . 
+ ?incon_1 PHIO:has_value  ?incon_l_1 . 
+ ?intcont  PHIO:has_quality  ?incon_1 . 
+
+ ?protd_1 a SIO:SIO_000136 . 
+ ?protd_1 PHIO:has_value  ?protd_l_1 . 
+ ?prot  PHIO:has_quality  ?protd_1 . 
+
+OPTIONAL{ 
+ ?cita_1 a <http://schema.org/CreativeWork> . 
+ ?cita_1 PHIO:has_unique_identifier  ?cita_l_1 . 
+ ?prot  <http://schema.org/citation>  ?cita_1 . 
+}
+
+ ?disn_1 a PHIO:PHIBO_00001 . 
+ ?disn_1 PHIO:has_value  ?disn_l_1 . 
+ ?incon_1 PHIO:is_described_by  ?disn_1 . 
+
+ ?alle_1 a SIO:SIO_010277 . 
+ ?alle_1 rdfs:label  ?alle_l_1 . 
+ ?path_context  PHIO:has_quality  ?alle_1 . 
+
+OPTIONAL{ 
+ ?leth_1 a PHIO:PHIBO_00013 . 
+ ?leth_1 PHIO:has_value  ?leth_l_1 . 
+ ?alle_1 PHIO:has_quality  ?leth_1 . 
+}
+
+OPTIONAL{ 
+ ?invg_1 a PHIO:PHIBO_00018 . 
+ ?invg_1 PHIO:has_value  ?invg_l_1 . 
+ ?alle_1 PHIO:has_quality  ?invg_1 . 
+}
+
+ ?gene_1 a SIO:SIO_010035 . 
+ ?gene_1 rdfs:label  ?gene_l_1 . 
+ ?alle_1 PHIO:is_variant_of  ?gene_1 . 
+
+OPTIONAL{ 
+ ?locu_1 a EDAM:data_1893 . 
+ ?locu_1 PHIO:has_value  ?locu_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?locu_1 . 
+}
+
+ ?gfun_1 a PHIO:PHIBO_00004 . 
+ ?gfun_1 PHIO:has_value  ?gfun_l_1 . 
+ ?gene_1 PHIO:has_quality  ?gfun_1 . 
+
+OPTIONAL{ 
+ ?gnam_1 a EDAM:data_2299 . 
+ ?gnam_1 PHIO:has_value  ?gnam_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gnam_1 . 
+}
+
+OPTIONAL{ 
+ ?gacc_1 a EDAM:data_2907 . 
+ ?gacc_1 PHIO:has_value  ?gacc_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gacc_1 . 
+}
+ FILTER(( ?gfun_1 = <http://linkeddata.systems/SemanticPHIBase/Resource/genefunction/GENEFUNCT_00503>))}
+
+11 abr 2016 10:15:12 Linea 56 [http-bio-8080-exec-5] DEBUG edu.upm.spbw.utils.SparqlQueryExecutor  - Query to be Executed:
+
+ SELECT DISTINCT ?int ?int_l ?host_1 ?host_l_1 ?path_1 ?path_l_1 ?incon_1 ?incon_l_1 ?protd_1 ?protd_l_1 ?cita_1 ?cita_l_1 ?disn_1 ?disn_l_1 ?alle_1 ?alle_l_1 ?leth_1 ?leth_l_1 ?invg_1 ?invg_l_1 ?gene_1 ?gene_l_1 ?locu_1 ?locu_l_1 ?gfun_1 ?gfun_l_1 ?gnam_1 ?gnam_l_1 ?gacc_1 ?gacc_l_1
+ WHERE { 
+ ?int a PHIO:PHIBO_00022 . 
+ ?int rdfs:label ?int_l . 
+ ?intcont a PHIO:PHIBO_00076 . 
+ ?int PHIO:is_manifested_as ?intcont . 
+ ?prot a SIO:SIO_000747 . 
+ ?intcont PHIO:is_output_of ?prot . 
+ ?intcont PHIO:depends_on ?path_context . 
+
+ ?host_1 a SIO:SIO_010415 . 
+ ?host_1 rdfs:label  ?host_l_1 . 
+ ?int PHIO:has_participant  ?host_1 . 
+
+ ?path_1 a SIO:SIO_010414 . 
+ ?path_1 rdfs:label  ?path_l_1 . 
+ ?int PHIO:has_participant  ?path_1 . 
+
+ ?incon_1 a PHIO:POO_0000000 . 
+ ?incon_1 PHIO:has_value  ?incon_l_1 . 
+ ?intcont  PHIO:has_quality  ?incon_1 . 
+
+ ?protd_1 a SIO:SIO_000136 . 
+ ?protd_1 PHIO:has_value  ?protd_l_1 . 
+ ?prot  PHIO:has_quality  ?protd_1 . 
+
+OPTIONAL{ 
+ ?cita_1 a <http://schema.org/CreativeWork> . 
+ ?cita_1 PHIO:has_unique_identifier  ?cita_l_1 . 
+ ?prot  <http://schema.org/citation>  ?cita_1 . 
+}
+
+ ?disn_1 a PHIO:PHIBO_00001 . 
+ ?disn_1 PHIO:has_value  ?disn_l_1 . 
+ ?incon_1 PHIO:is_described_by  ?disn_1 . 
+
+ ?alle_1 a SIO:SIO_010277 . 
+ ?alle_1 rdfs:label  ?alle_l_1 . 
+ ?path_context  PHIO:has_quality  ?alle_1 . 
+
+OPTIONAL{ 
+ ?leth_1 a PHIO:PHIBO_00013 . 
+ ?leth_1 PHIO:has_value  ?leth_l_1 . 
+ ?alle_1 PHIO:has_quality  ?leth_1 . 
+}
+
+OPTIONAL{ 
+ ?invg_1 a PHIO:PHIBO_00018 . 
+ ?invg_1 PHIO:has_value  ?invg_l_1 . 
+ ?alle_1 PHIO:has_quality  ?invg_1 . 
+}
+
+ ?gene_1 a SIO:SIO_010035 . 
+ ?gene_1 rdfs:label  ?gene_l_1 . 
+ ?alle_1 PHIO:is_variant_of  ?gene_1 . 
+
+OPTIONAL{ 
+ ?locu_1 a EDAM:data_1893 . 
+ ?locu_1 PHIO:has_value  ?locu_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?locu_1 . 
+}
+
+ ?gfun_1 a PHIO:PHIBO_00004 . 
+ ?gfun_1 PHIO:has_value  ?gfun_l_1 . 
+ ?gene_1 PHIO:has_quality  ?gfun_1 . 
+
+OPTIONAL{ 
+ ?gnam_1 a EDAM:data_2299 . 
+ ?gnam_1 PHIO:has_value  ?gnam_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gnam_1 . 
+}
+
+OPTIONAL{ 
+ ?gacc_1 a EDAM:data_2907 . 
+ ?gacc_1 PHIO:has_value  ?gacc_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gacc_1 . 
+}
+ FILTER(( CONTAINS( ?gene_l_1, "gene") ) || ( ?gfun_1 = <http://linkeddata.systems/SemanticPHIBase/Resource/genefunction/GENEFUNCT_00094>))}
+
+11 abr 2016 10:15:12 Linea 333 [C3P0PooledConnectionPoolManager[identityToken->1hgf11d9g17rllc1b4xpgd|3d7a35f5]-HelperThread-#0] DEBUG com.mchange.v2.c3p0.stmt.GooGooStatementCache  - checkinAll(): com.mchange.v2.c3p0.stmt.GlobalMaxOnlyStatementCache stats -- total size: 42; checked out: 0; num connections: 5; num keys: 42
+11 abr 2016 10:15:12 Linea 189 [http-bio-8080-exec-5] DEBUG Jena  - Jena initialization
+11 abr 2016 10:15:34 Linea 56 [http-bio-8080-exec-5] DEBUG edu.upm.spbw.utils.SparqlQueryExecutor  - Query to be Executed:
+
+ SELECT DISTINCT ?int ?int_l ?host_1 ?host_l_1 ?path_1 ?path_l_1 ?incon_1 ?incon_l_1 ?protd_1 ?protd_l_1 ?cita_1 ?cita_l_1 ?disn_1 ?disn_l_1 ?alle_1 ?alle_l_1 ?leth_1 ?leth_l_1 ?invg_1 ?invg_l_1 ?gene_1 ?gene_l_1 ?locu_1 ?locu_l_1 ?gfun_1 ?gfun_l_1 ?gnam_1 ?gnam_l_1 ?gacc_1 ?gacc_l_1
+ WHERE { 
+ ?int a PHIO:PHIBO_00022 . 
+ ?int rdfs:label ?int_l . 
+ ?intcont a PHIO:PHIBO_00076 . 
+ ?int PHIO:is_manifested_as ?intcont . 
+ ?prot a SIO:SIO_000747 . 
+ ?intcont PHIO:is_output_of ?prot . 
+ ?intcont PHIO:depends_on ?path_context . 
+
+ ?host_1 a SIO:SIO_010415 . 
+ ?host_1 rdfs:label  ?host_l_1 . 
+ ?int PHIO:has_participant  ?host_1 . 
+
+ ?path_1 a SIO:SIO_010414 . 
+ ?path_1 rdfs:label  ?path_l_1 . 
+ ?int PHIO:has_participant  ?path_1 . 
+
+ ?incon_1 a PHIO:POO_0000000 . 
+ ?incon_1 PHIO:has_value  ?incon_l_1 . 
+ ?intcont  PHIO:has_quality  ?incon_1 . 
+
+ ?protd_1 a SIO:SIO_000136 . 
+ ?protd_1 PHIO:has_value  ?protd_l_1 . 
+ ?prot  PHIO:has_quality  ?protd_1 . 
+
+OPTIONAL{ 
+ ?cita_1 a <http://schema.org/CreativeWork> . 
+ ?cita_1 PHIO:has_unique_identifier  ?cita_l_1 . 
+ ?prot  <http://schema.org/citation>  ?cita_1 . 
+}
+
+ ?disn_1 a PHIO:PHIBO_00001 . 
+ ?disn_1 PHIO:has_value  ?disn_l_1 . 
+ ?incon_1 PHIO:is_described_by  ?disn_1 . 
+
+ ?alle_1 a SIO:SIO_010277 . 
+ ?alle_1 rdfs:label  ?alle_l_1 . 
+ ?path_context  PHIO:has_quality  ?alle_1 . 
+
+OPTIONAL{ 
+ ?leth_1 a PHIO:PHIBO_00013 . 
+ ?leth_1 PHIO:has_value  ?leth_l_1 . 
+ ?alle_1 PHIO:has_quality  ?leth_1 . 
+}
+
+OPTIONAL{ 
+ ?invg_1 a PHIO:PHIBO_00018 . 
+ ?invg_1 PHIO:has_value  ?invg_l_1 . 
+ ?alle_1 PHIO:has_quality  ?invg_1 . 
+}
+
+ ?gene_1 a SIO:SIO_010035 . 
+ ?gene_1 rdfs:label  ?gene_l_1 . 
+ ?alle_1 PHIO:is_variant_of  ?gene_1 . 
+
+OPTIONAL{ 
+ ?locu_1 a EDAM:data_1893 . 
+ ?locu_1 PHIO:has_value  ?locu_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?locu_1 . 
+}
+
+ ?gfun_1 a PHIO:PHIBO_00004 . 
+ ?gfun_1 PHIO:has_value  ?gfun_l_1 . 
+ ?gene_1 PHIO:has_quality  ?gfun_1 . 
+
+OPTIONAL{ 
+ ?gnam_1 a EDAM:data_2299 . 
+ ?gnam_1 PHIO:has_value  ?gnam_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gnam_1 . 
+}
+
+OPTIONAL{ 
+ ?gacc_1 a EDAM:data_2907 . 
+ ?gacc_1 PHIO:has_value  ?gacc_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gacc_1 . 
+}
+ FILTER(( CONTAINS( ?gene_l_1, "gene") ) || ( ?gfun_1 = <http://linkeddata.systems/SemanticPHIBase/Resource/genefunction/GENEFUNCT_00094>))}
+
+11 abr 2016 10:23:23 Linea 2087 [C3P0PooledConnectionPoolManager[identityToken->1hgf11d9g18219q16owpa4|be1c3bf]-AdminTaskTimer] DEBUG com.mchange.v2.resourcepool.BasicResourcePool  - Checking for expired resources - Mon Apr 11 10:23:23 CEST 2016 [com.mchange.v2.resourcepool.BasicResourcePool@55eb5136]
+11 abr 2016 10:23:23 Linea 56 [http-bio-8080-exec-2] DEBUG edu.upm.spbw.utils.SparqlQueryExecutor  - Query to be Executed:
+
+ SELECT DISTINCT ?int ?int_l ?host_1 ?host_l_1 ?path_1 ?path_l_1 ?incon_1 ?incon_l_1 ?protd_1 ?protd_l_1 ?cita_1 ?cita_l_1 ?disn_1 ?disn_l_1 ?alle_1 ?alle_l_1 ?leth_1 ?leth_l_1 ?invg_1 ?invg_l_1 ?gene_1 ?gene_l_1 ?locu_1 ?locu_l_1 ?gfun_1 ?gfun_l_1 ?gnam_1 ?gnam_l_1 ?gacc_1 ?gacc_l_1
+ WHERE { 
+ ?int a PHIO:PHIBO_00022 . 
+ ?int rdfs:label ?int_l . 
+ ?intcont a PHIO:PHIBO_00076 . 
+ ?int PHIO:is_manifested_as ?intcont . 
+ ?prot a SIO:SIO_000747 . 
+ ?intcont PHIO:is_output_of ?prot . 
+ ?intcont PHIO:depends_on ?path_context . 
+
+ ?host_1 a SIO:SIO_010415 . 
+ ?host_1 rdfs:label  ?host_l_1 . 
+ ?int PHIO:has_participant  ?host_1 . 
+
+ ?path_1 a SIO:SIO_010414 . 
+ ?path_1 rdfs:label  ?path_l_1 . 
+ ?int PHIO:has_participant  ?path_1 . 
+
+ ?incon_1 a PHIO:POO_0000000 . 
+ ?incon_1 PHIO:has_value  ?incon_l_1 . 
+ ?intcont  PHIO:has_quality  ?incon_1 . 
+
+ ?protd_1 a SIO:SIO_000136 . 
+ ?protd_1 PHIO:has_value  ?protd_l_1 . 
+ ?prot  PHIO:has_quality  ?protd_1 . 
+
+OPTIONAL{ 
+ ?cita_1 a <http://schema.org/CreativeWork> . 
+ ?cita_1 PHIO:has_unique_identifier  ?cita_l_1 . 
+ ?prot  <http://schema.org/citation>  ?cita_1 . 
+}
+
+ ?disn_1 a PHIO:PHIBO_00001 . 
+ ?disn_1 PHIO:has_value  ?disn_l_1 . 
+ ?incon_1 PHIO:is_described_by  ?disn_1 . 
+
+ ?alle_1 a SIO:SIO_010277 . 
+ ?alle_1 rdfs:label  ?alle_l_1 . 
+ ?path_context  PHIO:has_quality  ?alle_1 . 
+
+OPTIONAL{ 
+ ?leth_1 a PHIO:PHIBO_00013 . 
+ ?leth_1 PHIO:has_value  ?leth_l_1 . 
+ ?alle_1 PHIO:has_quality  ?leth_1 . 
+}
+
+OPTIONAL{ 
+ ?invg_1 a PHIO:PHIBO_00018 . 
+ ?invg_1 PHIO:has_value  ?invg_l_1 . 
+ ?alle_1 PHIO:has_quality  ?invg_1 . 
+}
+
+ ?gene_1 a SIO:SIO_010035 . 
+ ?gene_1 rdfs:label  ?gene_l_1 . 
+ ?alle_1 PHIO:is_variant_of  ?gene_1 . 
+
+OPTIONAL{ 
+ ?locu_1 a EDAM:data_1893 . 
+ ?locu_1 PHIO:has_value  ?locu_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?locu_1 . 
+}
+
+ ?gfun_1 a PHIO:PHIBO_00004 . 
+ ?gfun_1 PHIO:has_value  ?gfun_l_1 . 
+ ?gene_1 PHIO:has_quality  ?gfun_1 . 
+
+OPTIONAL{ 
+ ?gnam_1 a EDAM:data_2299 . 
+ ?gnam_1 PHIO:has_value  ?gnam_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gnam_1 . 
+}
+
+OPTIONAL{ 
+ ?gacc_1 a EDAM:data_2907 . 
+ ?gacc_1 PHIO:has_value  ?gacc_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gacc_1 . 
+}
+ FILTER(( CONTAINS( ?gene_l_1, "gene") ) || ( ?gfun_1 = <http://linkeddata.systems/SemanticPHIBase/Resource/genefunction/GENEFUNCT_00279>))}
+
+11 abr 2016 10:23:23 Linea 189 [http-bio-8080-exec-2] DEBUG Jena  - Jena initialization
+11 abr 2016 10:30:01 Linea 56 [http-bio-8080-exec-10] DEBUG edu.upm.spbw.utils.SparqlQueryExecutor  - Query to be Executed:
+
+ SELECT DISTINCT ?int ?int_l ?host_1 ?host_l_1 ?path_1 ?path_l_1 ?incon_1 ?incon_l_1 ?protd_1 ?protd_l_1 ?cita_1 ?cita_l_1 ?disn_1 ?disn_l_1 ?alle_1 ?alle_l_1 ?leth_1 ?leth_l_1 ?invg_1 ?invg_l_1 ?gene_1 ?gene_l_1 ?locu_1 ?locu_l_1 ?gfun_1 ?gfun_l_1 ?gnam_1 ?gnam_l_1 ?gacc_1 ?gacc_l_1
+ WHERE { 
+ ?int a PHIO:PHIBO_00022 . 
+ ?int rdfs:label ?int_l . 
+ ?intcont a PHIO:PHIBO_00076 . 
+ ?int PHIO:is_manifested_as ?intcont . 
+ ?prot a SIO:SIO_000747 . 
+ ?intcont PHIO:is_output_of ?prot . 
+ ?intcont PHIO:depends_on ?path_context . 
+
+ ?host_1 a SIO:SIO_010415 . 
+ ?host_1 rdfs:label  ?host_l_1 . 
+ ?int PHIO:has_participant  ?host_1 . 
+
+ ?path_1 a SIO:SIO_010414 . 
+ ?path_1 rdfs:label  ?path_l_1 . 
+ ?int PHIO:has_participant  ?path_1 . 
+
+ ?incon_1 a PHIO:POO_0000000 . 
+ ?incon_1 PHIO:has_value  ?incon_l_1 . 
+ ?intcont  PHIO:has_quality  ?incon_1 . 
+
+ ?protd_1 a SIO:SIO_000136 . 
+ ?protd_1 PHIO:has_value  ?protd_l_1 . 
+ ?prot  PHIO:has_quality  ?protd_1 . 
+
+OPTIONAL{ 
+ ?cita_1 a <http://schema.org/CreativeWork> . 
+ ?cita_1 PHIO:has_unique_identifier  ?cita_l_1 . 
+ ?prot  <http://schema.org/citation>  ?cita_1 . 
+}
+
+ ?disn_1 a PHIO:PHIBO_00001 . 
+ ?disn_1 PHIO:has_value  ?disn_l_1 . 
+ ?incon_1 PHIO:is_described_by  ?disn_1 . 
+
+ ?alle_1 a SIO:SIO_010277 . 
+ ?alle_1 rdfs:label  ?alle_l_1 . 
+ ?path_context  PHIO:has_quality  ?alle_1 . 
+
+OPTIONAL{ 
+ ?leth_1 a PHIO:PHIBO_00013 . 
+ ?leth_1 PHIO:has_value  ?leth_l_1 . 
+ ?alle_1 PHIO:has_quality  ?leth_1 . 
+}
+
+OPTIONAL{ 
+ ?invg_1 a PHIO:PHIBO_00018 . 
+ ?invg_1 PHIO:has_value  ?invg_l_1 . 
+ ?alle_1 PHIO:has_quality  ?invg_1 . 
+}
+
+ ?gene_1 a SIO:SIO_010035 . 
+ ?gene_1 rdfs:label  ?gene_l_1 . 
+ ?alle_1 PHIO:is_variant_of  ?gene_1 . 
+
+OPTIONAL{ 
+ ?locu_1 a EDAM:data_1893 . 
+ ?locu_1 PHIO:has_value  ?locu_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?locu_1 . 
+}
+
+ ?gfun_1 a PHIO:PHIBO_00004 . 
+ ?gfun_1 PHIO:has_value  ?gfun_l_1 . 
+ ?gene_1 PHIO:has_quality  ?gfun_1 . 
+
+OPTIONAL{ 
+ ?gnam_1 a EDAM:data_2299 . 
+ ?gnam_1 PHIO:has_value  ?gnam_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gnam_1 . 
+}
+
+OPTIONAL{ 
+ ?gacc_1 a EDAM:data_2907 . 
+ ?gacc_1 PHIO:has_value  ?gacc_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gacc_1 . 
+}
+ FILTER(( CONTAINS( ?gene_l_1, "gene") ) || ( ?gfun_1 = <http://linkeddata.systems/SemanticPHIBase/Resource/genefunction/GENEFUNCT_00279>))}
+
+11 abr 2016 10:30:01 Linea 189 [http-bio-8080-exec-10] DEBUG Jena  - Jena initialization
+11 abr 2016 10:33:01 Linea 56 [http-bio-8080-exec-1] DEBUG edu.upm.spbw.utils.SparqlQueryExecutor  - Query to be Executed:
+
+ SELECT DISTINCT ?int ?int_l ?host_1 ?host_l_1 ?path_1 ?path_l_1 ?incon_1 ?incon_l_1 ?protd_1 ?protd_l_1 ?cita_1 ?cita_l_1 ?disn_1 ?disn_l_1 ?alle_1 ?alle_l_1 ?leth_1 ?leth_l_1 ?invg_1 ?invg_l_1 ?gene_1 ?gene_l_1 ?locu_1 ?locu_l_1 ?gfun_1 ?gfun_l_1 ?gnam_1 ?gnam_l_1 ?gacc_1 ?gacc_l_1
+ WHERE { 
+ ?int a PHIO:PHIBO_00022 . 
+ ?int rdfs:label ?int_l . 
+ ?intcont a PHIO:PHIBO_00076 . 
+ ?int PHIO:is_manifested_as ?intcont . 
+ ?prot a SIO:SIO_000747 . 
+ ?intcont PHIO:is_output_of ?prot . 
+ ?intcont PHIO:depends_on ?path_context . 
+
+ ?host_1 a SIO:SIO_010415 . 
+ ?host_1 rdfs:label  ?host_l_1 . 
+ ?int PHIO:has_participant  ?host_1 . 
+
+ ?path_1 a SIO:SIO_010414 . 
+ ?path_1 rdfs:label  ?path_l_1 . 
+ ?int PHIO:has_participant  ?path_1 . 
+
+ ?incon_1 a PHIO:POO_0000000 . 
+ ?incon_1 PHIO:has_value  ?incon_l_1 . 
+ ?intcont  PHIO:has_quality  ?incon_1 . 
+
+ ?protd_1 a SIO:SIO_000136 . 
+ ?protd_1 PHIO:has_value  ?protd_l_1 . 
+ ?prot  PHIO:has_quality  ?protd_1 . 
+
+OPTIONAL{ 
+ ?cita_1 a <http://schema.org/CreativeWork> . 
+ ?cita_1 PHIO:has_unique_identifier  ?cita_l_1 . 
+ ?prot  <http://schema.org/citation>  ?cita_1 . 
+}
+
+ ?disn_1 a PHIO:PHIBO_00001 . 
+ ?disn_1 PHIO:has_value  ?disn_l_1 . 
+ ?incon_1 PHIO:is_described_by  ?disn_1 . 
+
+ ?alle_1 a SIO:SIO_010277 . 
+ ?alle_1 rdfs:label  ?alle_l_1 . 
+ ?path_context  PHIO:has_quality  ?alle_1 . 
+
+OPTIONAL{ 
+ ?leth_1 a PHIO:PHIBO_00013 . 
+ ?leth_1 PHIO:has_value  ?leth_l_1 . 
+ ?alle_1 PHIO:has_quality  ?leth_1 . 
+}
+
+OPTIONAL{ 
+ ?invg_1 a PHIO:PHIBO_00018 . 
+ ?invg_1 PHIO:has_value  ?invg_l_1 . 
+ ?alle_1 PHIO:has_quality  ?invg_1 . 
+}
+
+ ?gene_1 a SIO:SIO_010035 . 
+ ?gene_1 rdfs:label  ?gene_l_1 . 
+ ?alle_1 PHIO:is_variant_of  ?gene_1 . 
+
+OPTIONAL{ 
+ ?locu_1 a EDAM:data_1893 . 
+ ?locu_1 PHIO:has_value  ?locu_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?locu_1 . 
+}
+
+ ?gfun_1 a PHIO:PHIBO_00004 . 
+ ?gfun_1 PHIO:has_value  ?gfun_l_1 . 
+ ?gene_1 PHIO:has_quality  ?gfun_1 . 
+
+OPTIONAL{ 
+ ?gnam_1 a EDAM:data_2299 . 
+ ?gnam_1 PHIO:has_value  ?gnam_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gnam_1 . 
+}
+
+OPTIONAL{ 
+ ?gacc_1 a EDAM:data_2907 . 
+ ?gacc_1 PHIO:has_value  ?gacc_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gacc_1 . 
+}
+ FILTER(( CONTAINS( ?gene_l_1, "gene") ) || ( ?gfun_1 = <http://linkeddata.systems/SemanticPHIBase/Resource/genefunction/GENEFUNCT_00279>))}
+
+11 abr 2016 10:33:01 Linea 189 [http-bio-8080-exec-1] DEBUG Jena  - Jena initialization
+11 abr 2016 10:34:17 Linea 56 [http-bio-8080-exec-10] DEBUG edu.upm.spbw.utils.SparqlQueryExecutor  - Query to be Executed:
+
+ SELECT DISTINCT ?int ?int_l ?host_1 ?host_l_1 ?path_1 ?path_l_1 ?incon_1 ?incon_l_1 ?protd_1 ?protd_l_1 ?cita_1 ?cita_l_1 ?disn_1 ?disn_l_1 ?alle_1 ?alle_l_1 ?leth_1 ?leth_l_1 ?invg_1 ?invg_l_1 ?gene_1 ?gene_l_1 ?locu_1 ?locu_l_1 ?gfun_1 ?gfun_l_1 ?gnam_1 ?gnam_l_1 ?gacc_1 ?gacc_l_1
+ WHERE { 
+ ?int a PHIO:PHIBO_00022 . 
+ ?int rdfs:label ?int_l . 
+ ?intcont a PHIO:PHIBO_00076 . 
+ ?int PHIO:is_manifested_as ?intcont . 
+ ?prot a SIO:SIO_000747 . 
+ ?intcont PHIO:is_output_of ?prot . 
+ ?intcont PHIO:depends_on ?path_context . 
+
+ ?host_1 a SIO:SIO_010415 . 
+ ?host_1 rdfs:label  ?host_l_1 . 
+ ?int PHIO:has_participant  ?host_1 . 
+
+ ?path_1 a SIO:SIO_010414 . 
+ ?path_1 rdfs:label  ?path_l_1 . 
+ ?int PHIO:has_participant  ?path_1 . 
+
+ ?incon_1 a PHIO:POO_0000000 . 
+ ?incon_1 PHIO:has_value  ?incon_l_1 . 
+ ?intcont  PHIO:has_quality  ?incon_1 . 
+
+ ?protd_1 a SIO:SIO_000136 . 
+ ?protd_1 PHIO:has_value  ?protd_l_1 . 
+ ?prot  PHIO:has_quality  ?protd_1 . 
+
+OPTIONAL{ 
+ ?cita_1 a <http://schema.org/CreativeWork> . 
+ ?cita_1 PHIO:has_unique_identifier  ?cita_l_1 . 
+ ?prot  <http://schema.org/citation>  ?cita_1 . 
+}
+
+ ?disn_1 a PHIO:PHIBO_00001 . 
+ ?disn_1 PHIO:has_value  ?disn_l_1 . 
+ ?incon_1 PHIO:is_described_by  ?disn_1 . 
+
+ ?alle_1 a SIO:SIO_010277 . 
+ ?alle_1 rdfs:label  ?alle_l_1 . 
+ ?path_context  PHIO:has_quality  ?alle_1 . 
+
+OPTIONAL{ 
+ ?leth_1 a PHIO:PHIBO_00013 . 
+ ?leth_1 PHIO:has_value  ?leth_l_1 . 
+ ?alle_1 PHIO:has_quality  ?leth_1 . 
+}
+
+OPTIONAL{ 
+ ?invg_1 a PHIO:PHIBO_00018 . 
+ ?invg_1 PHIO:has_value  ?invg_l_1 . 
+ ?alle_1 PHIO:has_quality  ?invg_1 . 
+}
+
+ ?gene_1 a SIO:SIO_010035 . 
+ ?gene_1 rdfs:label  ?gene_l_1 . 
+ ?alle_1 PHIO:is_variant_of  ?gene_1 . 
+
+OPTIONAL{ 
+ ?locu_1 a EDAM:data_1893 . 
+ ?locu_1 PHIO:has_value  ?locu_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?locu_1 . 
+}
+
+ ?gfun_1 a PHIO:PHIBO_00004 . 
+ ?gfun_1 PHIO:has_value  ?gfun_l_1 . 
+ ?gene_1 PHIO:has_quality  ?gfun_1 . 
+
+OPTIONAL{ 
+ ?gnam_1 a EDAM:data_2299 . 
+ ?gnam_1 PHIO:has_value  ?gnam_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gnam_1 . 
+}
+
+OPTIONAL{ 
+ ?gacc_1 a EDAM:data_2907 . 
+ ?gacc_1 PHIO:has_value  ?gacc_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gacc_1 . 
+}
+ FILTER(( ?disn_1 = <http://linkeddata.systems/SemanticPHIBase/Resource/diseasename/DISNAME_00225>) || ( CONTAINS( ?gene_l_1, "gene") ) || ( ?gfun_1 = <http://linkeddata.systems/SemanticPHIBase/Resource/genefunction/GENEFUNCT_00279>))}
+
+11 abr 2016 14:10:30 Linea 56 [http-bio-8080-exec-2] DEBUG edu.upm.spbw.utils.SparqlQueryExecutor  - Query to be Executed:
+
+ SELECT DISTINCT ?int ?int_l ?host_1 ?host_l_1 ?path_1 ?path_l_1 ?incon_1 ?incon_l_1 ?protd_1 ?protd_l_1 ?cita_1 ?cita_l_1 ?disn_1 ?disn_l_1 ?alle_1 ?alle_l_1 ?leth_1 ?leth_l_1 ?invg_1 ?invg_l_1 ?gene_1 ?gene_l_1 ?locu_1 ?locu_l_1 ?gfun_1 ?gfun_l_1 ?gnam_1 ?gnam_l_1 ?gacc_1 ?gacc_l_1
+ WHERE { 
+ ?int a PHIO:PHIBO_00022 . 
+ ?int rdfs:label ?int_l . 
+ ?intcont a PHIO:PHIBO_00076 . 
+ ?int PHIO:is_manifested_as ?intcont . 
+ ?prot a SIO:SIO_000747 . 
+ ?intcont PHIO:is_output_of ?prot . 
+ ?intcont PHIO:depends_on ?path_context . 
+
+ ?host_1 a SIO:SIO_010415 . 
+ ?host_1 rdfs:label  ?host_l_1 . 
+ ?int PHIO:has_participant  ?host_1 . 
+
+ ?path_1 a SIO:SIO_010414 . 
+ ?path_1 rdfs:label  ?path_l_1 . 
+ ?int PHIO:has_participant  ?path_1 . 
+
+ ?incon_1 a PHIO:POO_0000000 . 
+ ?incon_1 PHIO:has_value  ?incon_l_1 . 
+ ?intcont  PHIO:has_quality  ?incon_1 . 
+
+ ?protd_1 a SIO:SIO_000136 . 
+ ?protd_1 PHIO:has_value  ?protd_l_1 . 
+ ?prot  PHIO:has_quality  ?protd_1 . 
+
+OPTIONAL{ 
+ ?cita_1 a <http://schema.org/CreativeWork> . 
+ ?cita_1 PHIO:has_unique_identifier  ?cita_l_1 . 
+ ?prot  <http://schema.org/citation>  ?cita_1 . 
+}
+
+ ?disn_1 a PHIO:PHIBO_00001 . 
+ ?disn_1 PHIO:has_value  ?disn_l_1 . 
+ ?incon_1 PHIO:is_described_by  ?disn_1 . 
+
+ ?alle_1 a SIO:SIO_010277 . 
+ ?alle_1 rdfs:label  ?alle_l_1 . 
+ ?path_context  PHIO:has_quality  ?alle_1 . 
+
+OPTIONAL{ 
+ ?leth_1 a PHIO:PHIBO_00013 . 
+ ?leth_1 PHIO:has_value  ?leth_l_1 . 
+ ?alle_1 PHIO:has_quality  ?leth_1 . 
+}
+
+OPTIONAL{ 
+ ?invg_1 a PHIO:PHIBO_00018 . 
+ ?invg_1 PHIO:has_value  ?invg_l_1 . 
+ ?alle_1 PHIO:has_quality  ?invg_1 . 
+}
+
+ ?gene_1 a SIO:SIO_010035 . 
+ ?gene_1 rdfs:label  ?gene_l_1 . 
+ ?alle_1 PHIO:is_variant_of  ?gene_1 . 
+
+OPTIONAL{ 
+ ?locu_1 a EDAM:data_1893 . 
+ ?locu_1 PHIO:has_value  ?locu_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?locu_1 . 
+}
+
+ ?gfun_1 a PHIO:PHIBO_00004 . 
+ ?gfun_1 PHIO:has_value  ?gfun_l_1 . 
+ ?gene_1 PHIO:has_quality  ?gfun_1 . 
+
+OPTIONAL{ 
+ ?gnam_1 a EDAM:data_2299 . 
+ ?gnam_1 PHIO:has_value  ?gnam_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gnam_1 . 
+}
+
+OPTIONAL{ 
+ ?gacc_1 a EDAM:data_2907 . 
+ ?gacc_1 PHIO:has_value  ?gacc_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gacc_1 . 
+}
+ FILTER(( ?disn_1 = <http://linkeddata.systems/SemanticPHIBase/Resource/diseasename/DISNAME_00225>) || ( CONTAINS( ?gene_l_1, "gene") ) || ( ?gfun_1 = <http://linkeddata.systems/SemanticPHIBase/Resource/genefunction/GENEFUNCT_00279>))}
+
+11 abr 2016 14:10:30 Linea 189 [http-bio-8080-exec-2] DEBUG Jena  - Jena initialization
+11 abr 2016 14:18:51 Linea 56 [http-bio-8080-exec-4] DEBUG edu.upm.spbw.utils.SparqlQueryExecutor  - Query to be Executed:
+
+ SELECT DISTINCT ?int ?int_l ?host_1 ?host_l_1 ?path_1 ?path_l_1 ?incon_1 ?incon_l_1 ?protd_1 ?protd_l_1 ?cita_1 ?cita_l_1 ?disn_1 ?disn_l_1 ?alle_1 ?alle_l_1 ?leth_1 ?leth_l_1 ?invg_1 ?invg_l_1 ?gene_1 ?gene_l_1 ?locu_1 ?locu_l_1 ?gfun_1 ?gfun_l_1 ?gnam_1 ?gnam_l_1 ?gacc_1 ?gacc_l_1
+ WHERE { 
+ ?int a PHIO:PHIBO_00022 . 
+ ?int rdfs:label ?int_l . 
+ ?intcont a PHIO:PHIBO_00076 . 
+ ?int PHIO:is_manifested_as ?intcont . 
+ ?prot a SIO:SIO_000747 . 
+ ?intcont PHIO:is_output_of ?prot . 
+ ?intcont PHIO:depends_on ?path_context . 
+
+ ?host_1 a SIO:SIO_010415 . 
+ ?host_1 rdfs:label  ?host_l_1 . 
+ ?int PHIO:has_participant  ?host_1 . 
+
+ ?path_1 a SIO:SIO_010414 . 
+ ?path_1 rdfs:label  ?path_l_1 . 
+ ?int PHIO:has_participant  ?path_1 . 
+
+ ?incon_1 a PHIO:POO_0000000 . 
+ ?incon_1 PHIO:has_value  ?incon_l_1 . 
+ ?intcont  PHIO:has_quality  ?incon_1 . 
+
+ ?protd_1 a SIO:SIO_000136 . 
+ ?protd_1 PHIO:has_value  ?protd_l_1 . 
+ ?prot  PHIO:has_quality  ?protd_1 . 
+
+OPTIONAL{ 
+ ?cita_1 a <http://schema.org/CreativeWork> . 
+ ?cita_1 PHIO:has_unique_identifier  ?cita_l_1 . 
+ ?prot  <http://schema.org/citation>  ?cita_1 . 
+}
+
+ ?disn_1 a PHIO:PHIBO_00001 . 
+ ?disn_1 PHIO:has_value  ?disn_l_1 . 
+ ?incon_1 PHIO:is_described_by  ?disn_1 . 
+
+ ?alle_1 a SIO:SIO_010277 . 
+ ?alle_1 rdfs:label  ?alle_l_1 . 
+ ?path_context  PHIO:has_quality  ?alle_1 . 
+
+OPTIONAL{ 
+ ?leth_1 a PHIO:PHIBO_00013 . 
+ ?leth_1 PHIO:has_value  ?leth_l_1 . 
+ ?alle_1 PHIO:has_quality  ?leth_1 . 
+}
+
+OPTIONAL{ 
+ ?invg_1 a PHIO:PHIBO_00018 . 
+ ?invg_1 PHIO:has_value  ?invg_l_1 . 
+ ?alle_1 PHIO:has_quality  ?invg_1 . 
+}
+
+ ?gene_1 a SIO:SIO_010035 . 
+ ?gene_1 rdfs:label  ?gene_l_1 . 
+ ?alle_1 PHIO:is_variant_of  ?gene_1 . 
+
+OPTIONAL{ 
+ ?locu_1 a EDAM:data_1893 . 
+ ?locu_1 PHIO:has_value  ?locu_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?locu_1 . 
+}
+
+ ?gfun_1 a PHIO:PHIBO_00004 . 
+ ?gfun_1 PHIO:has_value  ?gfun_l_1 . 
+ ?gene_1 PHIO:has_quality  ?gfun_1 . 
+
+OPTIONAL{ 
+ ?gnam_1 a EDAM:data_2299 . 
+ ?gnam_1 PHIO:has_value  ?gnam_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gnam_1 . 
+}
+
+OPTIONAL{ 
+ ?gacc_1 a EDAM:data_2907 . 
+ ?gacc_1 PHIO:has_value  ?gacc_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gacc_1 . 
+}
+ FILTER(( ?disn_1 = <http://linkeddata.systems/SemanticPHIBase/Resource/diseasename/DISNAME_00225>) || ( CONTAINS( ?gene_l_1, "gene") ) || ( ?gfun_1 = <http://linkeddata.systems/SemanticPHIBase/Resource/genefunction/GENEFUNCT_00279>))}
+
+11 abr 2016 14:18:51 Linea 189 [http-bio-8080-exec-4] DEBUG Jena  - Jena initialization
+11 abr 2016 14:19:13 Linea 56 [http-bio-8080-exec-4] DEBUG edu.upm.spbw.utils.SparqlQueryExecutor  - Query to be Executed:
+
+ SELECT DISTINCT ?int ?int_l ?host_1 ?host_l_1 ?path_1 ?path_l_1 ?incon_1 ?incon_l_1 ?protd_1 ?protd_l_1 ?cita_1 ?cita_l_1 ?disn_1 ?disn_l_1 ?alle_1 ?alle_l_1 ?leth_1 ?leth_l_1 ?invg_1 ?invg_l_1 ?gene_1 ?gene_l_1 ?locu_1 ?locu_l_1 ?gfun_1 ?gfun_l_1 ?gnam_1 ?gnam_l_1 ?gacc_1 ?gacc_l_1
+ WHERE { 
+ ?int a PHIO:PHIBO_00022 . 
+ ?int rdfs:label ?int_l . 
+ ?intcont a PHIO:PHIBO_00076 . 
+ ?int PHIO:is_manifested_as ?intcont . 
+ ?prot a SIO:SIO_000747 . 
+ ?intcont PHIO:is_output_of ?prot . 
+ ?intcont PHIO:depends_on ?path_context . 
+
+ ?host_1 a SIO:SIO_010415 . 
+ ?host_1 rdfs:label  ?host_l_1 . 
+ ?int PHIO:has_participant  ?host_1 . 
+
+ ?path_1 a SIO:SIO_010414 . 
+ ?path_1 rdfs:label  ?path_l_1 . 
+ ?int PHIO:has_participant  ?path_1 . 
+
+ ?incon_1 a PHIO:POO_0000000 . 
+ ?incon_1 PHIO:has_value  ?incon_l_1 . 
+ ?intcont  PHIO:has_quality  ?incon_1 . 
+
+ ?protd_1 a SIO:SIO_000136 . 
+ ?protd_1 PHIO:has_value  ?protd_l_1 . 
+ ?prot  PHIO:has_quality  ?protd_1 . 
+
+OPTIONAL{ 
+ ?cita_1 a <http://schema.org/CreativeWork> . 
+ ?cita_1 PHIO:has_unique_identifier  ?cita_l_1 . 
+ ?prot  <http://schema.org/citation>  ?cita_1 . 
+}
+
+ ?disn_1 a PHIO:PHIBO_00001 . 
+ ?disn_1 PHIO:has_value  ?disn_l_1 . 
+ ?incon_1 PHIO:is_described_by  ?disn_1 . 
+
+ ?alle_1 a SIO:SIO_010277 . 
+ ?alle_1 rdfs:label  ?alle_l_1 . 
+ ?path_context  PHIO:has_quality  ?alle_1 . 
+
+OPTIONAL{ 
+ ?leth_1 a PHIO:PHIBO_00013 . 
+ ?leth_1 PHIO:has_value  ?leth_l_1 . 
+ ?alle_1 PHIO:has_quality  ?leth_1 . 
+}
+
+OPTIONAL{ 
+ ?invg_1 a PHIO:PHIBO_00018 . 
+ ?invg_1 PHIO:has_value  ?invg_l_1 . 
+ ?alle_1 PHIO:has_quality  ?invg_1 . 
+}
+
+ ?gene_1 a SIO:SIO_010035 . 
+ ?gene_1 rdfs:label  ?gene_l_1 . 
+ ?alle_1 PHIO:is_variant_of  ?gene_1 . 
+
+OPTIONAL{ 
+ ?locu_1 a EDAM:data_1893 . 
+ ?locu_1 PHIO:has_value  ?locu_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?locu_1 . 
+}
+
+ ?gfun_1 a PHIO:PHIBO_00004 . 
+ ?gfun_1 PHIO:has_value  ?gfun_l_1 . 
+ ?gene_1 PHIO:has_quality  ?gfun_1 . 
+
+OPTIONAL{ 
+ ?gnam_1 a EDAM:data_2299 . 
+ ?gnam_1 PHIO:has_value  ?gnam_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gnam_1 . 
+}
+
+OPTIONAL{ 
+ ?gacc_1 a EDAM:data_2907 . 
+ ?gacc_1 PHIO:has_value  ?gacc_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gacc_1 . 
+}
+ FILTER(( ?disn_1 = <http://linkeddata.systems/SemanticPHIBase/Resource/diseasename/DISNAME_00225>) || ( CONTAINS( ?gene_l_1, "gene") ) || ( ?gfun_1 = <http://linkeddata.systems/SemanticPHIBase/Resource/genefunction/GENEFUNCT_00279>))}
+
+11 abr 2016 14:26:47 Linea 56 [http-bio-8080-exec-1] DEBUG edu.upm.spbw.utils.SparqlQueryExecutor  - Query to be Executed:
+
+ SELECT DISTINCT ?int ?int_l ?host_1 ?host_l_1 ?path_1 ?path_l_1 ?incon_1 ?incon_l_1 ?protd_1 ?protd_l_1 ?cita_1 ?cita_l_1 ?disn_1 ?disn_l_1 ?alle_1 ?alle_l_1 ?leth_1 ?leth_l_1 ?invg_1 ?invg_l_1 ?gene_1 ?gene_l_1 ?locu_1 ?locu_l_1 ?gfun_1 ?gfun_l_1 ?gnam_1 ?gnam_l_1 ?gacc_1 ?gacc_l_1
+ WHERE { 
+ ?int a PHIO:PHIBO_00022 . 
+ ?int rdfs:label ?int_l . 
+ ?intcont a PHIO:PHIBO_00076 . 
+ ?int PHIO:is_manifested_as ?intcont . 
+ ?prot a SIO:SIO_000747 . 
+ ?intcont PHIO:is_output_of ?prot . 
+ ?intcont PHIO:depends_on ?path_context . 
+
+ ?host_1 a SIO:SIO_010415 . 
+ ?host_1 rdfs:label  ?host_l_1 . 
+ ?int PHIO:has_participant  ?host_1 . 
+
+ ?path_1 a SIO:SIO_010414 . 
+ ?path_1 rdfs:label  ?path_l_1 . 
+ ?int PHIO:has_participant  ?path_1 . 
+
+ ?incon_1 a PHIO:POO_0000000 . 
+ ?incon_1 PHIO:has_value  ?incon_l_1 . 
+ ?intcont  PHIO:has_quality  ?incon_1 . 
+
+ ?protd_1 a SIO:SIO_000136 . 
+ ?protd_1 PHIO:has_value  ?protd_l_1 . 
+ ?prot  PHIO:has_quality  ?protd_1 . 
+
+OPTIONAL{ 
+ ?cita_1 a <http://schema.org/CreativeWork> . 
+ ?cita_1 PHIO:has_unique_identifier  ?cita_l_1 . 
+ ?prot  <http://schema.org/citation>  ?cita_1 . 
+}
+
+ ?disn_1 a PHIO:PHIBO_00001 . 
+ ?disn_1 PHIO:has_value  ?disn_l_1 . 
+ ?incon_1 PHIO:is_described_by  ?disn_1 . 
+
+ ?alle_1 a SIO:SIO_010277 . 
+ ?alle_1 rdfs:label  ?alle_l_1 . 
+ ?path_context  PHIO:has_quality  ?alle_1 . 
+
+OPTIONAL{ 
+ ?leth_1 a PHIO:PHIBO_00013 . 
+ ?leth_1 PHIO:has_value  ?leth_l_1 . 
+ ?alle_1 PHIO:has_quality  ?leth_1 . 
+}
+
+OPTIONAL{ 
+ ?invg_1 a PHIO:PHIBO_00018 . 
+ ?invg_1 PHIO:has_value  ?invg_l_1 . 
+ ?alle_1 PHIO:has_quality  ?invg_1 . 
+}
+
+ ?gene_1 a SIO:SIO_010035 . 
+ ?gene_1 rdfs:label  ?gene_l_1 . 
+ ?alle_1 PHIO:is_variant_of  ?gene_1 . 
+
+OPTIONAL{ 
+ ?locu_1 a EDAM:data_1893 . 
+ ?locu_1 PHIO:has_value  ?locu_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?locu_1 . 
+}
+
+ ?gfun_1 a PHIO:PHIBO_00004 . 
+ ?gfun_1 PHIO:has_value  ?gfun_l_1 . 
+ ?gene_1 PHIO:has_quality  ?gfun_1 . 
+
+OPTIONAL{ 
+ ?gnam_1 a EDAM:data_2299 . 
+ ?gnam_1 PHIO:has_value  ?gnam_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gnam_1 . 
+}
+
+OPTIONAL{ 
+ ?gacc_1 a EDAM:data_2907 . 
+ ?gacc_1 PHIO:has_value  ?gacc_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gacc_1 . 
+}
+ FILTER(( ?disn_1 = <http://linkeddata.systems/SemanticPHIBase/Resource/diseasename/DISNAME_00225>) || ( CONTAINS( ?gene_l_1, "gene") ) || ( ?gfun_1 = <http://linkeddata.systems/SemanticPHIBase/Resource/genefunction/GENEFUNCT_00279>))}
+
+11 abr 2016 14:26:47 Linea 189 [http-bio-8080-exec-1] DEBUG Jena  - Jena initialization
+11 abr 2016 14:30:27 Linea 56 [http-bio-8080-exec-6] DEBUG edu.upm.spbw.utils.SparqlQueryExecutor  - Query to be Executed:
+
+ SELECT DISTINCT ?int ?int_l ?host_1 ?host_l_1 ?path_1 ?path_l_1 ?incon_1 ?incon_l_1 ?protd_1 ?protd_l_1 ?cita_1 ?cita_l_1 ?disn_1 ?disn_l_1 ?alle_1 ?alle_l_1 ?leth_1 ?leth_l_1 ?invg_1 ?invg_l_1 ?gene_1 ?gene_l_1 ?locu_1 ?locu_l_1 ?gfun_1 ?gfun_l_1 ?gnam_1 ?gnam_l_1 ?gacc_1 ?gacc_l_1
+ WHERE { 
+ ?int a PHIO:PHIBO_00022 . 
+ ?int rdfs:label ?int_l . 
+ ?intcont a PHIO:PHIBO_00076 . 
+ ?int PHIO:is_manifested_as ?intcont . 
+ ?prot a SIO:SIO_000747 . 
+ ?intcont PHIO:is_output_of ?prot . 
+ ?intcont PHIO:depends_on ?path_context . 
+
+ ?host_1 a SIO:SIO_010415 . 
+ ?host_1 rdfs:label  ?host_l_1 . 
+ ?int PHIO:has_participant  ?host_1 . 
+
+ ?path_1 a SIO:SIO_010414 . 
+ ?path_1 rdfs:label  ?path_l_1 . 
+ ?int PHIO:has_participant  ?path_1 . 
+
+ ?incon_1 a PHIO:POO_0000000 . 
+ ?incon_1 PHIO:has_value  ?incon_l_1 . 
+ ?intcont  PHIO:has_quality  ?incon_1 . 
+
+ ?protd_1 a SIO:SIO_000136 . 
+ ?protd_1 PHIO:has_value  ?protd_l_1 . 
+ ?prot  PHIO:has_quality  ?protd_1 . 
+
+OPTIONAL{ 
+ ?cita_1 a <http://schema.org/CreativeWork> . 
+ ?cita_1 PHIO:has_unique_identifier  ?cita_l_1 . 
+ ?prot  <http://schema.org/citation>  ?cita_1 . 
+}
+
+ ?disn_1 a PHIO:PHIBO_00001 . 
+ ?disn_1 PHIO:has_value  ?disn_l_1 . 
+ ?incon_1 PHIO:is_described_by  ?disn_1 . 
+
+ ?alle_1 a SIO:SIO_010277 . 
+ ?alle_1 rdfs:label  ?alle_l_1 . 
+ ?path_context  PHIO:has_quality  ?alle_1 . 
+
+OPTIONAL{ 
+ ?leth_1 a PHIO:PHIBO_00013 . 
+ ?leth_1 PHIO:has_value  ?leth_l_1 . 
+ ?alle_1 PHIO:has_quality  ?leth_1 . 
+}
+
+OPTIONAL{ 
+ ?invg_1 a PHIO:PHIBO_00018 . 
+ ?invg_1 PHIO:has_value  ?invg_l_1 . 
+ ?alle_1 PHIO:has_quality  ?invg_1 . 
+}
+
+ ?gene_1 a SIO:SIO_010035 . 
+ ?gene_1 rdfs:label  ?gene_l_1 . 
+ ?alle_1 PHIO:is_variant_of  ?gene_1 . 
+
+OPTIONAL{ 
+ ?locu_1 a EDAM:data_1893 . 
+ ?locu_1 PHIO:has_value  ?locu_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?locu_1 . 
+}
+
+ ?gfun_1 a PHIO:PHIBO_00004 . 
+ ?gfun_1 PHIO:has_value  ?gfun_l_1 . 
+ ?gene_1 PHIO:has_quality  ?gfun_1 . 
+
+OPTIONAL{ 
+ ?gnam_1 a EDAM:data_2299 . 
+ ?gnam_1 PHIO:has_value  ?gnam_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gnam_1 . 
+}
+
+OPTIONAL{ 
+ ?gacc_1 a EDAM:data_2907 . 
+ ?gacc_1 PHIO:has_value  ?gacc_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gacc_1 . 
+}
+ FILTER(( ?disn_1 = <http://linkeddata.systems/SemanticPHIBase/Resource/diseasename/DISNAME_00225>) || ( CONTAINS( ?gene_l_1, "gene") ) || ( ?gfun_1 = <http://linkeddata.systems/SemanticPHIBase/Resource/genefunction/GENEFUNCT_00279>))}
+
+11 abr 2016 14:30:27 Linea 189 [http-bio-8080-exec-6] DEBUG Jena  - Jena initialization
+11 abr 2016 14:36:52 Linea 56 [http-bio-8080-exec-4] DEBUG edu.upm.spbw.utils.SparqlQueryExecutor  - Query to be Executed:
+
+ SELECT DISTINCT ?int ?int_l ?host_1 ?host_l_1 ?path_1 ?path_l_1 ?incon_1 ?incon_l_1 ?protd_1 ?protd_l_1 ?cita_1 ?cita_l_1 ?disn_1 ?disn_l_1 ?alle_1 ?alle_l_1 ?leth_1 ?leth_l_1 ?invg_1 ?invg_l_1 ?gene_1 ?gene_l_1 ?locu_1 ?locu_l_1 ?gfun_1 ?gfun_l_1 ?gnam_1 ?gnam_l_1 ?gacc_1 ?gacc_l_1
+ WHERE { 
+ ?int a PHIO:PHIBO_00022 . 
+ ?int rdfs:label ?int_l . 
+ ?intcont a PHIO:PHIBO_00076 . 
+ ?int PHIO:is_manifested_as ?intcont . 
+ ?prot a SIO:SIO_000747 . 
+ ?intcont PHIO:is_output_of ?prot . 
+ ?intcont PHIO:depends_on ?path_context . 
+
+ ?host_1 a SIO:SIO_010415 . 
+ ?host_1 rdfs:label  ?host_l_1 . 
+ ?int PHIO:has_participant  ?host_1 . 
+
+ ?path_1 a SIO:SIO_010414 . 
+ ?path_1 rdfs:label  ?path_l_1 . 
+ ?int PHIO:has_participant  ?path_1 . 
+
+ ?incon_1 a PHIO:POO_0000000 . 
+ ?incon_1 PHIO:has_value  ?incon_l_1 . 
+ ?intcont  PHIO:has_quality  ?incon_1 . 
+
+ ?protd_1 a SIO:SIO_000136 . 
+ ?protd_1 PHIO:has_value  ?protd_l_1 . 
+ ?prot  PHIO:has_quality  ?protd_1 . 
+
+OPTIONAL{ 
+ ?cita_1 a <http://schema.org/CreativeWork> . 
+ ?cita_1 PHIO:has_unique_identifier  ?cita_l_1 . 
+ ?prot  <http://schema.org/citation>  ?cita_1 . 
+}
+
+ ?disn_1 a PHIO:PHIBO_00001 . 
+ ?disn_1 PHIO:has_value  ?disn_l_1 . 
+ ?incon_1 PHIO:is_described_by  ?disn_1 . 
+
+ ?alle_1 a SIO:SIO_010277 . 
+ ?alle_1 rdfs:label  ?alle_l_1 . 
+ ?path_context  PHIO:has_quality  ?alle_1 . 
+
+OPTIONAL{ 
+ ?leth_1 a PHIO:PHIBO_00013 . 
+ ?leth_1 PHIO:has_value  ?leth_l_1 . 
+ ?alle_1 PHIO:has_quality  ?leth_1 . 
+}
+
+OPTIONAL{ 
+ ?invg_1 a PHIO:PHIBO_00018 . 
+ ?invg_1 PHIO:has_value  ?invg_l_1 . 
+ ?alle_1 PHIO:has_quality  ?invg_1 . 
+}
+
+ ?gene_1 a SIO:SIO_010035 . 
+ ?gene_1 rdfs:label  ?gene_l_1 . 
+ ?alle_1 PHIO:is_variant_of  ?gene_1 . 
+
+OPTIONAL{ 
+ ?locu_1 a EDAM:data_1893 . 
+ ?locu_1 PHIO:has_value  ?locu_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?locu_1 . 
+}
+
+ ?gfun_1 a PHIO:PHIBO_00004 . 
+ ?gfun_1 PHIO:has_value  ?gfun_l_1 . 
+ ?gene_1 PHIO:has_quality  ?gfun_1 . 
+
+OPTIONAL{ 
+ ?gnam_1 a EDAM:data_2299 . 
+ ?gnam_1 PHIO:has_value  ?gnam_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gnam_1 . 
+}
+
+OPTIONAL{ 
+ ?gacc_1 a EDAM:data_2907 . 
+ ?gacc_1 PHIO:has_value  ?gacc_l_1 . 
+ ?gene_1 PHIO:has_unique_identifier  ?gacc_1 . 
+}
+ FILTER(( ?disn_1 = <http://linkeddata.systems/SemanticPHIBase/Resource/diseasename/DISNAME_00225>) || ( CONTAINS( ?gene_l_1, "gene") ) || ( ?gfun_1 = <http://linkeddata.systems/SemanticPHIBase/Resource/genefunction/GENEFUNCT_00279>))}
+
+11 abr 2016 14:36:52 Linea 189 [http-bio-8080-exec-4] DEBUG Jena  - Jena initialization

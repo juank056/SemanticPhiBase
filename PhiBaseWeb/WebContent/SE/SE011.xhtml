@@ -1,0 +1,617 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:p="http://java.sun.com/jsp/jstl/core">
+<ui:composition template="/template/main_template.xhtml">
+	<ui:define name="tittle">
+	#{msgs.se011_tittle}
+	</ui:define>
+	<ui:define name="content">
+		<!-- Incluye parte de autenticacion y la hoja de estilos -->
+		<ui:include src="/weblets/authorization_popup.xhtml">
+			<ui:param name="userIsNotAuthorized"
+				value="#{sE011Bean.userNOTAuthenticatedAndAuthorized}"></ui:param>
+		</ui:include>
+		<!-- Fin del Include de Autorizacion al servicio -->
+		<h:form id="mainForm">
+			<ice:panelTabSet id="panelTabSet"
+				selectedIndex="#{sE011Bean.selectedTabIndex}">
+				<ice:panelTab id="mainTab1" label="#{msgs.se011_tab1}"
+					title="#{msgs.se011_tab1}">
+					<ice:panelGroup styleClass="boxLeft">
+						<ice:tree hideRootNode="true" value="#{sE011Bean.conceptsTree}"
+							var="node" hideNavigation="false">
+							<ice:treeNode>
+								<f:facet name="content">
+									<ice:panelGroup draggable="true" dragValue="#{node.userObject}"
+										dragOptions="dragGhost"
+										dragMask="dragging,drag_cancel,hover_start,hover_end"
+										dropMask="dragging,drag_cancel,hover_start,hover_end"
+										dragListener="#{sE011Bean.addConceptToList}"
+										style="display: inline">
+										<ice:commandLink actionListener="#{sE011Bean.expandTree}">
+											<f:attribute name="parameter" value="#{node.userObject}" />
+											<ice:graphicImage value="#{node.userObject.icon}" />&#160;
+											<ice:outputText value="#{node.userObject.text}" />
+										</ice:commandLink>
+									</ice:panelGroup>
+								</f:facet>
+							</ice:treeNode>
+						</ice:tree>
+					</ice:panelGroup>
+					<ice:panelGroup styleClass="boxRightButton">
+						<br />
+						<br />
+						<ice:commandButton image="/images/icons/normal/32/right_32.png"
+							title="#{msgs.se011_executeQuery}"
+							alt="#{msgs.se011_executeQuery}"
+							actionListener="#{sE011Bean.searchRecord}" />
+						<br />
+						<br />
+						<br />
+						<br />
+						<br />
+						<ice:commandButton
+							image="/images/icons/normal/32/button_cancel_32.png"
+							title="#{msgs.se011_restartCriteria}"
+							alt="#{msgs.se011_restartCriteria}"
+							actionListener="#{sE011Bean.restartCriteria}" />
+						<br />
+						<br />
+					</ice:panelGroup>
+					<ice:panelGroup styleClass="boxRight" id="dropTargetPanel"
+						hoverclass="dropTarget">
+						<ice:panelGroup hoverclass="dropTarget" dropTarget="true">
+							<ice:outputLabel for="interConceptOperator"
+								value="#{msgs.se011_interConceptOperator}" />
+							<ice:panelGroup styleClass="selectionRadioGroup">
+								<ice:selectOneRadio id="interConceptOperator"
+									value="#{sE011Bean.interConceptOperator}">
+									<f:selectItems value="#{sE011Bean.logicalOperators}" />
+								</ice:selectOneRadio>
+							</ice:panelGroup>
+						</ice:panelGroup>
+						<ice:panelGroup>
+							<ice:panelGroup hoverclass="dropTarget" dropTarget="true">
+								<ice:outputLabel for="searchPanel"
+									value="#{msgs.se011_selectedConcepts}" />
+							</ice:panelGroup>
+							<ice:panelGroup id="searchPanel">
+								<ice:dataTable value="#{sE011Bean.searchConcepts}" var="reg"
+									id="searchList" styleClass="subfile_table">
+									<ice:column id="column0">
+										<f:facet name="header">
+											<ice:outputText value="#{msgs.se011_selected}" />
+										</f:facet>
+										<img src="#{reg.icon}" />
+									</ice:column>
+									<ice:column id="column1">
+										<f:facet name="header">
+											<ice:outputText value="#{msgs.se011_semanticConcept}" />
+										</f:facet>
+										<ice:outputText value="#{reg.description}" />
+									</ice:column>
+									<ice:column id="column2">
+										<f:facet name="header">
+											<ice:outputText value="#{msgs.se011_conceptDetail}" />
+										</f:facet>
+										<ice:selectInputText value="#{reg.autocomplete}"
+											rows="#{autenticationBean.maxRecordsAutocomplete}"
+											valueChangeListener="#{sE011Bean.selectAutocompleteValue}"
+											listValue="#{sE011Bean.relcos}" listVar="relco" width="95%">
+											<f:attribute name="parameter" value="#{reg}" />
+											<f:facet name="selectInputText">
+												<ice:outputText value="#{relco.drcvalraf}" />
+											</f:facet>
+										</ice:selectInputText>
+									</ice:column>
+									<ice:column id="column3">
+										<f:facet name="header">
+											<ice:outputText value="#{msgs.se011_removeFromSearch}" />
+										</f:facet>
+										<center>
+											<ice:commandButton image="/images/btn/delete_confirm.gif"
+												actionListener="#{sE011Bean.removeConcept}"
+												title="#{msgs.se011_removeFromSearch}"
+												alt="#{msgs.se011_removeFromSearch}">
+												<f:attribute name="parameter" value="#{reg}" />
+											</ice:commandButton>
+										</center>
+									</ice:column>
+								</ice:dataTable>
+							</ice:panelGroup>
+						</ice:panelGroup>
+						<br />
+						<ice:panelGroup hoverclass="dropTarget" dropTarget="true">
+							<ice:outputLabel for="operatorsPanel"
+								value="#{msgs.se011_intraConceptOperator}" />
+							<ice:panelGroup id="operatorsPanel">
+								<ice:dataTable value="#{sE011Bean.operators}" var="reg"
+									id="operatorsList">
+									<ice:column id="column1">
+										<f:facet name="header">
+											<ice:outputText value="#{msgs.se011_semanticConcept}" />
+										</f:facet>
+										<ice:outputText value="#{reg.cosdcosaf}" />
+									</ice:column>
+									<ice:column id="column2">
+										<f:facet name="header">
+											<ice:outputText value="#{msgs.se011_logicalOperator}" />
+										</f:facet>
+										<ice:selectOneRadio value="#{reg.operator}" styleClass="bold">
+											<f:selectItems value="#{sE011Bean.logicalOperators}" />
+										</ice:selectOneRadio>
+									</ice:column>
+								</ice:dataTable>
+							</ice:panelGroup>
+						</ice:panelGroup>
+						<br />
+						<ice:panelGroup hoverclass="dropTarget" dropTarget="true">
+							<ice:outputLabel for="queryDesc" value="#{msgs.se011_descQuery}" />
+							<br />
+							<ice:inputTextarea value="#{sE011Bean.queryDesc}" maxlength="60" />
+						</ice:panelGroup>
+						<br />
+						<br />
+					</ice:panelGroup>
+				</ice:panelTab>
+				<ice:panelTab id="mainTab2" label="#{msgs.se011_tab2}"
+					title="#{msgs.se011_tab2}">
+					<!-- Buscador -->
+					<table class="secphitable">
+						<tr>
+							<td class="caption"><ice:outputText
+									value="#{msgs.se011_sinceDate}" /></td>
+							<td><ice:selectInputDate value="#{sE011Bean.sinceDate}"
+									renderAsPopup="true" popupDateFormat="yyyy-MM-dd"
+									renderYearAsDropdown="true" /></td>
+							<td class="caption"><ice:outputText
+									value="#{msgs.se011_untilDate}" /></td>
+							<td><ice:selectInputDate value="#{sE011Bean.untilDate}"
+									renderAsPopup="true" popupDateFormat="yyyy-MM-dd"
+									renderYearAsDropdown="true" /></td>
+							<td><ice:commandLink
+									styleClass="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left"
+									actionListener="#{sE011Bean.searchQueries}">
+									<span class="ui-button-text ui-c">#{msgs.search}</span>
+									<span class="ui-button-icon-left ui-icon ui-c ui-icon-search"></span>
+								</ice:commandLink></td>
+						</tr>
+					</table>
+					<br />
+					<!-- Subfile -->
+					<ice:dataTable border="1" value="#{sE011Bean.subfileList}"
+						var="reg" id="subfile" rows="#{autenticationBean.maxRegSubfile}"
+						styleClass="subfile_table">
+						<ice:column id="column1">
+							<f:facet name="header">
+								<ice:outputText value="#{msgs.se011_descQuery}" />
+							</f:facet>
+							<ice:outputText value="#{reg.lqudescaf}" />
+						</ice:column>
+						<ice:column id="column2">
+							<f:facet name="header">
+								<ice:outputText value="#{msgs.se011_dateQuery}" />
+							</f:facet>
+							<ice:outputText value="#{reg.id.lqufechfk}  #{reg.lquhoratf}" />
+						</ice:column>
+						<ice:column id="column3">
+							<f:facet name="header">
+								<ice:outputText value="#{msgs.se011_option1}" />
+							</f:facet>
+							<center>
+								<ice:commandButton image="/images/btn/option1.gif"
+									actionListener="#{sE011Bean.loadQueryParameters}"
+									title="#{msgs.se011_option1}" alt="#{msgs.se011_option1}">
+									<f:attribute name="param1" value="#{reg}" />
+								</ice:commandButton>
+							</center>
+						</ice:column>
+						<ice:column id="column4">
+							<f:facet name="header">
+								<ice:outputText value="#{msgs.se011_option2}" />
+							</f:facet>
+							<center>
+								<ice:commandButton image="/images/btn/option2.gif"
+									actionListener="#{sE011Bean.executeQueryAndViewResults}"
+									title="#{msgs.se011_option2}" alt="#{msgs.se011_option2}">
+									<f:attribute name="param1" value="#{reg}" />
+								</ice:commandButton>
+							</center>
+						</ice:column>
+					</ice:dataTable>
+					<ui:include src="/weblets/list_paginator.xhtml">
+						<ui:param name="nameList" value="subfile" />
+					</ui:include>
+					<br />
+					<br />
+				</ice:panelTab>
+				<ice:panelTab id="mainTab3" label="#{msgs.se011_tab3}"
+					title="#{msgs.se011_tab3}"
+					rendered="#{!(sE011Bean.queryResults.isEmpty())}">
+					<ice:panelGroup>
+						<ice:outputLabel for="columnSelector"
+							value="#{msgs.se011_columnSelector}" />&#160;
+					<ice:commandButton id="columnSelector"
+							image="/images/icon/blue/plus.gif"
+							title="#{msgs.se011_columnSelector}"
+							actionListener="#{sE011Bean.showColumnSelection}" />
+					</ice:panelGroup>
+					<ice:panelGroup id="resultsPanel">
+						<ice:dataTable value="#{sE011Bean.queryResults}" var="reg"
+							id="resultsList" styleClass="subfile_table" border="1"
+							rows="#{autenticationBean.maxRegSubfile}">
+							<ice:column id="column1"
+								rendered="#{sE011Bean.show_interactions}">
+								<f:facet name="header">
+									<ice:outputText value="#{msgs.se011_interaction}" />
+								</f:facet>
+								<ui:repeat var="inner" value="#{reg.interactions}">
+									<ice:commandLink actionListener="#{sE011Bean.showGraph}"
+										value="#{inner.description}" styleClass="#{inner.styleClass}">
+										<f:attribute name="queryResult" value="#{reg}" />
+										<f:attribute name="queryValue" value="#{inner}" />
+									</ice:commandLink>&#160;
+								</ui:repeat>
+							</ice:column>
+							<ice:column id="column2" rendered="#{sE011Bean.show_hosts}">
+								<f:facet name="header">
+									<ice:outputText value="#{msgs.se011_host}" />
+								</f:facet>
+								<ui:repeat value="#{reg.hosts}" var="inner">
+									<ice:commandLink actionListener="#{sE011Bean.showGraph}"
+										value="#{inner.description}" styleClass="#{inner.styleClass}">
+										<f:attribute name="queryResult" value="#{reg}" />
+										<f:attribute name="queryValue" value="#{inner}" />
+									</ice:commandLink>&#160;
+								</ui:repeat>
+							</ice:column>
+							<ice:column id="column3" rendered="#{sE011Bean.show_pathogens}">
+								<f:facet name="header">
+									<ice:outputText value="#{msgs.se011_pathogen}" />
+								</f:facet>
+								<ui:repeat value="#{reg.pathogens}" var="inner">
+									<ice:commandLink actionListener="#{sE011Bean.showGraph}"
+										value="#{inner.description}" styleClass="#{inner.styleClass}">
+										<f:attribute name="queryResult" value="#{reg}" />
+										<f:attribute name="queryValue" value="#{inner}" />
+									</ice:commandLink>&#160;
+								</ui:repeat>
+							</ice:column>
+							<ice:column id="column4"
+								rendered="#{sE011Bean.show_intContextMutantDesc}">
+								<f:facet name="header">
+									<ice:outputText value="#{msgs.se011_intContextMutantDesc}" />
+								</f:facet>
+								<ui:repeat value="#{reg.intContextMutantDesc}" var="inner">
+									<ice:commandLink actionListener="#{sE011Bean.showGraph}"
+										value="#{inner.description}" styleClass="#{inner.styleClass}">
+										<f:attribute name="queryResult" value="#{reg}" />
+										<f:attribute name="queryValue" value="#{inner}" />
+									</ice:commandLink>&#160;
+								</ui:repeat>
+							</ice:column>
+							<ice:column id="column5"
+								rendered="#{sE011Bean.show_diseaseNames}">
+								<f:facet name="header">
+									<ice:outputText value="#{msgs.se011_diseaseName}" />
+								</f:facet>
+								<ui:repeat value="#{reg.diseaseNames}" var="inner">
+									<ice:commandLink actionListener="#{sE011Bean.showGraph}"
+										value="#{inner.description}" styleClass="#{inner.styleClass}">
+										<f:attribute name="queryResult" value="#{reg}" />
+										<f:attribute name="queryValue" value="#{inner}" />
+									</ice:commandLink>&#160;
+								</ui:repeat>
+							</ice:column>
+							<ice:column id="column6"
+								rendered="#{sE011Bean.show_protocolDescriptions}">
+								<f:facet name="header">
+									<ice:outputText value="#{msgs.se011_protocolDescription}" />
+								</f:facet>
+								<ui:repeat value="#{reg.protocolDescriptions}" var="inner">
+									<ice:commandLink actionListener="#{sE011Bean.showGraph}"
+										value="#{inner.description}" styleClass="#{inner.styleClass}">
+										<f:attribute name="queryResult" value="#{reg}" />
+										<f:attribute name="queryValue" value="#{inner}" />
+									</ice:commandLink>&#160;
+								</ui:repeat>
+							</ice:column>
+							<ice:column id="column7" rendered="#{sE011Bean.show_citations}">
+								<f:facet name="header">
+									<ice:outputText value="#{msgs.se011_citation}" />
+								</f:facet>
+								<ui:repeat value="#{reg.citations}" var="inner">
+									<ice:commandLink actionListener="#{sE011Bean.showGraph}"
+										value="#{inner.description}" styleClass="#{inner.styleClass}">
+										<f:attribute name="queryResult" value="#{reg}" />
+										<f:attribute name="queryValue" value="#{inner}" />
+									</ice:commandLink>&#160;
+								</ui:repeat>
+							</ice:column>
+							<ice:column id="column8" rendered="#{sE011Bean.show_alleles}">
+								<f:facet name="header">
+									<ice:outputText value="#{msgs.se011_allele}" />
+								</f:facet>
+								<ui:repeat value="#{reg.alleles}" var="inner">
+									<ice:commandLink actionListener="#{sE011Bean.showGraph}"
+										value="#{inner.description}" styleClass="#{inner.styleClass}">
+										<f:attribute name="queryResult" value="#{reg}" />
+										<f:attribute name="queryValue" value="#{inner}" />
+									</ice:commandLink>&#160;
+								</ui:repeat>
+							</ice:column>
+							<ice:column id="column9"
+								rendered="#{sE011Bean.show_invitroGrowths}">
+								<f:facet name="header">
+									<ice:outputText value="#{msgs.se011_invitroGrowth}" />
+								</f:facet>
+								<ui:repeat value="#{reg.invitroGrowths}" var="inner">
+									<ice:commandLink actionListener="#{sE011Bean.showGraph}"
+										value="#{inner.description}" styleClass="#{inner.styleClass}">
+										<f:attribute name="queryResult" value="#{reg}" />
+										<f:attribute name="queryValue" value="#{inner}" />
+									</ice:commandLink>&#160;
+								</ui:repeat>
+							</ice:column>
+							<ice:column id="column10"
+								rendered="#{sE011Bean.show_lethalKnockouts}">
+								<f:facet name="header">
+									<ice:outputText value="#{msgs.se011_lethalKnockout}" />
+								</f:facet>
+								<ui:repeat value="#{reg.lethalKnockouts}" var="inner">
+									<ice:commandLink actionListener="#{sE011Bean.showGraph}"
+										value="#{inner.description}" styleClass="#{inner.styleClass}">
+										<f:attribute name="queryResult" value="#{reg}" />
+										<f:attribute name="queryValue" value="#{inner}" />
+									</ice:commandLink>&#160;
+								</ui:repeat>
+							</ice:column>
+							<ice:column id="column11" rendered="#{sE011Bean.show_genes}">
+								<f:facet name="header">
+									<ice:outputText value="#{msgs.se011_gene}" />
+								</f:facet>
+								<ui:repeat value="#{reg.genes}" var="inner">
+									<ice:commandLink actionListener="#{sE011Bean.showGraph}"
+										value="#{inner.description}" styleClass="#{inner.styleClass}">
+										<f:attribute name="queryResult" value="#{reg}" />
+										<f:attribute name="queryValue" value="#{inner}" />
+									</ice:commandLink>&#160;
+								</ui:repeat>
+							</ice:column>
+							<ice:column id="column12"
+								rendered="#{sE011Bean.show_geneLocusIds}">
+								<f:facet name="header">
+									<ice:outputText value="#{msgs.se011_geneLocusId}" />
+								</f:facet>
+								<ui:repeat value="#{reg.geneLocusIds}" var="inner">
+									<ice:commandLink actionListener="#{sE011Bean.showGraph}"
+										value="#{inner.description}" styleClass="#{inner.styleClass}">
+										<f:attribute name="queryResult" value="#{reg}" />
+										<f:attribute name="queryValue" value="#{inner}" />
+									</ice:commandLink>&#160;
+								</ui:repeat>
+							</ice:column>
+							<ice:column id="column13"
+								rendered="#{sE011Bean.show_geneFunctions}">
+								<f:facet name="header">
+									<ice:outputText value="#{msgs.se011_geneFunction}" />
+								</f:facet>
+								<ui:repeat value="#{reg.geneFunctions}" var="inner">
+									<ice:commandLink actionListener="#{sE011Bean.showGraph}"
+										value="#{inner.description}" styleClass="#{inner.styleClass}">
+										<f:attribute name="queryResult" value="#{reg}" />
+										<f:attribute name="queryValue" value="#{inner}" />
+									</ice:commandLink>&#160;
+								</ui:repeat>
+							</ice:column>
+							<ice:column id="column14" rendered="#{sE011Bean.show_geneNames}">
+								<f:facet name="header">
+									<ice:outputText value="#{msgs.se011_geneName}" />
+								</f:facet>
+								<ui:repeat value="#{reg.geneNames}" var="inner">
+									<ice:commandLink actionListener="#{sE011Bean.showGraph}"
+										value="#{inner.description}" styleClass="#{inner.styleClass}">
+										<f:attribute name="queryResult" value="#{reg}" />
+										<f:attribute name="queryValue" value="#{inner}" />
+									</ice:commandLink>&#160;
+								</ui:repeat>
+							</ice:column>
+							<ice:column id="column15"
+								rendered="#{sE011Bean.show_geneAccessions}">
+								<f:facet name="header">
+									<ice:outputText value="#{msgs.se011_geneAccession}" />
+								</f:facet>
+								<ui:repeat value="#{reg.geneAccessions}" var="inner">
+									<ice:commandLink actionListener="#{sE011Bean.showGraph}"
+										value="#{inner.description}" styleClass="#{inner.styleClass}">
+										<f:attribute name="queryResult" value="#{reg}" />
+										<f:attribute name="queryValue" value="#{inner}" />
+									</ice:commandLink>&#160;
+								</ui:repeat>
+							</ice:column>
+						</ice:dataTable>
+						<ui:include src="/weblets/list_paginator.xhtml">
+							<ui:param name="nameList" value="resultsList" />
+						</ui:include>
+					</ice:panelGroup>
+					<br />
+					<br />
+				</ice:panelTab>
+				<ice:panelTab id="mainTab4" label="#{msgs.se011_tab4}"
+					title="#{msgs.se011_tab4}"
+					rendered="#{!(sE011Bean.queryResults.isEmpty())}">
+					<iframe id="visualizationGraph" class="graphContainer" />
+					<br />
+					<br />
+				</ice:panelTab>
+			</ice:panelTabSet>
+			<p:if test="#{sE011Bean.show_backButton}">
+				<br />
+				<table>
+
+					<tr>
+						<td><ui:include src="/weblets/std_goback.xhtml" /></td>
+					</tr>
+				</table>
+				<br />
+				<br />
+			</p:if>
+		</h:form>
+		<script type="text/javascript">
+			/**
+			 * Se encarga de llamar al servicio de visualización para desplegar el grafo
+			 * 
+			 * @param serverURL
+			 *            URL del servicio de visualización
+			 * @param interactionType
+			 *            Tipo RDF de la interaccion
+			 * @param interactionIRI
+			 *            IRI de la interacción relacionada
+			 * @param elementType
+			 *            RDF type del elemento a desplegar
+			 * @param elementIRI
+			 *            IRI del elemento a desplegar
+			 */
+			function showPhiBaseGraph(serverURL, interactionType,
+					interactionIRI, elementType, elementIRI) {
+				inner_showPhiBaseGraph(serverURL, interactionType,
+						interactionIRI, elementType, elementIRI);
+			}
+		</script>
+		<!-- Composition para seleccion de filtro -->
+		<ui:decorate template="/weblets/std_panel_popup.xhtml">
+			<ui:param name="idForm" value="selectColumnsForm" />
+			<ui:param name="visible" value="#{sE011Bean.selectColumns}" />
+			<ui:param name="title" value="#{msgs.se011_columnSelector}" />
+			<ui:param name="beanName" value="sE011Bean" />
+			<ui:define name="content">
+				<table class="phi_table">
+					<tr>
+						<td class="caption"><ice:outputLabel for="sCol1"
+								value="#{msgs.se011_interaction}" /></td>
+						<td><ice:selectBooleanCheckbox id="sCol1"
+								value="#{sE011Bean.show_interactions}"
+								title="#{msgs.se011_interaction}"
+								label="#{msgs.se011_interaction}" immediate="true"
+								partialSubmit="true" /></td>
+						<td class="caption"><ice:outputLabel for="sCol2"
+								value="#{msgs.se011_host}" /></td>
+						<td><ice:selectBooleanCheckbox id="sCol2"
+								value="#{sE011Bean.show_hosts}" title="#{msgs.se011_host}"
+								label="#{msgs.se011_host}" immediate="true" partialSubmit="true" /></td>
+					</tr>
+					<tr>
+						<td class="caption"><ice:outputLabel for="sCol3"
+								value="#{msgs.se011_pathogen}" /></td>
+						<td><ice:selectBooleanCheckbox id="sCol3"
+								value="#{sE011Bean.show_pathogens}"
+								title="#{msgs.se011_pathogen}" label="#{msgs.se011_pathogen}"
+								immediate="true" partialSubmit="true" /></td>
+						<td class="caption"><ice:outputLabel for="sCol4"
+								value="#{msgs.se011_intContextMutantDesc}" /></td>
+						<td><ice:selectBooleanCheckbox id="sCol4"
+								value="#{sE011Bean.show_intContextMutantDesc}"
+								title="#{msgs.se011_intContextMutantDesc}"
+								label="#{msgs.se011_intContextMutantDesc}" immediate="true"
+								partialSubmit="true" /></td>
+					</tr>
+					<tr>
+						<td class="caption"><ice:outputLabel for="sCol5"
+								value="#{msgs.se011_diseaseName}" /></td>
+						<td><ice:selectBooleanCheckbox id="sCol5"
+								value="#{sE011Bean.show_diseaseNames}"
+								title="#{msgs.se011_diseaseName}"
+								label="#{msgs.se011_diseaseName}" immediate="true"
+								partialSubmit="true" /></td>
+						<td class="caption"><ice:outputLabel for="sCol6"
+								value="#{msgs.se011_protocolDescription}" /></td>
+						<td><ice:selectBooleanCheckbox id="sCol6"
+								value="#{sE011Bean.show_protocolDescriptions}"
+								title="#{msgs.se011_protocolDescription}"
+								label="#{msgs.se011_protocolDescription}" immediate="true"
+								partialSubmit="true" /></td>
+					</tr>
+					<tr>
+						<td class="caption"><ice:outputLabel for="sCol7"
+								value="#{msgs.se011_citation}" /></td>
+						<td><ice:selectBooleanCheckbox id="sCol7"
+								value="#{sE011Bean.show_citations}"
+								title="#{msgs.se011_citation}" label="#{msgs.se011_citation}"
+								immediate="true" partialSubmit="true" /></td>
+						<td class="caption"><ice:outputLabel for="sCol8"
+								value="#{msgs.se011_allele}" /></td>
+						<td><ice:selectBooleanCheckbox id="sCol8"
+								value="#{sE011Bean.show_alleles}" title="#{msgs.se011_allele}"
+								label="#{msgs.se011_allele}" immediate="true"
+								partialSubmit="true" /></td>
+					</tr>
+					<tr>
+						<td class="caption"><ice:outputLabel for="sCol9"
+								value="#{msgs.se011_invitroGrowth}" /></td>
+						<td><ice:selectBooleanCheckbox id="sCol9"
+								value="#{sE011Bean.show_invitroGrowths}"
+								title="#{msgs.se011_invitroGrowth}"
+								label="#{msgs.se011_invitroGrowth}" immediate="true"
+								partialSubmit="true" /></td>
+						<td class="caption"><ice:outputLabel for="sCol10"
+								value="#{msgs.se011_lethalKnockout}" /></td>
+						<td><ice:selectBooleanCheckbox id="sCol10"
+								value="#{sE011Bean.show_lethalKnockouts}"
+								title="#{msgs.se011_lethalKnockout}"
+								label="#{msgs.se011_lethalKnockout}" immediate="true"
+								partialSubmit="true" /></td>
+					</tr>
+					<tr>
+						<td class="caption"><ice:outputLabel for="sCol11"
+								value="#{msgs.se011_gene}" /></td>
+						<td><ice:selectBooleanCheckbox id="sCol11"
+								value="#{sE011Bean.show_genes}" title="#{msgs.se011_gene}"
+								label="#{msgs.se011_gene}" immediate="true" partialSubmit="true" /></td>
+						<td class="caption"><ice:outputLabel for="sCol12"
+								value="#{msgs.se011_geneLocusId}" /></td>
+						<td><ice:selectBooleanCheckbox id="sCol12"
+								value="#{sE011Bean.show_geneLocusIds}"
+								title="#{msgs.se011_geneLocusId}"
+								label="#{msgs.se011_geneLocusId}" immediate="true"
+								partialSubmit="true" /></td>
+
+					</tr>
+					<tr>
+						<td class="caption"><ice:outputLabel for="sCol13"
+								value="#{msgs.se011_geneFunction}" /></td>
+						<td><ice:selectBooleanCheckbox id="sCol13"
+								value="#{sE011Bean.show_geneFunctions}"
+								title="#{msgs.se011_geneFunction}"
+								label="#{msgs.se011_geneFunction}" immediate="true"
+								partialSubmit="true" /></td>
+						<td class="caption"><ice:outputLabel for="sCol14"
+								value="#{msgs.se011_geneName}" /></td>
+						<td><ice:selectBooleanCheckbox id="sCol14"
+								value="#{sE011Bean.show_geneNames}"
+								title="#{msgs.se011_geneName}" label="#{msgs.se011_geneName}"
+								immediate="true" partialSubmit="true" /></td>
+
+					</tr>
+					<tr>
+						<td class="caption"><ice:outputLabel for="sCol15"
+								value="#{msgs.se011_geneAccession}" /></td>
+						<td><ice:selectBooleanCheckbox id="sCol15"
+								value="#{sE011Bean.show_geneAccessions}"
+								title="#{msgs.se011_geneAccession}"
+								label="#{msgs.se011_geneAccession}" immediate="true"
+								partialSubmit="true" /></td>
+					</tr>
+				</table>
+			</ui:define>
+		</ui:decorate>
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:p="http://java.sun.com/jsp/jstl/core">
+<ui:composition template="/template/help_service_template.xhtml">
+	<ui:define name="tittle">
+	#{msgs.help_intro}
+	</ui:define>
+	<ui:define name="content">
+		<table class="phi_table" style="width: 100%;">
+			<tr>
+				<td colspan="2" style="text-align: center;" align="center"><img
+					src="/PhiBaseWeb/help/images/intro/world_book.png" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">1. ¿Por qué manual de Usuario en línea?<br />
+					<br />En este manual de usuario se encuentran descritas todas las
+					funcionalidades que dispone el Sistema Semantic PHI-BASE Web
+					Interface. Se ha realizado este manual a manera de páginas web de
+					tal forma que siempre esté disponible para los usuarios en el
+					momento en que lo necesiten.<br /> <br /> 2. Navegación:<br /> <br />Para
+					consultar los diferentes servicios ofrecidos por el sistema, se
+					cuenta con un panel en la parte izquierda de la pantalla. En este
+					panel están descritos los Servicios Básicos (para todos los
+					usuarios), junto con esta introducción. Además de esto, se incluyen
+					los servicios a los que un usuario autenticado tiene autorización
+					de acceso. El panel es como se muestra a continuación:<br /> <br />
+					<table>
+						<tr>
+							<td valign="top"><img
+								src="/PhiBaseWeb/help/images/intro/panel_serv.png" /></td>
+							<td valign="top">Desde este panel se puede acceder a la
+								documentación de cada uno de los servicios haciendo click sobre
+								alguno de ellos. Es importante notar que esta imagen puede
+								variar dependiendo de los servicios a los que el usuario tenga
+								acceso o de si se desarrollan nuevas funcionalidades en el
+								sistema en un futuro.</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</ui:define>
+</ui:composition>
+</html>

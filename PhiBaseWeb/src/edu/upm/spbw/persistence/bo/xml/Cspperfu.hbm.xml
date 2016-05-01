@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 28-feb-2016 11:40:56 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="edu.upm.spbw.persistence.bo.Cspperfu" table="CSPPERFU">
+		<id name="pfucpfuak" type="string">
+			<column name="PFUCPFUAK" length="2" />
+			<generator class="assigned" />
+		</id>
+		<property name="pfudpfuaf" type="string">
+			<column name="PFUDPFUAF" length="45" not-null="true" />
+		</property>
+		<property name="pfuiactsf" type="string">
+			<column name="PFUIACTSF" length="1" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

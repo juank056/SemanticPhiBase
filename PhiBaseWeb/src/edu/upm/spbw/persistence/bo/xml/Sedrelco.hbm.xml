@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 28-feb-2016 11:40:56 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+	<class name="edu.upm.spbw.persistence.bo.Sedrelco" table="SEDRELCO">
+		<composite-id name="id"
+			class="edu.upm.spbw.persistence.bo.SedrelcoId">
+			<key-property name="dconsecnk" type="int">
+				<column name="DCONSECNK" />
+			</key-property>
+			<key-property name="drcnsecnk" type="int">
+				<column name="DRCNSECNK" />
+			</key-property>
+		</composite-id>
+		<property name="drcvalraf" type="string">
+			<column name="DRCVALRAF" length="256" not-null="true" />
+		</property>
+		<property name="cosccosak" type="string">
+			<column name="COSCCOSAK" length="2" not-null="true" />
+		</property>
+		<property name="rcocrcoak" type="string">
+			<column name="RCOCRCOAK" length="2" not-null="true" />
+		</property>
+	</class>
+</hibernate-mapping>

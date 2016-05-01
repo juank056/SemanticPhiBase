@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- 
+Parametros que debe recibir este Weblet
+1. beanName: Nombre del Bean para realizar el Add
+2. caption: El label que va a salir en el boton (puede ser opcional)
+ -->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:p="http://java.sun.com/jsp/jstl/core">
+	<ice:commandLink
+		styleClass="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left"
+		actionListener="#{invokeMethodBean.initAdd}">
+		<f:attribute name="beanName" value="#{beanName}" />
+		<f:attribute name="stdfunreq" value="initAdd" />
+		<p:if test="#{caption==null}">
+			<span class="ui-button-text ui-c">#{msgs.addRecord}</span>
+		</p:if>
+		<p:if test="#{caption!=null}">
+			<span class="ui-button-text ui-c">#{caption}</span>
+		</p:if>
+		<span class="ui-button-icon-left ui-icon ui-c ui-icon-plusthick"></span>
+	</ice:commandLink>
+</ui:composition>

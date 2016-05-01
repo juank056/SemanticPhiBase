@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:p="http://java.sun.com/jsp/jstl/core">
+<ui:composition template="/template/help_service_template.xhtml">
+	<ui:define name="tittle">
+	#{msgs.help_text}: #{msgs.mainMenu_title}
+	</ui:define>
+	<ui:define name="content">
+		<table class="phi_table" style="width: 100%;">
+			<!-- Inicio Objetivo y Consideraciones -->
+			<tr>
+				<th>Objetivo</th>
+				<td>Esta pantalla es el menú principal de la aplicación. Desde
+					aquí el usuario podrá acceder a todas las opciones a las cuales ha
+					sido autorizado de acuerdo a su perfil. Adicionalmente, y como en
+					todas las pantallas, se podrá desde aquí realizar la actualización
+					de la contraseña.</td>
+			</tr>
+			<tr>
+				<th>Consideraciones</th>
+				<td>El usuario debe estar autenticado y debe tener servicios
+					autorizados para poder estar en esta pantalla.</td>
+			</tr>
+			<!-- Fin Objetivo y Consideraciones -->
+			<!-- Inicio Pantalla Principal -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a class="aTittle">Pantalla
+									Principal</a></th>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Imagen Pantalla Principal -->
+								<div class="serviceImage">
+									<img src="/PhiBaseWeb/help/images/main_menu/main_menu.png" />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>Como se puede ver en la imagen, en esta pantalla se
+								encontrarán cargados todos los servicios a los que el usuario
+								tenga acceso. En la parte superior de la pantalla se desplegarán
+								datos sobre el inicio de sesión del usuario y se tendrán las
+								opciones de Ayuda, Ir al Menú, Cambiar Contraseña (Ver: <a
+								class="link" href="/PhiBaseWeb/help/docs/new_password.jsf">Actualizar
+									Contraseña</a>) y Salir. Estas opciones siempre estarán disponibles
+								en todos los servicios en donde se encuentre el usuario en su
+								navegación por el sistema.<br /> <br />Es importante notar que
+								la imagen no será siempre como la que se muestra en la parte
+								superior, ya que los servicios a cargar dependerán del perfil
+								que tenga asociado el usuario, el cual podrá tener más o menos
+								servicios.
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Pantalla Principal -->
+		</table>
+	</ui:define>
+</ui:composition>
+</html>

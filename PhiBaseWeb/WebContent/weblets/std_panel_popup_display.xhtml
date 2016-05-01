@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!-- 
+Parametros que debe recibir este Weblet
+1. idForm: Id del Formulario
+2. visible: Condicion para el PopUp visible
+3. title: Titulo del Pop-Up
+4. beanName: Nombre del Bean para redireccionar la peticion
+Se debe insertar el contenido en la parte de Content
+ -->
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component">
+	<h:form id="#{idForm}">
+		<ice:panelPopup modal="true" visible="#{visible}"
+			styleClass="std_panel_pop" resizable="true" title="#{title}">
+			<f:facet name="header">
+				<h3>
+					<ice:outputText value="#{title}" />
+				</h3>
+			</f:facet>
+			<f:facet name="body">
+				<div class="popupMessages">
+					<ice:messages />
+				</div>
+				<!-- Contenido propio para mostrar los datos del display -->
+				<ui:insert name="content" />
+				<!-- Tabla para el boton de cancelar -->
+				<center>
+					<br />
+					<table>
+						<tr>
+							<td><ice:commandLink
+									styleClass="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-icon-left"
+									actionListener="#{invokeMethodBean.cancelAction}">
+									<f:attribute name="beanName" value="#{beanName}" />
+									<span class="ui-button-text ui-c">#{msgs.close}</span>
+									<span
+										class="ui-button-icon-left ui-icon ui-c ui-icon-circle-close"></span>
+								</ice:commandLink></td>
+						</tr>
+					</table>
+				</center>
+			</f:facet>
+		</ice:panelPopup>
+	</h:form>
+</ui:composition>
+

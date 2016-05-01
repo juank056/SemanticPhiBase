@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:p="http://java.sun.com/jsp/jstl/core">
+<ui:composition template="/template/help_index_template.xhtml">
+	<ui:define name="tittle">
+	#{msgs.help_title}
+	</ui:define>
+	<ui:define name="content">
+		<h:form styleClass="content">
+			<ice:panelGroup styleClass="helpBoxLeft">
+				<ice:outputLabel for="basicServ" value="#{msgs.help_servBasic}" />
+				<ice:panelGroup id="basicServ">
+					<ul style="list-style-type: disc;">
+						<li><ice:commandLink onclick="openHelpService('intro.jsf');">
+								<ice:panelGroup title="#{msgs.help_intro}">
+									<ice:graphicImage value="/images/icons/normal/16/info_16.png"
+										style="height:16px;width:16px" />
+									<ice:outputText value="#{msgs.help_intro}" />
+								</ice:panelGroup>
+							</ice:commandLink></li>
+						<li><ice:commandLink onclick="openHelpService('index.jsf');">
+								<ice:panelGroup title="#{msgs.help_index}">
+									<ice:graphicImage value="/images/icons/normal/16/right_16.png"
+										style="height:16px;width:16px" />
+									<ice:outputText value="#{msgs.help_index}" />
+								</ice:panelGroup>
+							</ice:commandLink></li>
+						<li><ice:commandLink
+								onclick="openHelpService('main_menu.jsf');">
+								<ice:panelGroup title="#{msgs.help_mainMenu}">
+									<ice:graphicImage value="/images/icons/normal/16/bank_16.png"
+										style="height:16px;width:16px" />
+									<ice:outputText value="#{msgs.help_mainMenu}" />
+								</ice:panelGroup>
+							</ice:commandLink></li>
+
+						<li><ice:commandLink
+								onclick="openHelpService('new_password.jsf');">
+								<ice:panelGroup title="#{msgs.help_newPassword}">
+									<ice:graphicImage value="/images/icons/normal/16/keys_16.png"
+										style="height:16px;width:16px" />
+									<ice:outputText value="#{msgs.help_newPassword}" />
+								</ice:panelGroup>
+							</ice:commandLink></li>
+					</ul>
+				</ice:panelGroup>
+				<br />
+				<ice:outputLabel for="authServ" value="#{msgs.help_servAuth}" />
+				<ice:panelGroup id="authServ">
+					<ul style="list-style-type: disc;">
+						<p:forEach items="#{autenticationBean.authorizedServices}"
+							var="service">
+							<!-- Creamos el link al Servicio -->
+							<li><ice:commandLink
+									onclick="openHelpService('SE/#{service.ssidurlaf}.jsf');">
+									<ice:panelGroup title="#{service.ssidssiaf}">
+										<ice:graphicImage value="/images/#{service.ssiiconaf}"
+											style="height:16px;width:16px" />
+										<ice:outputText value="#{service.ssinssiaf}" />
+									</ice:panelGroup>
+								</ice:commandLink></li>
+						</p:forEach>
+					</ul>
+				</ice:panelGroup>
+				<br />
+				<br />
+			</ice:panelGroup>
+			<ice:panelGroup styleClass="helpBoxRight" id="serviceContainerPanel">
+				<iframe id="serviceContainer" style="width: 100%; height: 100%" />
+				<br />
+				<br />
+			</ice:panelGroup>
+			<script type="text/javascript">
+				setHelpService();
+			</script>
+
+		</h:form>
+	</ui:define>
+</ui:composition>
+</html>

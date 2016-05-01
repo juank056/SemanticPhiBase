@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:icecore="http://www.icefaces.org/icefaces/core"
+	xmlns:ace="http://www.icefaces.org/icefaces/components"
+	xmlns:ice="http://www.icesoft.com/icefaces/component"
+	xmlns:composite="http://java.sun.com/jsf/composite"
+	xmlns:p="http://java.sun.com/jsp/jstl/core">
+<ui:composition template="/template/help_service_template.xhtml">
+	<ui:define name="tittle">
+	#{msgs.help_text}: #{msgs.se008_tittle}
+	</ui:define>
+	<ui:define name="content">
+		<table class="phi_table" style="width: 100%;">
+			<!-- Inicio Objetivo y Consideraciones -->
+			<tr>
+				<th>Objetivo</th>
+				<td>Esta pantalla permite consultar las queries que han sido
+					ejecutadas por los diferentes usuarios del sistema hacia el Sistema
+					Semantic PHI-BASE.</td>
+			</tr>
+			<tr>
+				<th>Consideraciones</th>
+				<td>Ninguna.</td>
+			</tr>
+			<!-- Fin Objetivo y Consideraciones -->
+			<!-- Inicio Pantalla Principal -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a class="aTittle">Pantalla
+									Principal</a></th>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Imagen Pantalla Principal -->
+								<div class="serviceImage">
+									<img src="/PhiBaseWeb/help/images/SE008/SE008_main.png" />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>Parámetros Recibidos</th>
+							<td>Ninguno.</td>
+						</tr>
+						<tr>
+							<th>Buscador</th>
+							<td>1. Por rango de fechas de ejecución.<br />2. Por
+								Usuario del Sistema.<br />3. Por rango de fechas y Usuario del
+								Sistema.
+							</td>
+						</tr>
+						<tr>
+							<th>Acciones</th>
+							<td><a href="#display" class="link">1. Detalle Query
+									Semantic PHI BASE</a><br /> <a href="#loadParameters" class="link">2.
+									Cargar Parámetros de Query</a><br /> <a href="#executeQuery"
+								class="link">3. Ejecutar Query y Ver Resultados</a></td>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>Ninguna.</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Pantalla Principal -->
+			<!-- Inicio Pantalla Detalle -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a name="display"
+								class="aTittle">Detalle Query Semantic PHI BASE</a></th>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Imagen Pantalla Actualizar -->
+								<div class="serviceImage">
+									<img src="/PhiBaseWeb/help/images/SE008/SE008_display.png" />
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<!-- Tabla Descripción Campos -->
+								<table class="phi_table">
+									<tr>
+										<th class="caption2">Campo</th>
+										<th class="caption2">Descripción</th>
+										<th class="caption2">Tipo de Campo</th>
+										<th class="caption2">Consideraciones</th>
+									</tr>
+									<tr>
+										<td>Usuario</td>
+										<td>Usuario que ha ejecutado la query.</td>
+										<td>OUTPUT</td>
+										<td>1. No es posible modificar su valor.</td>
+									</tr>
+									<tr>
+										<td>Tiempo de Ejecución</td>
+										<td>Fecha y hora de ejecución de la query.</td>
+										<td>OUTPUT</td>
+										<td>1. No es posible modificar su valor.</td>
+									</tr>
+									<tr>
+										<td>Sparql Query</td>
+										<td>Texto de la query ejecutada en la base de
+											conocimiento de Virtuoso.</td>
+										<td>OUTPUT</td>
+										<td>1. No es posible modificar su valor.</td>
+									</tr>
+									<tr>
+										<td>Descripción Query</td>
+										<td>Texto ingresado por el usuario para describir la
+											Query que ha sido ejecutada en el Sistema.</td>
+										<td>OUTPUT</td>
+										<td>1. No es posible modificar su valor.</td>
+									</tr>
+								</table>
+							</td>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>Ninguna.</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Pantalla Detalle -->
+			<!-- Inicio Pantalla Cargar Parámetros de Query -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a name="loadParameters"
+								class="aTittle">Cargar Parámetros de Query</a></th>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>1. Esta opción navegará hacia la pantalla de Consulta
+								Semantic PHI-BASE y cargará en el tab de filtro de selección de
+								búsqueda todos los parámetros de ejecución que han sido
+								seleccionados por el usuario que ejecutó la query. Ver <a
+								class="link" href="/PhiBaseWeb/help/docs/SE/SE011.jsf">Consulta
+									Semantic PHI-BASE</a>.
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Pantalla Cargar Parámetros de Query -->
+			<!-- Inicio Pantalla Ejecutar Query y Ver Resultados -->
+			<tr>
+				<td colspan="2"><hr class="separator" /></td>
+			</tr>
+			<tr>
+				<td colspan="2">
+					<table class="phi_table">
+						<tr>
+							<th colspan="2" class="caption"><a name="executeQuery"
+								class="aTittle">Ejecutar Query y Ver Resultados</a></th>
+						</tr>
+						<tr>
+							<th>Observaciones</th>
+							<td>1. Esta opción navegará hacia la pantalla de Consulta
+								Semantic PHI-BASE y ejecutará la query nuevamente y cargará los
+								resultados obtenidos de acuerdo a los datos que se encuentren
+								disponibles en la base de conocimiento de Semantic PHI-BASE. Ver
+								<a class="link" href="/PhiBaseWeb/help/docs/SE/SE011.jsf">Consulta
+									Semantic PHI-BASE</a>.
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<!-- Fin Pantalla Ejecutar Query y Ver Resultados -->
+		</table>
+	</ui:define>
+</ui:composition>
+</html>
