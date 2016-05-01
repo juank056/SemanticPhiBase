@@ -38,6 +38,8 @@ import edu.upm.spbw.utils.PasswordManager;
 import edu.upm.spbw.utils.UnlockUserProcess;
 
 /**
+ * Bean que se encarga de manejar la autenticación en el sistema
+ * 
  * @author JuanCamilo
  * 
  */
