@@ -41,7 +41,7 @@ import edu.upm.spbw.utils.UnlockUserProcess;
  * Bean que se encarga de manejar la autenticación en el sistema
  * 
  * @author JuanCamilo
- *  
+ * 
  */
 public class AutenticationBean extends BaseBean<Usmusuar, String> {
 
@@ -173,6 +173,11 @@ public class AutenticationBean extends BaseBean<Usmusuar, String> {
 	 * URL del servicio de visualizacion
 	 */
 	private String visualizationService;
+
+	/**
+	 * Indicador de visualizacion integrada
+	 */
+	private boolean visualizationIntegrated;
 
 	/**
 	 * Constructor del bean de autenticacion
@@ -512,6 +517,7 @@ public class AutenticationBean extends BaseBean<Usmusuar, String> {
 		this.daysToChangePass = 60;
 		this.timeToUnlockUser = 5;
 		this.setMaxRecordsQuery(100);
+		this.visualizationIntegrated = false;
 		try {
 			// Maximo intentos inicio de sesion
 			parsi = cspparsiDao.findById(Constants.SE01);
@@ -558,6 +564,12 @@ public class AutenticationBean extends BaseBean<Usmusuar, String> {
 			parsi = cspparsiDao.findById(Constants.SE10);
 			if (parsi != null) {
 				this.visualizationService = parsi.getPsivalpaf().trim();
+			}
+			// Indicador de visualizacion integrada
+			parsi = cspparsiDao.findById(Constants.SE11);
+			if (parsi != null) {
+				this.visualizationIntegrated = Constants.ONE.equals(parsi
+						.getPsivalpaf().trim());
 			}
 		} catch (Exception e) {/* Ocurrio error obteniendo parametros */
 			LogLogger.getInstance(getClass()).logger(
@@ -902,5 +914,20 @@ public class AutenticationBean extends BaseBean<Usmusuar, String> {
 	 */
 	public void setVisualizationService(String visualizationService) {
 		this.visualizationService = visualizationService;
+	}
+
+	/**
+	 * @return the visualizationIntegrated
+	 */
+	public boolean isVisualizationIntegrated() {
+		return visualizationIntegrated;
+	}
+
+	/**
+	 * @param visualizationIntegrated
+	 *            the visualizationIntegrated to set
+	 */
+	public void setVisualizationIntegrated(boolean visualizationIntegrated) {
+		this.visualizationIntegrated = visualizationIntegrated;
 	}
 }

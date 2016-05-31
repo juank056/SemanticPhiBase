@@ -80,14 +80,34 @@ function openHelpService(service) {
  *            RDF type del elemento a desplegar
  * @param elementIRI
  *            IRI del elemento a desplegar
+ * @param integrated
+ *            Indicador de visualizacion integrada en el software
  */
 function inner_showPhiBaseGraph(serverURL, interactionType, interactionIRI,
-		elementType, elementIRI) {
+		elementType, elementIRI, integrated) {
 	// Obtiene Iframe de visualizacion
 	var visFrame = document.getElementById("visualizationGraph");
+	// Div de visualizacion
+	var visDiv = document.getElementById("visualizationDiv");
+	// Esconde elementos
+	visFrame.style.display = "none";
+	visDiv.style.display = "none";
 	// Url de llamado
 	var callUrl = serverURL + "?interaction=" + interactionIRI + "&class_type="
 			+ elementIRI;
-	// Asigna src
-	visFrame.setAttribute("src", callUrl);
+	// Revisa si la visualizacion esta integrada
+	if (integrated) {
+		// Asigna src
+		visFrame.setAttribute("src", callUrl);
+		// Visualiza
+		visFrame.style.display = "block";
+	} else {
+		// Contenido del div
+		visDiv.innerHTML = "<a href='" + callUrl + "' target='_blank'>"
+				+ "Abrir Grafo" + "</a>";
+		// Visualiza
+		visDiv.style.display = "block";
+		// Abre pagina nueva
+		window.open(callUrl);
+	}
 }

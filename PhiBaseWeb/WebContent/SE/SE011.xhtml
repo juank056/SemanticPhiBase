@@ -449,6 +449,7 @@
 					title="#{msgs.se011_tab4}"
 					rendered="#{!(sE011Bean.queryResults.isEmpty())}">
 					<iframe id="visualizationGraph" class="graphContainer" />
+					<div id="visualizationDiv" />
 					<br />
 					<br />
 				</ice:panelTab>
@@ -481,9 +482,9 @@
 			 *            IRI del elemento a desplegar
 			 */
 			function showPhiBaseGraph(serverURL, interactionType,
-					interactionIRI, elementType, elementIRI) {
+					interactionIRI, elementType, elementIRI, integrated) {
 				inner_showPhiBaseGraph(serverURL, interactionType,
-						interactionIRI, elementType, elementIRI);
+						interactionIRI, elementType, elementIRI, integrated);
 			}
 		</script>
 		<!-- Composition para seleccion de filtro -->

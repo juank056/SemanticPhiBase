@@ -279,6 +279,11 @@ public class Constants {
 	public static final String SE10 = "SE10";
 
 	/**
+	 * Parametro SE11 (Indicador de visualización integrada)
+	 */
+	public static final String SE11 = "SE11";
+
+	/**
 	 * Nombre de Bean
 	 */
 	public static final Object BEAN_NAME = "beanName";

@@ -257,6 +257,11 @@ public class SE011Bean extends BaseBean<Usdlogqu, UsdlogquId> {
 	private static final int TAB_GRAPH = 3;
 
 	/**
+	 * Indicador de visualizacion integrada
+	 */
+	private boolean visualizationIntegrated;
+
+	/**
 	 * Constructor del Bean
 	 */
 	public SE011Bean() {
@@ -293,6 +298,8 @@ public class SE011Bean extends BaseBean<Usdlogqu, UsdlogquId> {
 		this.maxRecordsQuery = authBean.getMaxRecordsQuery();
 		// Servicio de visualizacion
 		this.visualizationService = authBean.getVisualizationService();
+		// Visualizacion integrada
+		this.visualizationIntegrated = authBean.isVisualizationIntegrated();
 		// Usuario en sesion
 		this.usuemaiak = authBean.getSessionUser().getUsuemaiak();
 		// Operador Interconcepto en OR
@@ -566,7 +573,7 @@ public class SE011Bean extends BaseBean<Usdlogqu, UsdlogquId> {
 			return;
 		}
 		// String de visualizacion
-		String visCommand = "showPhiBaseGraph('&ServerURL', '&interactionType', '&interactionIRI','&elementType', '&elementIRI');";
+		String visCommand = "showPhiBaseGraph('&ServerURL', '&interactionType', '&interactionIRI','&elementType', '&elementIRI', &integrated);";
 		// Reemplaza valores
 		// Server URL
 		visCommand = visCommand.replace("&ServerURL", visualizationService);
@@ -581,6 +588,9 @@ public class SE011Bean extends BaseBean<Usdlogqu, UsdlogquId> {
 		// Server URL
 		visCommand = visCommand.replace("&elementIRI",
 				queryValue.getObjectIri());
+		// Visualizacion integrada
+		visCommand = visCommand.replace("&integrated",
+				visualizationIntegrated ? "true" : "false");
 		// Llama funcion para visualizar el grafo
 		JavaScriptRunner.runScript(FacesContext.getCurrentInstance(),
 				visCommand);
@@ -1565,4 +1575,18 @@ public class SE011Bean extends BaseBean<Usdlogqu, UsdlogquId> {
 		this.show_backButton = show_backButton;
 	}
 
+	/**
+	 * @return the visualizationIntegrated
+	 */
+	public boolean isVisualizationIntegrated() {
+		return visualizationIntegrated;
+	}
+
+	/**
+	 * @param visualizationIntegrated
+	 *            the visualizationIntegrated to set
+	 */
+	public void setVisualizationIntegrated(boolean visualizationIntegrated) {
+		this.visualizationIntegrated = visualizationIntegrated;
+	}
 }
